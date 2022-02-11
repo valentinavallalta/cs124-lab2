@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Title of the document</title>
+    <style>
+        .wrap {
+            width: 100%;
+            height: 500px;
+            padding: 0;
+            /*overflow: hidden;*/
+        }
+        .scaled-frame {
+            width: 100%;
+            height: 640px;
+            border: 0px;
+        }
+        .scaled-frame {
+            zoom: 0.7;
+            -moz-transform: scale(0.7);
+            -moz-transform-origin: 0 0;
+            -o-transform: scale(0.7);
+            -o-transform-origin: 0 0;
+            -webkit-transform: scale(0.7);
+            -webkit-transform-origin: 0 0;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            .scaled-frame {
+                zoom: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="Header">
+    <H1> To Do List walkthrough </H1>
+</div>
+<div id="List">
+    <h2> </h2>
+
+    <h2> In an empty list, create an item "Buy new John Grisham book" </h2>
+    <div>
+    <p>
+        We start with an empty list, shown below. Next, we'll add an item. To add an item,
+        click (or tap using finger on the mobile device) on the list space
+        saying 'add item here'
+    </p>
+    <div class = "wrap">
+        <iframe class = "scaled-frame"
+                src="emptyList.html" style="border: 1px solid black;">
+        </iframe>
+    </div>
+
+    <p>
+        The user is now typing in the first available space - it is highlighted
+        in a different color to show the user that they are typing there. When
+        the user presses enter or clicks on something out of the text box, the
+        item is saved.
+    </p>
+    <div class = "wrap">
+        <iframe class = "scaled-frame"
+                src="addFirstItem.html" style="border: 1px solid black;">
+        </iframe>
+    </div>
+
+    <p>
+        When the item is saved, the highlight turns off to show the user that they
+        are no longer typing. The empty circle appears at the bottom to signify that more items can be added by
+        clicking on this area.
+    </p>
+    <div class = "wrap">
+        <iframe class = "scaled-frame"
+                src="buyNew.html" style="border: 1px solid black;">
+        </iframe>
+    </div>
+</div>
+
+    <h2> In a non-empty list, create an item named "Eat Lunch"</h2>
+    <div>
+        <p>
+            The user starts with a non-empty list. To add a new item, the user
+            should click on the space below their list, next to the empty bullet point.
+        </p>
+    <div class = "wrap">
+        <iframe class = "scaled-frame"
+                src="buyNew.html" style="border: 1px solid black;">
+        </iframe>
+    </div>
+
+        <p>
+            When the user clicks into this space, they are able to type. Furthermore, what
+            they type is highlighted to indicate that they are currently editing & where
+            they are editing.
+        </p>
+    <div class = "wrap">
+        <iframe class = "scaled-frame"
+                src="addSecondItem.html" style="border: 1px solid black;">
+        </iframe>
+    </div>
+
+        <p>
+            After pressing the enter key, or clicking out of this box, the highlight disappears
+            and their added item is saved.
+        </p>
+    <div class = "wrap">
+        <iframe class = "scaled-frame"
+                src="eatLunch.html" style="border: 1px solid black;">
+        </iframe>
+    </div>
+    </div>
+
+    <h2> Mark the item named "Call Mom" completed</h2>
+    <div>
+        <p>
+            The user starts with a list that has the item "Call Mom" in it.
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="callMomUncompleted.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+
+        <p>
+            To mark this as completed, the user clicks on the circle on the left of this
+            item. When doing so, the item changes colors, is striked through, and has its circle
+            filled in. Here, the filled-in bullet point is the same color as the text.
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="callMomCompleted.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+    </div>
+
+    <h2> Rename the item "Text John" to "Text John about Bank statements"</h2>
+    <div>
+        <p>
+            We start with an item named "Text John".
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="uneditedTextJohn.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+
+        <p>
+            To edit this, the user clicks on this item- this time clicking on the words themselves,
+            as opposed to the circle on its left. After doing so, the user is now typing in this box.
+            As such, the color highlight changes.
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="editingTextJohn.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+
+        <p>
+            When finished editing, the user either presses enter on their keyboard or clicks out of
+            the box. The highlight now color changes back to normal. The process of saving a new item, and saving changes to an old item, are therefore the same.
+
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="editedTextJohn.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+    </div>
+
+    <h2> Show only uncompleted items / Delete all completed items</h2>
+    <div>
+        <p>
+            Visually, these two functions are the same. We start with a full list.
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="callMomCompleted.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+        <p>
+            The list options are located under the only button onscreen: the button with three dots on it.
+            When this button is pressed, a menu with three options appears.
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="hide&deleteCompleted.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+        <p>
+            When a user presses on one of these buttons, the menu will close and the action will be completed.
+            Hiding the completed items and deleting them both remove them completely from the screen.
+        </p>
+        <div class = "wrap">
+            <iframe class = "scaled-frame"
+                    src="hide&deleteCompletedAfter.html" style="border: 1px solid black;">
+            </iframe>
+        </div>
+    </div>
+
+</div>
+</body>
