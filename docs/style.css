@@ -102,11 +102,13 @@ button {
 
 .empty {
     /*color: green;*/
+    color: #8ab28a;
     list-style-type: circle;
 }
 
 .empty:before {
     content: '\0025CB';
+    color: darkgreen;
     line-height: 28pt; /*match the li line-height for vertical centered bullets*/
     position: absolute;
     font-size: 172%;
