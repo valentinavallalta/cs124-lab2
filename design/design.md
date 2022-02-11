@@ -2,19 +2,29 @@
 For our final design, we took a lot of inspiration from the Apple Remind app and Desmos. We took ideas from both of these interfaces and combined them to create our to do list. We got ideas from the Remind app to have the items of our list have a circle to the left (non filled in circles for unfinished tasks and filled in circles for finished tasks). Based on the Remind App, we also decided to put lines under the tasks as a way to separate them without putting boxes around them. We decided to put the three options to hide, show and delete finished tasks in a three dot dropdown button at the top. We decided to do this to make the list more clean and to reduce the buttons being displayed at a time. We hoped for a minimalist display with a larger focus on the actual list rather than the buttons. We put this three dot button at the top next to the title where we think people will intuitively look for it. When there are no items on the list, we decided to have one empty “item” that indicates the user to type there. Then, for future items that need to be added, we omitted this message but we still have a circle with a blank next to it so that users know that they can click there to add a new item. We hoped for this to be an intuitive and clean way to add new items without the need for more buttons. This makes it easier for the user because there are less things to click and it makes the interface cleaner and more minimalistic. We also decided to put a highlight over any item that is currently clicked on and is able to be edited. We decided to do this as a way to indicate to the user that this is the item that is clicked on. Lastly, users can cross off items by pressing on the circle next to them. What happens next is that the task gets crossed off and changed to a lighter color. We did this as a way to give the user the satisfaction of crossing off an item and making it less prominent than the unfinished tasks while not moving or removing it. 
 #### Images:
 Here we can see what our page looks like when there are no items.
+
 ![noItems.png](https://www.dropbox.com/s/8us74cm738ny3m6/noItems.png?dl=0&raw=1)
+
 Here we can see what a set item looks like and what an item that is currently being edited looks like with the highlight over it.
+
 ![editing.png](https://www.dropbox.com/s/ch46plf53d6okid/editing.png?dl=0&raw=1)
+
 Here we can see the options available when the three dots button is clicked and we can see what a crossed out item looks like.
+
 ![crossedOutand Menu.png](https://www.dropbox.com/s/416y65xet8paywu/crossedOutand%20Menu.png?dl=0&raw=1)
+
 ## Alternate Designs:
 One major design decision is that we were considering putting each todo list item in a box. This is similar to the Desmos layout. This is what we were considering doing at first because we felt that it was a good way to separate the items and have a clear divide among them. However, then we realized that if we have a line under each item, this could also work as a dividing feature. Then, we checked the Remind app and saw that they used lines underneath each item and this worked well as a way to have the items on a line instead of floating in air but also as a way to divide items. We ended up liking this more because the divisions were less stark while still being present. 
 Another design decision we faced is that initially, we wanted to have the background of the list items to alternate colors, for example, item 1 would be green and item 2 would be blue and item 3 would be green again and so on. We originally wanted to do this because we thought it would help with the readability of the list. However, in the end we decided against this because we wanted to have the feature that the item currently selected would be highlighted a different color and these two features wouldn't work well together. We valued more having the selected item highlighted and so we couldn't have the alternating colors design. 
 #### Images:
 Here we can see our original design idea of having the list items alternate colors to improve redability. We also show our final design idea with the highlight for the selected item. The two design ideas did not work well together so we had to choose just one. Here we can see why:
+
 ![colors.jpg](https://www.dropbox.com/s/u0secgpzq48uwi7/colors.jpg?dl=0&raw=1)
+
 Here we can see our different decisions for how to separate the items. 
+
 ![boxes.jpg](https://www.dropbox.com/s/iynkgxi06iffogs/boxes.jpg?dl=0&raw=1)
+
 ## User Testing:
 We asked one Harvey Mudd student to help us with testing our site. We walked them through the different scenarios described in the homework. We asked them to practice “Thinking Out Loud” techniques during the usability test. We basically asked them to talk through all the thoughts they were having while one of us took notes. We prepped them by saying that the website is not actually functional but that we would show them different pages that would display for the actions being described. We still asked the user to physically complete the actions even though the website is not yet functional.
 For each task, we would start by saying “What would you do if you wanted to…” and then ask them to explain in words what they would do, practicing the “thinking out loud” skills. Then we would switch the page to the next page of the flow of the specific task. We did this for all 6 tasks (create an item in an empty list, create an item in a nonempty list, mask an item as completed, rename an item. Show only uncompleted items, delete all completed items). After we completed all the tasks, we asked the participant what they liked and didnt like from the website.
