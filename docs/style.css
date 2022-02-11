@@ -38,7 +38,7 @@ button {
 .options {
     position: absolute;
     background-color: #a1d2a1;
-    box-shadow: 0px 8px 16px 0px rgb(0,0,0,0.2);
+    box-shadow: 10px 10px 16px 0px rgb(0,0,0,0.2);
     z-index: 1;
 }
 
@@ -57,12 +57,13 @@ button {
     margin: 10pt 0;
     width: fit-content;
     list-style-type: none;
+    border-bottom: 2px solid darkgreen;
 }
 
 .completed {
-    color: #a1d2a1;
+    color: #8ab28a;
+    /*8ab28a*/
     text-decoration: line-through;
-    border-bottom: 2px solid #a1d2a1;
     z-point: 1;
 }
 
@@ -76,7 +77,6 @@ button {
 
 .editing {
     background: #a1d2a1;
-    border-bottom: 2px solid darkgreen;
 }
 
 .editing:before {
@@ -90,7 +90,6 @@ button {
 .uncompleted {
     /*color: dark;*/
     list-style-type: circle;
-    border-bottom: 2px solid darkgreen;
 }
 
 .uncompleted:before {
