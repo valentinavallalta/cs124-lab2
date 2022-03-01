@@ -1,7 +1,7 @@
 import './Header.css';
 
 function Header() {
-    return null;
+    return <H1> To Do List </H1>;
 }
 
 export default Header;

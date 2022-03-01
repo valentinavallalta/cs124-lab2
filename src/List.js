@@ -1,7 +1,7 @@
 import './List.css';
 
 function List() {
-    return null;
+    return <Item content={"Buy New John Grisham Book"}/>;
 }
 
 export default List;

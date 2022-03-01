@@ -1,7 +1,7 @@
 import './Item.css';
 
-function Item() {
-    return null;
+function Item(props) {
+    return <li class="uncompleted"> {props.content} </li>;
 }
 
 export default Item;
