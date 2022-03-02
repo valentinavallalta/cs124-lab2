@@ -1,0 +1,17 @@
+#List {
+    font-size: 120%;
+    grid-column: 2/ span 1;
+    grid-row: 2/ span 1;
+    /*text-decoration: underline;*/
+}
+
+#List ul li {
+    margin: 10pt 0;
+    width: fit-content;
+    list-style-type: none;
+    border-bottom: 2px solid darkgreen;
+}
+
+#List ul {
+    list-style-type: none;
+}

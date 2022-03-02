@@ -1,14 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import List from "./List";
+import Header from "./Header";
+//import useState from 'react';
 
 function App() {
+
   return (
-    <div className="App">
-      <Header></Header>
-      <Menu></Menu>
-      <List></List>
-    </div>
+      <body>
+        <div className="App">
+          <Header ></Header>
+          <List></List>
+        </div>
+      </body>
   );
 }
 

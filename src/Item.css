@@ -1,0 +1,32 @@
+.completed {
+    color: #8ab28a;
+
+    text-decoration: line-through;
+    z-point: 1;
+}
+
+.editing {
+    background: #a1d2a1;
+}
+
+.uncompleted {
+    list-style-type: none;
+}
+
+.uncompleted button {
+    border-radius: 50%;
+    padding: 10px;
+    background: #d1f5d3;
+}
+
+.completed button {
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.empty {
+    color: #8ab28a;
+    list-style-type: circle;
+}
+

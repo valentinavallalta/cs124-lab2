@@ -1,0 +1,26 @@
+
+
+.menu {
+    grid-column: 2/ span 1;
+    margin-top: auto;
+    margin-bottom: auto;
+    alignment: left;
+}
+
+button {
+    font-size: 129%;
+    margin: auto;
+    color: darkgreen;
+    background-color: #a1d2a1;
+}
+
+.options {
+    position: absolute;
+    background-color: #a1d2a1;
+    box-shadow: 10px 10px 16px 0px rgb(0,0,0,0.2);
+    z-index: 1;
+}
+
+.options p{
+    margin: 20pt;
+}
