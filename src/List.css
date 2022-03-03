@@ -24,8 +24,12 @@
     width: 125px;
 }
 
+/*#8ab28a different color option for button*/
 .empty button {
+    border: 2px solid darkgreen;
     border-radius: 50%;
-    padding: 10px;
-    background: #d1f5d3;
+    padding: 17px;
+    padding-bottom: 2px;
+    padding-left:2px;    background: #d1f5d3;
+
 }

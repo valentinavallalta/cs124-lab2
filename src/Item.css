@@ -1,37 +1,36 @@
 .completed {
     color: #8ab28a;
-
     text-decoration: line-through;
     z-point: 1;
-
     border-bottom: 2px solid darkgreen;
 }
 
 .editing {
     background: #a1d2a1;
-
     border-bottom: 2px solid darkgreen;
 }
 
 .uncompleted {
     list-style-type: none;
-
     border-bottom: 2px solid darkgreen;
 }
 
 .uncompleted button {
+    border: 2px solid darkgreen;
     border-radius: 50%;
-    padding: 10px;
+    padding: 17px;
+    padding-bottom: 2px;
+    padding-left:2px;
     background: #d1f5d3;
+
 }
 
 .completed button {
-    border: none;
+    border: 2px solid #8ab28a;
     border-radius: 50%;
-    padding: 10px;
-}
+    padding: 17px;
+    padding-bottom: 2px;
+    padding-left:2px;    background: #8ab28a;
 
-.empty {
-    color: #8ab28a;
 }
 

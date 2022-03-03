@@ -6,7 +6,7 @@ function Item(props) {
     *                  class (what class it is, i.e. uncompleted / completed / empty */
     return (<li className= {props.class}>
         <button onClick={() => props.onItemCompleted(props.id)}></button>
-        {props.content} </li>);
+        {"  "+props.content} </li>);
 }
 
 export default Item;
