@@ -36,6 +36,12 @@ function App() {
         }
     }
 
+    function handleChangeContent(id, text) {
+        setToDoItems(toDoItems.map(
+            p => p.id === id ? {...p, content: text} : p
+        ))
+    }
+
     /* FUNCTION THAT SETS TODO ITEMS - DELETES COMPLETED ITEMS  */
 
     /* FUNCTION TODO TOGGLE (?) SHOW/HIDE COMPLETED */
@@ -46,7 +52,9 @@ function App() {
             <List items = {toDoItems}
                   completedItems = {completedItemIDs}
                   onAddItem = {addItem}
-                  onItemCompleted = {toggleItemCompleted}></List>
+                  onItemCompleted = {toggleItemCompleted}
+                  onContentChange = {handleChangeContent}
+            ></List>
         </div>
   );
 }

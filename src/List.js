@@ -10,6 +10,7 @@ function List(props) {
                           class={props.completedItems.includes(p.id) ? "completed" : "uncompleted"}
                           id={p.id}
                           content={p.content}
+                          onContentChange ={props.onContentChange}
                     key={p.id}/>
                 )}
                 <li onClick={() => props.onAddItem("wormsss")}
