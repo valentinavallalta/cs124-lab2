@@ -5,6 +5,12 @@
     border-bottom: 2px solid darkgreen;
 }
 
+.completed .textBox {
+    color: #8ab28a;
+    text-decoration: line-through;
+    z-point: 1;
+}
+
 .editing {
     background: #a1d2a1;
     border-bottom: 2px solid darkgreen;
@@ -22,7 +28,6 @@
     padding-bottom: 2px;
     padding-left:2px;
     background: #d1f5d3;
-
 }
 
 .completed button {
@@ -32,5 +37,21 @@
     padding-bottom: 2px;
     padding-left:2px;    background: #8ab28a;
 
+}
+
+.textBox {
+    width: auto;
+    padding-left: 8px;
+    height: auto;
+    font-size: 15pt;
+    color: darkgreen;
+    background-color: #d1f5d3;
+    font-family: "Century Gothic",sans-serif;
+    border: none;
+}
+
+.textBox:focus {
+    background-color: #a1d2a1;
+    outline: none;
 }
 
