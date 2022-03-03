@@ -1,14 +1,12 @@
 import './Menu.css';
 import {useState} from "react";
 
-
 function Menu() {
 
     const [menuDisplay, setMenuDisplay] = useState(false);
 
     function toggleMenuDisplay() {
         setMenuDisplay(!menuDisplay)
-
     }
 
     return (

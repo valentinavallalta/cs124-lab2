@@ -9,9 +9,23 @@
     margin: 10pt 0;
     width: fit-content;
     list-style-type: none;
-    border-bottom: 2px solid darkgreen;
 }
 
 #List ul {
     list-style-type: none;
+}
+
+.empty {
+    color: #8ab28a;
+    list-style-type: circle;
+}
+
+.empty div{
+    width: 125px;
+}
+
+.empty button {
+    border-radius: 50%;
+    padding: 10px;
+    background: #d1f5d3;
 }

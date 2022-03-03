@@ -3,14 +3,20 @@
 
     text-decoration: line-through;
     z-point: 1;
+
+    border-bottom: 2px solid darkgreen;
 }
 
 .editing {
     background: #a1d2a1;
+
+    border-bottom: 2px solid darkgreen;
 }
 
 .uncompleted {
     list-style-type: none;
+
+    border-bottom: 2px solid darkgreen;
 }
 
 .uncompleted button {
@@ -27,6 +33,5 @@
 
 .empty {
     color: #8ab28a;
-    list-style-type: circle;
 }
 
