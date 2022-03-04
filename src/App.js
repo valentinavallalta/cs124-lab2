@@ -57,6 +57,11 @@ function App() {
 
     let uncompletedItems = toDoItems.filter(checkCompleted)
 
+    function deleteCompleted() {
+        setToDoItems(toDoItems.filter(checkCompleted))
+        setCompletedItemIDs([])
+    }
+
     /* FUNCTION THAT SETS TODO ITEMS - DELETES COMPLETED ITEMS  */
 
     /* FUNCTION TODO TOGGLE (?) SHOW/HIDE COMPLETED */
@@ -65,7 +70,8 @@ function App() {
         <div className="App">
             <Header
                 toggleCompletedDisplay={toggleCompletedDisplay}
-                completedDisplay={completedDisplay}>
+                completedDisplay={completedDisplay}
+                onDeleteCompleted = {deleteCompleted}>
             </Header>
             <List default={data}
                   items={completedDisplay? toDoItems : uncompletedItems}

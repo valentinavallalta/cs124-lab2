@@ -1,10 +1,19 @@
-
-
 .menu {
     grid-column: 2/ span 1;
     margin-top: auto;
     margin-bottom: auto;
     alignment: left;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 640px;
+    right: 360px;
+    width: 360px;
+    height: 640px;
+    opacity: 1;
 }
 
 button {

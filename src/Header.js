@@ -8,7 +8,8 @@ function Header(props) {
             <Menu
                 toggleCompletedDisplay = {props.toggleCompletedDisplay}
                 completedDisplay = {props.completedDisplay}
-            ></Menu>
+                onDeleteCompleted = {props.onDeleteCompleted}
+            />
         </div>);
 }
 
