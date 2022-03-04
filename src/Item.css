@@ -22,23 +22,33 @@
 }
 
 .uncompleted button {
+    color: #d1f5d3;
+    font-size: 15pt;
     border: 2px solid darkgreen;
     border-radius: 50%;
-    padding: 17px;
-    padding-bottom: 2px;
-    padding-left:2px;
+    padding: 5px;
+    padding-bottom: 0;
+    padding-top: 0;
     background: #d1f5d3;
 }
 
 .completed button {
     border: 2px solid #8ab28a;
     border-radius: 50%;
-    padding: 17px;
-    padding-bottom: 2px;
-    padding-left:2px;    background: #8ab28a;
+    background: #8ab28a;
+    color: #8ab28a;
+    font-size: 15pt;
+    padding: 5px;
+    padding-bottom: 0;
+    padding-top: 0;
 
 }
-
+.deleteItemButton{
+    background: #d1f5d3 !important;
+    color: darkgreen !important;
+    transform: rotate(45deg);
+    border: none !important;
+}
 .textBox {
     width: auto;
     padding-left: 8px;
@@ -54,4 +64,5 @@
     background-color: #a1d2a1;
     outline: none;
 }
+
 

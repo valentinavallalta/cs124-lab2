@@ -39,7 +39,7 @@ function List(props) {
                     {!(props.default === props.items) &&
                     <li onClick={() => props.onAddItem("")}
                         className="empty">
-                        <button></button>
+                        <button>+</button>
                         {props.items.length === 0 ? "add new item here" : <div></div>}
                     </li>}
                 </ul>
