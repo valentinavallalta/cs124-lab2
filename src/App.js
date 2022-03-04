@@ -26,16 +26,15 @@ function App() {
     const [completedItemIDs, setCompletedItemIDs] = useState([]);
 
     function addItem(itemContent) {
-        setToDoItems([...toDoItems,{id: counter, content: itemContent}])
+        setToDoItems([...toDoItems, {id: counter, content: itemContent}])
         counter++;
         console.log(counter)
     }
 
     function toggleItemCompleted(id) {
         if (completedItemIDs.includes(id)) {
-            setCompletedItemIDs(completedItemIDs.filter(p => p!== id))
-        }
-        else {
+            setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
+        } else {
             setCompletedItemIDs([...completedItemIDs, id]);
         }
     }
@@ -46,22 +45,37 @@ function App() {
         ))
     }
 
+    const [completedDisplay, setCompletedDisplay] = useState(true)
+
+    function toggleCompletedDisplay() {
+        setCompletedDisplay(!completedDisplay)
+    }
+
+    function checkCompleted(item) {
+        return !(completedItemIDs.includes(item.id))
+    }
+
+    let uncompletedItems = toDoItems.filter(checkCompleted)
+
     /* FUNCTION THAT SETS TODO ITEMS - DELETES COMPLETED ITEMS  */
 
     /* FUNCTION TODO TOGGLE (?) SHOW/HIDE COMPLETED */
 
     return (
         <div className="App">
-            <Header></Header>
-            <List default = {data}
-                  items = {toDoItems}
-                  completedItems = {completedItemIDs}
-                  onAddItem = {addItem}
-                  onItemCompleted = {toggleItemCompleted}
-                  onContentChange = {handleChangeContent}
-            ></List>
+            <Header
+                toggleCompletedDisplay={toggleCompletedDisplay}
+                completedDisplay={completedDisplay}>
+            </Header>
+            <List default={data}
+                  items={completedDisplay? toDoItems : uncompletedItems}
+                  completedItems={completedItemIDs}
+                  onAddItem={addItem}
+                  onItemCompleted={toggleItemCompleted}
+                  onContentChange={handleChangeContent}>
+            </List>
         </div>
-  );
+    );
 }
 
 export default App;
