@@ -1,5 +1,4 @@
 import './Item.css';
-import {useState} from "react";
 
 function Item(props) {
     /* props taken in: content (what the list item says)
@@ -14,7 +13,7 @@ function Item(props) {
             value={props.content}
             placeholder="add an item here"
         />
-        <button className={"deleteItemButton"}>+</button>
+        <button className={"deleteItemButton"} onClick={()=> console.log("delete item")}>+</button>
     </li>);
 }
 
