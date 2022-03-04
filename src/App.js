@@ -57,6 +57,10 @@ function App() {
 
     let uncompletedItems = toDoItems.filter(checkCompleted)
 
+    if (uncompletedItems.length === 0 & !completedDisplay) {
+        addItem("")
+    }
+
     function deleteCompleted() {
         let newToDoItems = toDoItems.filter(checkCompleted)
         if (newToDoItems.length === 0) {
