@@ -71,7 +71,9 @@ function App() {
             <Header
                 toggleCompletedDisplay={toggleCompletedDisplay}
                 completedDisplay={completedDisplay}
-                onDeleteCompleted = {deleteCompleted}>
+                onDeleteCompleted = {deleteCompleted}
+                numCompletedItems={completedItemIDs.length}
+            >
             </Header>
             <List default={data}
                   items={completedDisplay? toDoItems : uncompletedItems}
