@@ -3,22 +3,6 @@ import Item from "./Item"
 
 function List(props) {
 
-    if (props.items.length === 0) {
-        return (
-            <div id={"List"}>
-                <ul>
-                    <Item onItemCompleted={props.onItemCompleted}
-                          class="empty"
-                          id={1}
-                          content={""}
-                          onContentChange={props.onContentChange}
-                          placeholder = "add an item here"
-                          key={1} />
-                </ul>
-            </div>
-        )
-    }
-    else {
         return (
             <div id="List">
                 <ul>
@@ -28,7 +12,9 @@ function List(props) {
                               id={p.id}
                               content={p.content}
                               onContentChange={props.onContentChange}
-                              key={p.id}/>
+                              key={p.id}
+                              onDeleteItem = {props.onDeleteItem}
+                        />
                     )}
                     {/*<li onClick={() => props.onAddItem("wormsss")}
                         className="empty">
@@ -37,14 +23,13 @@ function List(props) {
                             placeholder={props.items.length === 0 ? "add new item here" : <div></div>}></li>
                     </li>*/}
                     {!(props.default === props.items) &&
-                    <li onClick={() => props.onAddItem("")}
-                        className="empty">
-                        <button>+</button>
-                        {props.items.length === 0 ? "add new item here" : <div></div>}
-                    </li>}
+                        <li onClick={() => props.onAddItem("")}
+                            className="empty">
+                            <button>+</button>
+                            {props.items.length === 0 ? "add new item here" : <div></div>}
+                        </li>}
                 </ul>
             </div>)
-    }
 }
 
 export default List;

@@ -13,7 +13,7 @@ function Item(props) {
             value={props.content}
             placeholder="add an item here"
         />
-        <button className={"deleteItemButton"} onClick={()=> console.log("delete item")}>+</button>
+        <button className={"deleteItemButton"} onClick={()=> props.onDeleteItem(props.id)}>+</button>
     </li>);
 }
 

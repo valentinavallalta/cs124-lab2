@@ -58,8 +58,25 @@ function App() {
     let uncompletedItems = toDoItems.filter(checkCompleted)
 
     function deleteCompleted() {
-        setToDoItems(toDoItems.filter(checkCompleted))
+        let newToDoItems = toDoItems.filter(checkCompleted)
+        if (newToDoItems.length === 0) {
+            setToDoItems(data)
+        }
+        else {
+            setToDoItems(newToDoItems)
+        }
         setCompletedItemIDs([])
+    }
+
+    function deleteItem(id) {
+        let newToDoItems = toDoItems.filter(p => p.id !== id)
+        if (newToDoItems.length === 0) {
+            setToDoItems(data)
+        }
+        else {
+            setToDoItems(newToDoItems)
+        }
+        setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
     }
 
     /* FUNCTION THAT SETS TODO ITEMS - DELETES COMPLETED ITEMS  */
@@ -71,16 +88,18 @@ function App() {
             <Header
                 toggleCompletedDisplay={toggleCompletedDisplay}
                 completedDisplay={completedDisplay}
-                onDeleteCompleted = {deleteCompleted}
+                onDeleteCompleted={deleteCompleted}
                 numCompletedItems={completedItemIDs.length}
             >
             </Header>
             <List default={data}
-                  items={completedDisplay? toDoItems : uncompletedItems}
+                  items={completedDisplay ? toDoItems : uncompletedItems}
                   completedItems={completedItemIDs}
                   onAddItem={addItem}
                   onItemCompleted={toggleItemCompleted}
-                  onContentChange={handleChangeContent}>
+                  onContentChange={handleChangeContent}
+                  onDeleteItem={deleteItem}
+            >
             </List>
         </div>
     );
