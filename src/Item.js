@@ -11,7 +11,9 @@ function Item(props) {
             className = "textBox"
             onClick={(e) => e.stopPropagation()}
             onChange={(e) => props.onContentChange(props.id, e.target.value)}
-            value={props.content}/>
+            value={props.content}
+            placeholder={props.placeholder ? props.placeholder : "add an item here"}
+        />
     </li>);
 }
 

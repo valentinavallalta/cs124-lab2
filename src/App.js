@@ -4,13 +4,17 @@ import Header from "./Header";
 import {useState} from 'react';
 
 const data = [
+    // {
+    //     id: 1,
+    //     content: "add an item here"
+    // },
+    // {
+    //     id: 2,
+    //     content: "add an "
+    // }
     {
         id: 1,
-        content: "add an item here"
-    },
-    {
-        id: 2,
-        content: "add an "
+        content: ""
     }
 ]
 
@@ -49,7 +53,8 @@ function App() {
     return (
         <div className="App">
             <Header></Header>
-            <List items = {toDoItems}
+            <List default = {data}
+                  items = {toDoItems}
                   completedItems = {completedItemIDs}
                   onAddItem = {addItem}
                   onItemCompleted = {toggleItemCompleted}
