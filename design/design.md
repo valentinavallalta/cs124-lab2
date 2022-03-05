@@ -60,6 +60,11 @@ Here we can see how our to do items look like when they are too long to fit on t
 
 ![ellipses.png](ellipses.png)
 
+Here we can see the popup asking for confirmation before the user can delete all completed items.
+Clicking on the backdrop closes the popup.
+
+![confirmationPopup.png](confirmationPopup.png)
+
 ## Alternate Designs:
 
 One major design decision is that we were considering putting each todo list item in a box. This is similar to the

@@ -17,8 +17,25 @@
     border-color: black;
     border-style: solid;
     margin: 0 auto;
+    padding-left: 10pt;
+    padding-top: 10pt;
     top: 50pt;
     height: 100pt;
     width: 200pt;
     position: relative;
+}
+
+.alert-buttons {
+    margin: auto;
+    align-content: space-around;
+    padding: 20pt;
+    /*width: 50%;*/
+}
+
+.alert-cancel {
+    margin: auto;
+}
+
+.alert-delete {
+    margin: auto;
 }
