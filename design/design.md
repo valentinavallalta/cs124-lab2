@@ -31,26 +31,33 @@ other title to fit their needs.
 #### Images:
 
 Here we can see what our page looks like when there are no items.
+
 ![startingScreen.png](startingScreen.png)
 
 Here we can see what a set item looks like and what an item that is currently being edited looks like with the highlight
 over it.
+
 ![secondItemEditing.png](secondItemEditing.png)
 
 Here we can see the options available when the three dots button is clicked, and we can see what a crossed out item looks
 like.
+
 ![deleteCompletedHover.png](deleteCompletedHover.png)
 
 Here we can see how the add button looks when its being hovered.
+
 ![plusHover.png](plusHover.png)
 
 Here we can see how the individual delete button looks when its being hovered.
+
 ![deleteItemHover.png](deleteItemHover.png)
 
 Here we can see how the title looks like when it is being edited
+
 ![titleEdit.png](titleEdit.png)
 
 Here we can see how our to do items look like when they are too long to fit on the line
+
 ![ellipses.png](ellipses.png)
 
 ## Alternate Designs:
@@ -79,14 +86,17 @@ discoverability.
 Here we can see our original design idea of having the list items alternate colors to improve readability. We also show
 our final design idea with the highlight for the selected item. The two design ideas did not work well together, so we
 had to choose just one. Here we can see why:
+
 ![colors.jpg](https://www.dropbox.com/s/u0secgpzq48uwi7/colors.jpg?dl=0&raw=1)
 
 Here we can see our different decisions for how to separate the items.
+
 ![boxes.jpg](https://www.dropbox.com/s/iynkgxi06iffogs/boxes.jpg?dl=0&raw=1)
 
 Here we can see our original design of always having the menu button displayed and having a circle under the current
 items and having the user click next to the circle to add a new item. The menu item is not needed when there are no
 completed items and the circle is not as intuitive for everyone and a plus sign is much more universal.
+
 ![crossedOutAnd Menu.png](crossedOutand Menu.png)
 
 ## User Testing:
