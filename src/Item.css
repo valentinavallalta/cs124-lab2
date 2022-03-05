@@ -1,14 +1,12 @@
 .completed {
     color: #8ab28a;
     text-decoration: line-through;
-    z-point: 1;
     border-bottom: 2px solid darkgreen;
 }
 
 .completed .textBox {
     color: #8ab28a;
     text-decoration: line-through;
-    z-point: 1;
 }
 
 .editing {
@@ -26,9 +24,6 @@
     font-size: 15pt;
     border: 2px solid darkgreen;
     border-radius: 50%;
-    /*padding: 5px;*/
-    /*padding-bottom: 0;*/
-    /*padding-top: 0;*/
     background: #d1f5d3;
     padding: 17px;
     padding-bottom: 2px;
@@ -41,9 +36,6 @@
     background: #8ab28a;
     color: #8ab28a;
     font-size: 15pt;
-    /*padding: 5px;*/
-    /*padding-bottom: 0;*/
-    /*padding-top: 0;*/
     padding: 17px;
     padding-bottom: 2px;
     padding-left:2px;

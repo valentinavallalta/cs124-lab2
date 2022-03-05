@@ -69,10 +69,6 @@ function App(props) {
         setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
     }
 
-    /* FUNCTION THAT SETS TODO ITEMS - DELETES COMPLETED ITEMS  */
-
-    /* FUNCTION TODO TOGGLE (?) SHOW/HIDE COMPLETED */
-
     return (
         <div className="App">
             <Header

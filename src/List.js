@@ -16,17 +16,11 @@ function List(props) {
                               onDeleteItem = {props.onDeleteItem}
                         />
                     )}
-                    {/*<li onClick={() => props.onAddItem("wormsss")}
-                        className="empty">
-                        <button></button>
-                        <li className = "emptyTextBox"
-                            placeholder={props.items.length === 0 ? "add new item here" : <div></div>}></li>
-                    </li>*/}
                     {!(props.default === props.items) &&
                         <li onClick={() => props.onAddItem("")}
                             className="empty">
                             <button>+</button>
-                            {props.items.length === 0 ? "add new item here" : <div></div>}
+                            {props.items.length === 0 ? "add new item here" : <div/>}
                         </li>}
                 </ul>
             </div>)

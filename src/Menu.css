@@ -34,7 +34,7 @@ button {
     left: auto;
     right: 0;
     background-color: #a1d2a1;
-    box-shadow: 10px 10px 16px 0px rgb(0,0,0,0.2);
+    box-shadow: 10px 10px 16px 0 rgb(0,0,0,0.2);
     z-index: 1;
 }
 
