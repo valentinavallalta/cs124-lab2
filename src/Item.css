@@ -51,6 +51,7 @@
 
 ::placeholder {
     color: rgb(97, 167, 98);
+    /*color: #8ab28a;*/
 }
 
 .deleteItemButton{
@@ -68,7 +69,7 @@
 }
 
 .textBox {
-    overflow:scroll;
+    text-overflow: ellipsis;
     width: auto;
     padding-left: 8px;
     height: auto;

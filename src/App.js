@@ -3,24 +3,10 @@ import List from "./List";
 import Header from "./Header";
 import {useState} from 'react';
 
-const data = [
-    // {
-    //     id: 1,
-    //     content: "add an item here"
-    // },
-    // {
-    //     id: 2,
-    //     content: "add an "
-    // }
-    {
-        id: 1,
-        content: ""
-    }
-]
-
 let counter = 3;
 
-function App() {
+function App(props) {
+    const data=props.data
 
     const [toDoItems, setToDoItems] = useState(data);
     const [completedItemIDs, setCompletedItemIDs] = useState([]);

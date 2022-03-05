@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const initialData = ["add an item here"]
-
+const data = [
+    {
+        id: 1,
+        content: ""
+    }
+]
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App data={data}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
