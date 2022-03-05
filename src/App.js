@@ -14,7 +14,6 @@ function App(props) {
     function addItem(itemContent) {
         setToDoItems([...toDoItems, {id: counter, content: itemContent}])
         counter++;
-        console.log(counter)
     }
 
     function toggleItemCompleted(id) {
