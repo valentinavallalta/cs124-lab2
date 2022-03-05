@@ -26,10 +26,13 @@
     font-size: 15pt;
     border: 2px solid darkgreen;
     border-radius: 50%;
-    padding: 5px;
-    padding-bottom: 0;
-    padding-top: 0;
+    /*padding: 5px;*/
+    /*padding-bottom: 0;*/
+    /*padding-top: 0;*/
     background: #d1f5d3;
+    padding: 17px;
+    padding-bottom: 2px;
+    padding-left:2px;
 }
 
 .completed button {
@@ -38,16 +41,25 @@
     background: #8ab28a;
     color: #8ab28a;
     font-size: 15pt;
-    padding: 5px;
-    padding-bottom: 0;
-    padding-top: 0;
+    /*padding: 5px;*/
+    /*padding-bottom: 0;*/
+    /*padding-top: 0;*/
+    padding: 17px;
+    padding-bottom: 2px;
+    padding-left:2px;
+}
 
+::placeholder {
+    color: rgb(97, 167, 98);
 }
 
 .deleteItemButton{
-    background: #d1f5d3 !important;
+    background-color: rgba(255,255,255,0)!important;
     color: darkgreen !important;
     transform: rotate(45deg);
+    padding: 5px !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
     border: none !important;
 }
 

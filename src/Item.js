@@ -4,7 +4,7 @@ function Item(props) {
     /* props taken in: content (what the list item says)
     *                  class (what class it is, i.e. uncompleted / completed / empty */
     return (<li className={props.class}>
-        <button onClick={() => props.onItemCompleted(props.id)}>+</button>
+        <button onClick={() => props.onItemCompleted(props.id)}></button>
         <input
             type = "text"
             className = "textBox"
