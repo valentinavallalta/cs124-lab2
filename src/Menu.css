@@ -5,15 +5,15 @@
     alignment: right;
 }
 
-.background {
-    position: fixed;
+.menuBackdrop {
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 640px;
-    right: 360px;
-    width: 360px;
+    right: 100%;
+    width: 100%;
     height: 640px;
-    opacity: 1;
+    z-index: 1;
 }
 
 button {
