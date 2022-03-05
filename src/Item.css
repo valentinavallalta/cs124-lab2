@@ -43,13 +43,20 @@
     padding-top: 0;
 
 }
+
 .deleteItemButton{
     background: #d1f5d3 !important;
     color: darkgreen !important;
     transform: rotate(45deg);
     border: none !important;
 }
+
+.deleteItemButton:hover{
+    color: #8ab28a !important;
+}
+
 .textBox {
+    overflow:scroll;
     width: auto;
     padding-left: 8px;
     height: auto;

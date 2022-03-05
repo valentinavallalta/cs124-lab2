@@ -23,6 +23,10 @@ button {
     background-color: #a1d2a1;
 }
 
+.menu button:hover {
+    background-color: #8ab28a;
+}
+
 .options {
     position: absolute;
     left: auto;
@@ -33,5 +37,10 @@ button {
 }
 
 .options p{
-    margin: 20pt;
+    margin: 10pt;
+    padding: 5pt 10pt;
+}
+
+.options p:hover{
+    background-color: #8ab28a;
 }
