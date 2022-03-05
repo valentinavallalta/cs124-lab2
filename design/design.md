@@ -31,27 +31,27 @@ other title to fit their needs.
 #### Images:
 
 Here we can see what our page looks like when there are no items.
-[INSERT STARTING IMAGE]
+![startingScreen.png](startingScreen.png)
 
 Here we can see what a set item looks like and what an item that is currently being edited looks like with the highlight
 over it.
-[INSERT ITEM ADDED AND EDITING ONE]
+![secondItemEditing.png](secondItemEditing.png)
 
 Here we can see the options available when the three dots button is clicked, and we can see what a crossed out item looks
 like.
-[SHOW ITEM CROSSED OUT AND OPTIONS MENU WITH SOMETHING HOVERED]
+![deleteCompletedHover.png](deleteCompletedHover.png)
 
 Here we can see how the add button looks when its being hovered.
-[SHOW ADD BUTTON HOVERED]
+![plusHover.png](plusHover.png)
 
 Here we can see how the individual delete button looks when its being hovered.
-[SHOW X BUTTON HOVERED]
+![deleteItemHover.png](deleteItemHover.png)
 
 Here we can see how the title looks like when it is being edited
-[SHOW EDITING TITLE]
+![titleEdit.png](titleEdit.png)
 
 Here we can see how our to do items look like when they are too long to fit on the line
-[INSERT ELLIPSE]
+![ellipses.png](ellipses.png)
 
 ## Alternate Designs:
 
