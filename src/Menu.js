@@ -22,16 +22,12 @@ function Menu(props) {
 
     const [showAlert, setShowAlert] = useState(false);
 
-    function handleShowAlert(bool) {
-        setShowAlert(bool)
-    }
-
     return (
         <div className="menu">
             <button type="button" onClick={() => toggleMenuDisplay()}>···</button>
             {menuDisplay && <div>
                 <div className={"menuBackdrop"}
-                     onClick={() => toggleMenuDisplay()}></div>
+                     onClick={() => toggleMenuDisplay()}/>
                 <div className="options">
                     {props.completedDisplay ?
                         <p id="hideButton" onClick={() => hideCompleted()}> hide completed items</p> :
