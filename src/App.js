@@ -91,6 +91,8 @@ function App() {
 
     if (loading) {
         return (<h3> loading items ... </h3>)
+    } else if (error) {
+        return (<h3> an error occurred </h3>)
     } else {
         let uncompletedItems = toDoItems.filter(checkCompleted)
 
