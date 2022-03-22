@@ -10,10 +10,12 @@ function List(props) {
                     <Item onItemCompleted={props.onItemCompleted}
                           class={props.completedItems.includes(p.id) ? "completed" : "uncompleted"}
                           id={p.id}
+                          priority={p.priority}
                           content={p.content}
                           onContentChange={props.onContentChange}
                           key={p.id}
                           onDeleteItem={props.onDeleteItem}
+                          onPriorityChange={props.onPriorityChange}
                     />
                 )}
 

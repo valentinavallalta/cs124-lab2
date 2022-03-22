@@ -44,7 +44,8 @@ function App() {
         setDoc(doc(db, collectionName, uniqueId), {
             id: uniqueId,
             content: itemContent,
-            created: serverTimestamp()
+            created: serverTimestamp(),
+            priority: 0
         })
         // counter++;
     }
@@ -89,6 +90,17 @@ function App() {
         setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
     }
 
+    function quadrogglePriority(id) {
+        let item = toDoItems.filter(p => p.id === id)[0];
+        console.log(item)
+        if (item.priority === 3) {
+            setDoc(doc(db, collectionName, id), {priority: 0}, {merge: true})
+        }
+        else {
+            setDoc(doc(db, collectionName, id), {priority: item.priority + 1}, {merge: true})
+        }
+    }
+
     if (loading) {
         return (<h3> loading items ... </h3>)
     } else if (error) {
@@ -121,6 +133,7 @@ function App() {
                       onItemCompleted={toggleItemCompleted}
                       onContentChange={handleChangeContent}
                       onDeleteItem={deleteItem}
+                      onPriorityChange={quadrogglePriority}
                 >
                 </List>
             </div>

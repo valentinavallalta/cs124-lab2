@@ -9,10 +9,10 @@
     text-decoration: line-through;
 }
 
-.editing {
-    background: #a1d2a1;
-    border-bottom: 2px solid darkgreen;
-}
+/*.editing {*/
+/*    background: #a1d2a1;*/
+/*    border-bottom: 2px solid darkgreen;*/
+/*}*/
 
 .uncompleted {
     list-style-type: none;
@@ -77,4 +77,28 @@
     outline: none;
 }
 
+.priorityButton {
+    /*visibility: hidden;*/
+    background-color: rgba(255,255,255,0)!important;
+    color: darkgreen !important;
+    padding: 5px !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    border: none !important;
+}
 
+/*.textBox:focus + button {*/
+/*    visibility: visible;*/
+/*}*/
+
+.priority0 {
+    color: #8ab28a !important;
+}
+
+.priority2:after {
+    content: "!";
+}
+
+.priority3:after {
+    content: "!!"
+}
