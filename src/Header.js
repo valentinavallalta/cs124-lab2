@@ -8,7 +8,9 @@ function Header(props) {
     return (
         <div id="Header">
             <h1>
-            <input onClick={(e) => e.stopPropagation()}
+            <input
+                className="titleTextbox"
+                onClick={(e) => e.stopPropagation()}
                    onChange={(e) => setContent(e.target.value)}
                    type = "text"
                    value = {content} /> </h1>

@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, updateDoc, deleteDoc, serverTimestamp} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -25,7 +25,7 @@ const collectionName = "cs124-lab3-9fa78"
 
 // let counter = 3;
 
-function App(props) {
+function App() {
     // const data = props.data
 
     // const [toDoItems, setToDoItems] = useState(data);
@@ -58,9 +58,9 @@ function App(props) {
     }
 
     function handleChangeContent(id, text) {
-        // setToDoItems(toDoItems.map(
-        //     p => p.id === id ? {...p, content: text} : p
-        // ))
+        setDoc(doc(db, collectionName, id), {
+            content: text
+        }, {merge: true})
     }
 
     const [completedDisplay, setCompletedDisplay] = useState(true)
@@ -74,20 +74,18 @@ function App(props) {
     }
 
     function deleteCompleted() {
-        let newToDoItems = toDoItems.filter(checkCompleted)
-        if (newToDoItems.length === 0) {
-            // setToDoItems(data)
-        } else {
-            // setToDoItems(newToDoItems)
-        }
-        setCompletedItemIDs([])
+        completedItemIDs.forEach(id => deleteDoc(doc(db, collectionName, id)));
+        setCompletedItemIDs([]);
+        // if (toDoItems.length === 0) {
+        //     addItem()
+        // }
     }
 
     function deleteItem(id) {
-        deleteDoc(doc(db, collectionName, id))
-        if (toDoItems.length === 0) {
-            addItem("")
-        }
+        deleteDoc(doc(db, collectionName, id));
+        // if (toDoItems.length === 0) {
+        //     addItem("")
+        // }
         setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
     }
 
@@ -96,13 +94,13 @@ function App(props) {
     } else {
         let uncompletedItems = toDoItems.filter(checkCompleted)
 
-        if (uncompletedItems.length === 0 && !completedDisplay) {
-            addItem("")
-        }
-
         if (toDoItems.length === 0) {
-            addItem("")
+            console.log("ZERO LENGTH")
+            // addItem("")
         }
+        // else if (uncompletedItems.length === 0 && !completedDisplay) {
+        //     addItem("")
+        // }
 
         return (
             <div className="App">
