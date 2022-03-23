@@ -14,7 +14,7 @@ function Item(props) {
         />
         <span>
         <button className={"priorityButton priority" + props.priority.toString()}
-                onClick={() => props.onPriorityChange(props.id)}>!</button>
+                onClick={() => props.onPriorityChange(props.id)}>{props.priority < 2? "!" : "!!"}</button>
         </span>
         <button className={"deleteItemButton"} onClick={() => props.onDeleteItem(props.id)}>+</button>
     </li>);

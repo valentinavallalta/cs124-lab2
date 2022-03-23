@@ -107,10 +107,21 @@ span {
     color: #8ab28a !important;
 }
 
+.priority0:before {
+    content: "!!";
+    color: #8ab28a !important;
+}
+
+.priority1:before {
+    content: "!!";
+    color: #8ab28a !important;
+}
+
 .priority2:before {
     content: "!";
+    color: #8ab28a !important;
 }
 
 .priority3:before {
-    content: "!!";
+    content: "!";
 }
