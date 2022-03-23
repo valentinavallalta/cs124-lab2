@@ -29,11 +29,17 @@ function Menu(props) {
                 <div className={"menuBackdrop"}
                      onClick={() => toggleMenuDisplay()}/>
                 <div className="options">
+                    {props.numCompletedItems !== 0 &&
+                    <div>
                     {props.completedDisplay ?
                         <p id="hideButton" onClick={() => hideCompleted()}> hide completed items</p> :
                         <p id="showButton" onClick={() => showCompleted()}> show completed items</p>}
                     <p id="deleteButton" onClick={() => setShowAlert(true)}> delete completed items</p>
-                    {/*<p id="priorityButton" onClick={() => props.onSortByPriority()}*/}
+                    </div>}
+
+                    <p id="priorityButton" onClick={() => props.onSortByPriority()}> sort by priority </p>
+
+                        <p id="ascendingButton" onClick={() => props.onAscendingChange()}>{props.sortAscending ? "sort descending" : "sort ascending"}</p>
                     {showAlert &&
                         <AlertPage onDeleteCompleted={props.onDeleteCompleted}
                                    showAlert={showAlert}

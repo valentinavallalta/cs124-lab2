@@ -30,16 +30,22 @@ function App() {
 
     // const [toDoItems, setToDoItems] = useState(data);
 
+    const [sortAscending, setSortAscending] = useState(false);
     const [sortByPriority, setSortByPriority] = useState(false);
 
     function toggleSortByPriority() {
         setSortByPriority(!sortByPriority)
     }
 
+    function toggleAscending() {
+        setSortAscending(!sortAscending)
+    }
+
     const collectionRef = collection(db, collectionName)
     let q = query(collectionRef);
     if (sortByPriority) {
-        q = query(collectionRef, orderBy("priority"))
+        q = sortAscending ? query(collectionRef, orderBy("priority", "asc")):
+                query(collectionRef, orderBy("priority", "desc"))
     }
     const [toDoItems, loading, error] = useCollectionData(q)
 
@@ -133,6 +139,8 @@ function App() {
                     onDeleteCompleted={deleteCompleted}
                     numCompletedItems={completedItemIDs.length}
                     onSortByPriority={toggleSortByPriority}
+                    sortAscending={sortAscending}
+                    onAscendingChange={toggleAscending}
                 >
                 </Header>
                 <List
