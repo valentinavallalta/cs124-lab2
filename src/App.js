@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp, orderBy} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -30,8 +30,17 @@ function App() {
 
     // const [toDoItems, setToDoItems] = useState(data);
 
+    const [sortByPriority, setSortByPriority] = useState(false);
+
+    function toggleSortByPriority() {
+        setSortByPriority(!sortByPriority)
+    }
+
     const collectionRef = collection(db, collectionName)
-    const q = query(collectionRef);
+    let q = query(collectionRef);
+    if (sortByPriority) {
+        q = query(collectionRef, orderBy("priority"))
+    }
     const [toDoItems, loading, error] = useCollectionData(q)
 
     console.log("toDoItems", toDoItems)
@@ -123,6 +132,7 @@ function App() {
                     completedDisplay={completedDisplay}
                     onDeleteCompleted={deleteCompleted}
                     numCompletedItems={completedItemIDs.length}
+                    onSortByPriority={toggleSortByPriority}
                 >
                 </Header>
                 <List

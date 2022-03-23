@@ -33,6 +33,7 @@ function Menu(props) {
                         <p id="hideButton" onClick={() => hideCompleted()}> hide completed items</p> :
                         <p id="showButton" onClick={() => showCompleted()}> show completed items</p>}
                     <p id="deleteButton" onClick={() => setShowAlert(true)}> delete completed items</p>
+                    {/*<p id="priorityButton" onClick={() => props.onSortByPriority()}*/}
                     {showAlert &&
                         <AlertPage onDeleteCompleted={props.onDeleteCompleted}
                                    showAlert={showAlert}
