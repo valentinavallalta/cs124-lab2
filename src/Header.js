@@ -19,7 +19,7 @@ function Header(props) {
                 toggleCompletedDisplay={props.toggleCompletedDisplay}
                 completedDisplay={props.completedDisplay}
                 onDeleteCompleted={props.onDeleteCompleted}
-                onSortByPriority={props.onSortByPriority}
+                onSortBy={props.onSortBy}
                 sortAscending={props.sortAscending}
                 onAscendingChange={props.onAscendingChange}
             />

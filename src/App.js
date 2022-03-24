@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp, orderBy} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -30,23 +30,39 @@ function App() {
 
     // const [toDoItems, setToDoItems] = useState(data);
 
-    const [sortAscending, setSortAscending] = useState(false);
-    const [sortByPriority, setSortByPriority] = useState(false);
+    const [sortAscending, setSortAscending] = useState('asc');
+    const [sortBy, setSortBy] = useState("timeCreated");
 
-    function toggleSortByPriority() {
-        setSortByPriority(!sortByPriority)
+    function handleChangeSortBy(order) {
+        setSortBy(order)
+    }
+
+    function compareValues(key, order) {
+        return function innerSort(a, b) {
+            let aGreater = true
+            if (key === "timeCreated") {
+                aGreater = (a.timeCreated > b.timeCreated)
+            } else if (key === "name") {
+                aGreater = (a.content > b.content)
+            } else if (key === "priority") {
+                aGreater = (a.priority > b.priority)
+            }
+            return (
+                (order === 'asc') ? aGreater : !aGreater
+            )
+        }
     }
 
     function toggleAscending() {
-        setSortAscending(!sortAscending)
+        if (sortAscending === 'asc') {
+            setSortAscending('desc')
+        } else {
+            setSortAscending('asc')
+        }
     }
 
     const collectionRef = collection(db, collectionName)
-    let q = query(collectionRef);
-    if (sortByPriority) {
-        q = sortAscending ? query(collectionRef, orderBy("priority", "asc")):
-                query(collectionRef, orderBy("priority", "desc"))
-    }
+    const q = query(collectionRef);
     const [toDoItems, loading, error] = useCollectionData(q)
 
     console.log("toDoItems", toDoItems)
@@ -59,8 +75,9 @@ function App() {
         setDoc(doc(db, collectionName, uniqueId), {
             id: uniqueId,
             content: itemContent,
-            created: serverTimestamp(),
-            priority: 0
+            timeCreated: serverTimestamp(),
+            priority: 0,
+            completed: false
         })
         // counter++;
     }
@@ -110,8 +127,7 @@ function App() {
         console.log(item)
         if (item.priority === 3) {
             setDoc(doc(db, collectionName, id), {priority: 0}, {merge: true})
-        }
-        else {
+        } else {
             setDoc(doc(db, collectionName, id), {priority: item.priority + 1}, {merge: true})
         }
     }
@@ -123,13 +139,8 @@ function App() {
     } else {
         let uncompletedItems = toDoItems.filter(checkCompleted)
 
-        if (toDoItems.length === 0) {
-            console.log("ZERO LENGTH")
-            // addItem("")
-        }
-        // else if (uncompletedItems.length === 0 && !completedDisplay) {
-        //     addItem("")
-        // }
+        toDoItems.sort(compareValues(sortBy, sortAscending)) // TODO - CHANGE sortASCENDING FORMAT ?
+        console.log(sortAscending)
 
         return (
             <div className="App">
@@ -138,20 +149,21 @@ function App() {
                     completedDisplay={completedDisplay}
                     onDeleteCompleted={deleteCompleted}
                     numCompletedItems={completedItemIDs.length}
-                    onSortByPriority={toggleSortByPriority}
+                    sort={sortBy}
+                    onSortBy={handleChangeSortBy}
                     sortAscending={sortAscending}
                     onAscendingChange={toggleAscending}
                 >
                 </Header>
                 <List
                     // default={data}
-                      items={completedDisplay ? toDoItems : uncompletedItems}
-                      completedItems={completedItemIDs}
-                      onAddItem={addItem}
-                      onItemCompleted={toggleItemCompleted}
-                      onContentChange={handleChangeContent}
-                      onDeleteItem={deleteItem}
-                      onPriorityChange={quadrogglePriority}
+                    items={completedDisplay ? toDoItems : uncompletedItems}
+                    completedItems={completedItemIDs}
+                    onAddItem={addItem}
+                    onItemCompleted={toggleItemCompleted}
+                    onContentChange={handleChangeContent}
+                    onDeleteItem={deleteItem}
+                    onPriorityChange={quadrogglePriority}
                 >
                 </List>
             </div>

@@ -37,9 +37,11 @@ function Menu(props) {
                     <p id="deleteButton" onClick={() => setShowAlert(true)}> delete completed items</p>
                     </div>}
 
-                    <p id="priorityButton" onClick={() => props.onSortByPriority()}> sort by priority </p>
+                    <p id="nameButton" onClick={() => props.onSortBy("name")}> sort by name </p>
+                    <p id="priorityButton" onClick={() => props.onSortBy("priority")}> sort by priority </p>
+                    <p id="timeButton" onClick={() => props.onSortBy("timeCreated")}> sort by time created </p>
 
-                        <p id="ascendingButton" onClick={() => props.onAscendingChange()}>{props.sortAscending ? "sort descending" : "sort ascending"}</p>
+                    <p id="ascendingButton" onClick={() => props.onAscendingChange()}>{(props.sortAscending === 'asc') ? "sort descending" : "sort ascending"}</p>
                     {showAlert &&
                         <AlertPage onDeleteCompleted={props.onDeleteCompleted}
                                    showAlert={showAlert}
