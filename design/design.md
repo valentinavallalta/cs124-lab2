@@ -5,14 +5,18 @@ these interfaces and combined them to create our to do list. We got ideas from t
 list have a circle to the left (non-filled in circles for unfinished tasks and filled in circles for finished tasks).
 Based on the Remind App, we also decided to put lines under the tasks as a way to separate them without putting boxes
 around them. We decided to put the three options to hide, show and delete finished tasks in a three dot dropdown button
-at the top. We only show this button option if there are completed tasks since the actions are not relevant if there are
-no completed tasks. We decided to do this to make the list more clean and to reduce the buttons being displayed at a
+at the top. These options are not visible if there are no completed items.
+We also included our sorting feature here. There is a button that states what we are currently sorting by, and 
+it has a drop-down to change what the items are being sorted by (name, time created, and priority). We also have a 
+button that toggles between sort ascending and sort descending so that users are able to change the order.
+We decided to have all of these features in a button to make the list more clean and to reduce the buttons being displayed at a
 time. Also, when you click the delete option, a pop-up appears confirming the deletion of all completed items to reduce
 the possibility of accidentally deleting them. Additionally, the show and hide options toggle and both options aren't
 displayed at the same time. We also added a hover option for these buttons to make them appear clickable. We hoped for a
 minimalist display with a larger focus on the actual list rather than the buttons. We put this three dot button at the
-top next to the title where we think people will intuitively look for it. When there are no items on the list, we
-decided to have one empty “item” that indicates the user to type there. Then, for future items that need to be added,
+top next to the title where we think people will intuitively look for it. When there are no items on the list, 
+we have text that says No items and we have a plus sign button to add an item. 
+Then, for future items that need to be added,
 there is a plus sign button under all current items to indicate the user to click there when they want a new item. It
 also changes colors when hovered over to appear clickable. We hoped for this to be an intuitive and clean way to add new
 items while keeping the minimalistic look. We also decided to put a highlight over any item that is currently clicked on
@@ -21,7 +25,11 @@ on. Additionally, users can cross off items by pressing on the circle next to th
 gets crossed off and changed to a lighter color. We did this as a way to give the user the satisfaction of crossing off
 an item and making it less prominent than the unfinished tasks while not moving or removing it. We also added an "x"
 button at the end of every list item in order to delete a single list item. This way, there is an easy way to delete
-individual items. This button also changes colors when hovered over to indicate that it is clickable. The protocol of
+individual items. This button also changes colors when hovered over to indicate that it is clickable. 
+Next to the "x" button for each item we have three exclamation marks intended to set the priority. They are all first set
+to a faded green and as it is clicked more of the exclamaition marks become dark green until it loops back again to all being a 
+faded green. This is a minimalistic and intuitive way that users can set the priority of each item.
+The protocol of
 the plus, the x and the three dots allows us to keep a simple look while still making the actions discoverable and
 intuitive. When to do items are too long and don't fit on the line, the first part appears and there is an ellipse at the
 end to indicate that there is more text there. The final feature we added was to make the title of the list editable.
@@ -32,39 +40,40 @@ other title to fit their needs.
 
 Here we can see what our page looks like when there are no items.
 
-![startingScreen.png](startingScreen.png)
+format (need to delete): ![secondItemEditing.png](secondItemEditing.png)
+{img}
 
-Here we can see what a set item looks like and what an item that is currently being edited looks like with the highlight
+Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on the line looks like, what set 
+priorities look like for items,
+and what an item that is currently being edited looks like with the highlight
 over it.
 
-![secondItemEditing.png](secondItemEditing.png)
+{img}
 
-Here we can see the options available when the three dots button is clicked, and we can see what a crossed out item looks
-like.
+Here we can see the options available when the three dots button is clicked.
 
-![deleteCompletedHover.png](deleteCompletedHover.png)
+{img}
+
+Here we can see the extension of the sorting menu.
+
+{img}
 
 Here we can see how the add button looks when its being hovered.
 
-![plusHover.png](plusHover.png)
+{img}
 
 Here we can see how the individual delete button looks when its being hovered.
 
-![deleteItemHover.png](deleteItemHover.png)
+{img}
 
 Here we can see how the title looks like when it is being edited
 
-![titleEdit.png](titleEdit.png)
-
-Here we can see how our to do items look like when they are too long to fit on the line
-
-![ellipses.png](ellipses.png)
+{img }
 
 Here we can see the popup asking for confirmation before the user can delete all completed items.
 Clicking on the backdrop closes the popup.
 
-![confirmationPopup.png](confirmationPopup.png)
-
+{img}
 ## Alternate Designs:
 
 One major design decision is that we were considering putting each todo list item in a box. This is similar to the
