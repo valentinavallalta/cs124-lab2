@@ -40,40 +40,39 @@ other title to fit their needs.
 
 Here we can see what our page looks like when there are no items.
 
-format (need to delete): ![secondItemEditing.png](secondItemEditing.png)
-{img}
+![empty_noItems.PNG](empty_noItems.PNG)
 
 Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on the line looks like, what set 
 priorities look like for items,
 and what an item that is currently being edited looks like with the highlight
 over it.
 
-{img}
+![all four menu options.png](all%20four%20menu%20options.png)
 
 Here we can see the options available when the three dots button is clicked.
 
-{img}
+![og menu.PNG](og%20menu.PNG)
 
 Here we can see the extension of the sorting menu.
 
-{img}
+![menu extended.png](menu%20extended.png)
 
 Here we can see how the add button looks when its being hovered.
 
-{img}
+![add hover.png](add%20hover.png)
 
 Here we can see how the individual delete button looks when its being hovered.
 
-{img}
+![delete hover.png](delete%20hover.png)
 
 Here we can see how the title looks like when it is being edited
 
-{img }
+![to do edit.png](to%20do%20edit.png)
 
 Here we can see the popup asking for confirmation before the user can delete all completed items.
 Clicking on the backdrop closes the popup.
 
-{img}
+![popup delete.png](popup%20delete.png)
 ## Alternate Designs:
 
 One major design decision is that we were considering putting each todo list item in a box. This is similar to the
