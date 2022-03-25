@@ -1,5 +1,4 @@
 import './AlertPage.css'
-import {useState} from "react";
 
 function AlertPage(props) {
 

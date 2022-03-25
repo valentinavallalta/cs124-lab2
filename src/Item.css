@@ -1,3 +1,7 @@
+ul {
+    word-wrap: anywhere;
+}
+
 .completed {
     color: #8ab28a;
     text-decoration: line-through;
@@ -9,14 +13,16 @@
     text-decoration: line-through;
 }
 
-.editing {
-    background: #a1d2a1;
-    border-bottom: 2px solid darkgreen;
-}
+/*.editing {*/
+/*    background: #a1d2a1;*/
+/*    border-bottom: 2px solid darkgreen;*/
+/*}*/
 
 .uncompleted {
     list-style-type: none;
     border-bottom: 2px solid darkgreen;
+    overflow-wrap: break-word;
+    word-wrap: anywhere;
 }
 
 .uncompleted button {
@@ -77,4 +83,45 @@
     outline: none;
 }
 
+span {
+    display: inline-block;
+    text-align: right;
+    width: 23pt;
+}
 
+.priorityButton {
+    /*visibility: hidden;*/
+    background-color: rgba(255,255,255,0)!important;
+    color: darkgreen !important;
+    padding: 5px !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    border: none !important;
+}
+
+/*.textBox:focus + button {*/
+/*    visibility: visible;*/
+/*}*/
+
+.priority0 {
+    color: #8ab28a !important;
+}
+
+.priority0:before {
+    content: "!!";
+    color: #8ab28a !important;
+}
+
+.priority1:before {
+    content: "!!";
+    color: #8ab28a !important;
+}
+
+.priority2:before {
+    content: "!";
+    color: #8ab28a !important;
+}
+
+.priority3:before {
+    content: "!";
+}

@@ -45,3 +45,16 @@ button {
 .options p:hover{
     background-color: #8ab28a;
 }
+
+.sortOptions{
+    font-size: 12pt;
+    padding-left: 20px;
+}
+.downArrow {
+    display: inline;
+    padding-left: 9pt!important;
+}
+
+#sortButton {
+    display: inline;
+}
