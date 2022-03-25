@@ -9,7 +9,7 @@ function Item(props) {
             className="textBox"
             onClick={(e) => e.stopPropagation()}
             onChange={(e) => props.onContentChange(props.id, e.target.value)}
-            value={props.content}
+            defaultValue={props.content}
             placeholder="add an item here"
         />
         <span>
