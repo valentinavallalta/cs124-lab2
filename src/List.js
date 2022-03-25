@@ -6,9 +6,11 @@ function List(props) {
     return (
         <div id="List">
             <ul>
+                {props.items.length === 0 && <small>No Items</small>}
                 {props.items.map(p =>
                     <Item onItemCompleted={props.onItemCompleted}
-                          class={props.completedItems.includes(p.id) ? "completed" : "uncompleted"}
+                          // class={props.completedItems.includes(p.id) ? "completed" : "uncompleted"}
+                          class={p.completed === true? "completed" : "uncompleted"}
                           id={p.id}
                           priority={p.priority}
                           content={p.content}

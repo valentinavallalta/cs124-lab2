@@ -5,8 +5,9 @@ import {useState} from 'react';
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp, updateDoc} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
+// import Item from "./Item";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCwrC7AFEMEg9VAxhYk7n5EvwojCYsnpKQ",
@@ -67,7 +68,8 @@ function App() {
 
     console.log("toDoItems", toDoItems)
 
-    const [completedItemIDs, setCompletedItemIDs] = useState([]);
+    // todo: comment out
+    // const [completedItemIDs, setCompletedItemIDs] = useState([]);
 
     function addItem(itemContent) {
         // setToDoItems([...toDoItems, {id: counter, content: itemContent}])
@@ -83,11 +85,24 @@ function App() {
     }
 
     function toggleItemCompleted(id) {
-        if (completedItemIDs.includes(id)) {
-            setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
-        } else {
-            setCompletedItemIDs([...completedItemIDs, id]);
-        }
+        // if (completedItemIDs.includes(id)) {
+        //     setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
+        // } else {
+        //     setCompletedItemIDs([...completedItemIDs, id]);
+        // }
+        //
+        // const temp = getDoc(doc(db, collectionName, id));
+        // const itemData = temp.data();
+        // console.log("itemData" + itemData);
+        // // updateDoc()
+        const currItem = toDoItems.filter(p => p.id === id)[0];
+        console.log("TOGGLE ITEM COMPLETED"+ currItem)
+        console.log("before value "+ currItem.completed)
+        const newVal = !(currItem.completed)
+        console.log("newVal " + newVal)
+        const ref = doc(db, collectionName, id)
+        updateDoc(ref, {completed : newVal});
+
     }
 
     function handleChangeContent(id, text) {
@@ -103,12 +118,16 @@ function App() {
     }
 
     function checkCompleted(item) {
-        return !(completedItemIDs.includes(item.id))
+        // return !(completedItemIDs.includes(item.id))
+        return !(item.completed === true)
     }
 
     function deleteCompleted() {
-        completedItemIDs.forEach(id => deleteDoc(doc(db, collectionName, id)));
-        setCompletedItemIDs([]);
+        // completedItemIDs.forEach(id => deleteDoc(doc(db, collectionName, id)));
+        // setCompletedItemIDs([]);
+        const temp = toDoItems.filter((p => p.completed === true))
+        temp.forEach(item => deleteDoc(doc(db, collectionName, item.id)));
+
         // if (toDoItems.length === 0) {
         //     addItem()
         // }
@@ -119,7 +138,7 @@ function App() {
         // if (toDoItems.length === 0) {
         //     addItem("")
         // }
-        setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
+        // setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
     }
 
     function quadrogglePriority(id) {
@@ -130,6 +149,10 @@ function App() {
         } else {
             setDoc(doc(db, collectionName, id), {priority: item.priority + 1}, {merge: true})
         }
+    }
+    function getNumCompletedItems(){
+        let temp = toDoItems.filter(p => p.completed === true);
+        return temp.length
     }
 
     if (loading) {
@@ -148,7 +171,8 @@ function App() {
                     toggleCompletedDisplay={toggleCompletedDisplay}
                     completedDisplay={completedDisplay}
                     onDeleteCompleted={deleteCompleted}
-                    numCompletedItems={completedItemIDs.length}
+                    // numCompletedItems={completedItemIDs.length}
+                    numCompletedItems={getNumCompletedItems()}
                     sort={sortBy}
                     onSortBy={handleChangeSortBy}
                     sortAscending={sortAscending}
@@ -158,7 +182,7 @@ function App() {
                 <List
                     // default={data}
                     items={completedDisplay ? toDoItems : uncompletedItems}
-                    completedItems={completedItemIDs}
+                    // completedItems={completedItemIDs}
                     onAddItem={addItem}
                     onItemCompleted={toggleItemCompleted}
                     onContentChange={handleChangeContent}
