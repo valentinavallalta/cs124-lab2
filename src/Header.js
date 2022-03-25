@@ -19,11 +19,9 @@ function Header(props) {
                     onClick={(e) => e.stopPropagation()}
                     onChange={(e) => setContent(e.target.value)}
                     type="text"
-                    // value={content[0] ==="✎"? content: "✎ " + content}/>
                     value = {content}/>
 
             </h1>
-            {/*> To Do List </input>*/}
             <Menu
                 toggleCompletedDisplay={props.toggleCompletedDisplay}
                 completedDisplay={props.completedDisplay}

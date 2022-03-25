@@ -9,7 +9,6 @@ function List(props) {
                 {props.items.length === 0 && <small>No Items</small>}
                 {props.items.map(p =>
                     <Item onItemCompleted={props.onItemCompleted}
-                          // class={props.completedItems.includes(p.id) ? "completed" : "uncompleted"}
                           class={p.completed === true? "completed" : "uncompleted"}
                           id={p.id}
                           priority={p.priority}
@@ -24,7 +23,6 @@ function List(props) {
                 <li onClick={() => props.onAddItem("")}
                     className="empty">
                     <button>+</button>
-                    {/*{props.items.length === 0 ? "add new item here" : <div/>}*/}
                 </li>
             </ul>
         </div>)
