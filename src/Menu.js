@@ -10,6 +10,7 @@ function Menu(props) {
     function toggleMenuDisplay() {
         setMenuDisplay(!menuDisplay)
         setSortDisplay(false)
+        checkNumCompleted()
     }
 
     function toggleSortDisplay() {
@@ -28,6 +29,12 @@ function Menu(props) {
 
     const [showAlert, setShowAlert] = useState(false);
 
+    let numCompletedItems = props.getNumCompletedItems();
+
+    function checkNumCompleted() {
+        numCompletedItems = props.getNumCompletedItems();
+    }
+
     return (
         <div className="menu">
             <button type="button" onClick={() => toggleMenuDisplay()}>···</button>
@@ -35,16 +42,16 @@ function Menu(props) {
                 <div className={"menuBackdrop"}
                      onClick={() => toggleMenuDisplay()}/>
                 <div className="options">
-                    {props.numCompletedItems !== 0 &&
+                    {numCompletedItems !== 0 &&
                     <div>
                     {props.completedDisplay ?
                         <p id="hideButton" onClick={() => hideCompleted()}> hide completed items</p> :
                         <p id="showButton" onClick={() => showCompleted()}> show completed items</p>}
                     <p id="deleteButton" onClick={() => setShowAlert(true)}> delete completed items</p>
                     </div>}
-                    <div>
+                    <p>
                     <span id="sortButton" onClick={() => toggleSortDisplay()}> sort by: {props.currSortBy}</span>
-                    <span className={"downArrow"} onClick={() => toggleSortDisplay()}>⌄</span> </div>
+                    <span className={"downArrow"} onClick={() => toggleSortDisplay()}>⌄</span> </p>
                     {sortDisplay && <div className = "sortOptions">
                         <p id="nameButton" onClick={() => props.onSortBy("name")}> sort by name </p>
                         <p id="priorityButton" onClick={() => props.onSortBy("priority")}> sort by priority </p>

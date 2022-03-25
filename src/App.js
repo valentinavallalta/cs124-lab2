@@ -84,16 +84,6 @@ function App() {
     }
 
     function toggleItemCompleted(id) {
-        // if (completedItemIDs.includes(id)) {
-        //     setCompletedItemIDs(completedItemIDs.filter(p => p !== id))
-        // } else {
-        //     setCompletedItemIDs([...completedItemIDs, id]);
-        // }
-        //
-        // const temp = getDoc(doc(db, collectionName, id));
-        // const itemData = temp.data();
-        // console.log("itemData" + itemData);
-        // // updateDoc()
         const currItem = toDoItems.filter(p => p.id === id)[0];
         console.log("TOGGLE ITEM COMPLETED"+ currItem)
         console.log("before value "+ currItem.completed)
@@ -101,7 +91,6 @@ function App() {
         console.log("newVal " + newVal)
         const ref = doc(db, collectionName, id)
         updateDoc(ref, {completed : newVal});
-
     }
 
     function handleChangeContent(id, text) {
@@ -109,6 +98,10 @@ function App() {
             content: text
         }, {merge: true})
     }
+
+    // function handleChangeTitle(text) {
+    //     setDoc(doc(db, collectionName, "title"))
+    // }
 
     const [completedDisplay, setCompletedDisplay] = useState(true)
 
@@ -149,6 +142,7 @@ function App() {
             setDoc(doc(db, collectionName, id), {priority: item.priority + 1}, {merge: true})
         }
     }
+
     function getNumCompletedItems(){
         let temp = toDoItems.filter(p => p.completed === true);
         return temp.length
@@ -170,8 +164,7 @@ function App() {
                     toggleCompletedDisplay={toggleCompletedDisplay}
                     completedDisplay={completedDisplay}
                     onDeleteCompleted={deleteCompleted}
-                    // numCompletedItems={completedItemIDs.length}
-                    numCompletedItems={getNumCompletedItems()}
+                    getNumCompletedItems={getNumCompletedItems}
                     sort={sortBy}
                     onSortBy={handleChangeSortBy}
                     sortAscending={sortAscending}

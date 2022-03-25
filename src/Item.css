@@ -67,7 +67,7 @@ ul {
 }
 
 .textBox {
-    /*text-overflow: ellipsis;*/
+    text-overflow: ellipsis;
     width: auto;
     padding-left: 8px;
     height: auto;
