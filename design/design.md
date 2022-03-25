@@ -93,7 +93,9 @@ hidden otherwise. Additionally, the user doesn't need both show and hide options
 toggle in place. We also were planning on having a circle with a black as the last item at all times and have the user
 click next to the circle to add a new item. We realized that this may not be intuitive for all users, so we changed the
 design to have the plus sign button at the end instead. This allowed us to keep the minimalist design without loosing
-discoverability.
+discoverability. For the priority feature, we considered many different approaches. One idea was to make the items 
+be different colors based on the priority but we decided against this because it would clash with our green
+color scheme. 
 
 #### Images:
 
@@ -143,6 +145,12 @@ were able to fix this problem. The user stated that having an "enter" feature wo
 box, and you are down typing, pressing enter would exit out of the input box. The user found it weird that you were able to cross out
 empty items or items that had the placeholder text "add an item here". 
 
+For our third round of user testing, we asked a Harvey Mudd Student to try out out app. They were able to intuitively 
+complete all the tasks we asked them to do. One problem is that they would press enter key to exit out of an 
+input box, and we were not able to implement this feature. Also, the user mentioned how they would have liked
+the whole item to show when it was too long (and the To Do List Title too) but this is also a feature
+we tried to implement but were not able to.
+
 ## Challenges you faced:
 
 The main challenge that comes to mind is making decisions as a pair. At times, it was difficult to come to a singular
@@ -183,4 +191,8 @@ design plans into html and css code. It is cool that we were able to take our or
 drawings on paper and finally into the computer. We were able to go through this process from start to finish, and we are
 proud of that. We are also proud that we were able to add all the functionality that we needed without needing to 
 compromise on our design ideas. Overall, we are proud that we were able to make something that we think looks very pretty
-and aesthetically pleasing and that we would want to use ourselves. 
+and aesthetically pleasing and that we would want to use ourselves. As we got into lab 3, we are really proud
+that we were still able to keep the minimalist style even with the addition of new features. This is something we have
+valued in our design from the start so we are happy that we were able to stick with it and still create a functioning 
+design. We are also proud that we were able to implement many suggestions that we received in the last round of user testing, 
+like adding a pencil by the To Do List name to make the editable feature more discoverable. 
