@@ -5,36 +5,34 @@ these interfaces and combined them to create our to do list. We got ideas from t
 list have a circle to the left (non-filled in circles for unfinished tasks and filled in circles for finished tasks).
 Based on the Remind App, we also decided to put lines under the tasks as a way to separate them without putting boxes
 around them. We decided to put the three options to hide, show and delete finished tasks in a three dot dropdown button
-at the top. These options are not visible if there are no completed items.
-We also included our sorting feature here. There is a button that states what we are currently sorting by, and 
-it has a drop-down to change what the items are being sorted by (name, time created, and priority). We also have a 
-button that toggles between sort ascending and sort descending so that users are able to change the order.
-We decided to have all of these features in a button to make the list more clean and to reduce the buttons being displayed at a
-time. Also, when you click the delete option, a pop-up appears confirming the deletion of all completed items to reduce
-the possibility of accidentally deleting them. Additionally, the show and hide options toggle and both options aren't
-displayed at the same time. We also added a hover option for these buttons to make them appear clickable. We hoped for a
-minimalist display with a larger focus on the actual list rather than the buttons. We put this three dot button at the
-top next to the title where we think people will intuitively look for it. When there are no items on the list, 
-we have text that says No items and we have a plus sign button to add an item. 
-Then, for future items that need to be added,
-there is a plus sign button under all current items to indicate the user to click there when they want a new item. It
-also changes colors when hovered over to appear clickable. We hoped for this to be an intuitive and clean way to add new
-items while keeping the minimalistic look. We also decided to put a highlight over any item that is currently clicked on
-and editable. We decided to do this as a way to indicate to the user that this is the item that is clicked
-on. Additionally, users can cross off items by pressing on the circle next to them. What happens next is that the task
-gets crossed off and changed to a lighter color. We did this as a way to give the user the satisfaction of crossing off
-an item and making it less prominent than the unfinished tasks while not moving or removing it. We also added an "x"
+at the top. These options are not visible if there are no completed items. We also included our sorting feature here.
+There is a button that states what we are currently sorting by, and it has a drop-down to change what the items are
+being sorted by (name, time created, and priority). We also have a button that toggles between sort ascending and sort
+descending so that users are able to change the order. We decided to have all of these features in a button to make the
+list more clean and to reduce the buttons being displayed at a time. Also, when you click the delete option, a pop-up
+appears confirming the deletion of all completed items to reduce the possibility of accidentally deleting them.
+Additionally, the show and hide options toggle and both options aren't displayed at the same time. We also added a hover
+option for these buttons to make them appear clickable. We hoped for a minimalist display with a larger focus on the
+actual list rather than the buttons. We put this three dot button at the top next to the title where we think people
+will intuitively look for it. When there are no items on the list, we have text that says No items, and we have a plus
+sign button to add an item. Then, for future items that need to be added, there is a plus sign button under all current
+items to indicate the user to click there when they want a new item. It also changes colors when hovered over to appear
+clickable. We hoped for this to be an intuitive and clean way to add new items while keeping the minimalistic look. We
+also decided to put a highlight over any item that is currently clicked on and editable. We decided to do this as a way
+to indicate to the user that this is the item that is clicked on. Additionally, users can cross off items by pressing on
+the circle next to them. What happens next is that the task gets crossed off and changed to a lighter color. We did this
+as a way to give the user the satisfaction of crossing off an item and making it less prominent than the unfinished
+tasks while not moving or removing it. We also added an "x"
 button at the end of every list item in order to delete a single list item. This way, there is an easy way to delete
-individual items. This button also changes colors when hovered over to indicate that it is clickable. 
-Next to the "x" button for each item we have three exclamation marks intended to set the priority. They are all first set
-to a faded green and as it is clicked more of the exclamaition marks become dark green until it loops back again to all being a 
-faded green. This is a minimalistic and intuitive way that users can set the priority of each item.
-The protocol of
-the plus, the x and the three dots allows us to keep a simple look while still making the actions discoverable and
-intuitive. When to do items are too long and don't fit on the line, the first part appears and there is an ellipse at the
-end to indicate that there is more text there. The final feature we added was to make the title of the list editable.
-This can fit the users needs more. The default is "To Do List" but this way users can change it to "Grocery List" or any
-other title to fit their needs.
+individual items. This button also changes colors when hovered over to indicate that it is clickable. Next to the "x"
+button for each item we have three exclamation marks intended to set the priority. They are all first set to a faded
+green and as it is clicked more of the exclamation marks become dark green until it loops back again to all being a
+faded green. This is a minimalistic and intuitive way that users can set the priority of each item. The protocol of the
+plus, the x and the three dots allows us to keep a simple look while still making the actions discoverable and
+intuitive. When to do items are too long and don't fit on the line, the first part appears and there is an ellipse at
+the end to indicate that there is more text there. The final feature we added was to make the title of the list
+editable. This can fit the users needs more. The default is "To Do List" but this way users can change it to "Grocery
+List" or any other title to fit their needs.
 
 #### Images:
 
@@ -42,10 +40,9 @@ Here we can see what our page looks like when there are no items.
 
 ![empty_noItems.PNG](empty_noItems.PNG)
 
-Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on the line looks like, what set 
-priorities look like for items,
-and what an item that is currently being edited looks like with the highlight
-over it.
+Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on
+the line looks like, what set priorities look like for items, and what an item that is currently being edited looks like
+with the highlight over it.
 
 ![all four menu options.png](all%20four%20menu%20options.png)
 
@@ -69,10 +66,11 @@ Here we can see how the title looks like when it is being edited
 
 ![to do edit.png](to%20do%20edit.png)
 
-Here we can see the popup asking for confirmation before the user can delete all completed items.
-Clicking on the backdrop closes the popup.
+Here we can see the popup asking for confirmation before the user can delete all completed items. Clicking on the
+backdrop closes the popup.
 
 ![popup delete.png](popup%20delete.png)
+
 ## Alternate Designs:
 
 One major design decision is that we were considering putting each todo list item in a box. This is similar to the
@@ -92,9 +90,13 @@ hidden otherwise. Additionally, the user doesn't need both show and hide options
 toggle in place. We also were planning on having a circle with a black as the last item at all times and have the user
 click next to the circle to add a new item. We realized that this may not be intuitive for all users, so we changed the
 design to have the plus sign button at the end instead. This allowed us to keep the minimalist design without loosing
-discoverability. For the priority feature, we considered many different approaches. One idea was to make the items 
-be different colors based on the priority but we decided against this because it would clash with our green
-color scheme. 
+discoverability. For the priority feature, we considered different approaches. One idea was to make the items be
+different colors based on the priority, but we decided against this because it would clash with our green color scheme.
+We also considered an idea of having a right click option on each item. In the end we went with the exclamation idea
+because we found it simpler to use and easier to implement.
+We were also originally going to have all the sort options shown in the drop-down menu at one time, but we
+decided against this because we felt it would be confusing and the user would not be able to clearly tell that the list
+was being sorted by. Thus, we ended on the idea of having a drop down within our drop down.
 
 #### Images:
 
@@ -116,10 +118,9 @@ completed items and the circle is not as intuitive for everyone and a plus sign 
 
 ## User Testing:
 
-During lab 1, We asked one Harvey Mudd student to help us with testing our site. 
-We walked them through the different scenarios
-described in the homework. We asked them to practice “Thinking Out Loud” techniques during the usability test. We
-basically asked them to talk through all the thoughts they were having while one of us took notes. We prepped them by
+During lab 1, We asked one Harvey Mudd student to help us with testing our site. We walked them through the different
+scenarios described in the homework. We asked them to practice “Thinking Out Loud” techniques during the usability test.
+We basically asked them to talk through all the thoughts they were having while one of us took notes. We prepped them by
 saying that the website is not actually functional but that we would show them different pages that would display for
 the actions being described. We still asked the user to physically complete the actions even though the website is not
 yet functional. For each task, we would start by saying “What would you do if you wanted to…” and then ask them to
@@ -135,48 +136,54 @@ button to the right of every item. This “x” button could show up only when h
 The user also mentioned that they would have liked a way to title the todo list, create more todo lists and change the
 color scheme of the todo list. Based on this, we did incorporate some of these suggestions for our design of Lab 2.
 
-For our second round of user testing, we asked a different Harvey Mudd Student to try out our app. 
-Overall, they found all actions to be discoverable and usable except the title change. In order to fix this, we  could either
-have a cursor change on hover or 
-we can add another minimalistic button with a pencil on it next to the tile to indicate that by clicking on that button,
-you are able to change the title name. The user also pointed out that our "x" buttons were not centered in the line. We 
-were able to fix this problem. The user stated that having an "enter" feature would be nice, meaning that when you are on an input
-box, and you are down typing, pressing enter would exit out of the input box. The user found it weird that you were able to cross out
-empty items or items that had the placeholder text "add an item here". 
+For our second round of user testing, we asked a different Harvey Mudd Student to try out our app. Overall, they found
+all actions to be discoverable and usable except the title change. In order to fix this, we could either have a cursor
+change on hover or we can add another minimalistic button with a pencil on it next to the tile to indicate that by
+clicking on that button, you are able to change the title name. The user also pointed out that our "x" buttons were not
+centered in the line. We were able to fix this problem. The user stated that having an "enter" feature would be nice,
+meaning that when you are on an input box, and you are down typing, pressing enter would exit out of the input box. The
+user found it weird that you were able to cross out empty items or items that had the placeholder text "add an item
+here".
 
-For our third round of user testing, we asked a Harvey Mudd Student to try out out app. They were able to intuitively 
-complete all the tasks we asked them to do. One problem is that they would press enter key to exit out of an 
-input box, and we were not able to implement this feature. Also, the user mentioned how they would have liked
-the whole item to show when it was too long (and the To Do List Title too) but this is also a feature
-we tried to implement but were not able to.
+For our third round of user testing, we asked a Harvey Mudd Student to try out app. They were able to intuitively
+complete all the tasks we asked them to do. One problem is that they would press enter key to exit out of an input box,
+and we were not able to implement this feature. Also, the user mentioned how they would have liked the whole item to
+show when it was too long (and the To Do List Title too) but this is also a feature we tried to implement but were not
+able to.
 
 ## Challenges you faced:
 
 The main challenge that comes to mind is making decisions as a pair. At times, it was difficult to come to a singular
 decision when we both had very different opinions. At times, we would postpone making a decision when this occurred and
 worked on other things in the meantime. Then, we would come back to the decision later, when we both had more time to
-think about it and state our case more clearly. Most times, we would come up with a third idea that we both liked
-or one of us would compromise if it ended up not being as important to us. For example, we got into a pretty long
-argument about what font to choose. We wanted to choose a font that is dyslexia friendly but couldn't agree on which one
-because if one of us liked a font, the other person hated it. We eventually landed on a font that we both loved and are
-really happy with. Working in groups is always hard because everyone has different opinions and even though this was a
+think about it and state our case more clearly. Most times, we would come up with a third idea that we both liked or one
+of us would compromise if it ended up not being as important to us. For example, we got into a pretty long argument
+about what font to choose. We wanted to choose a font that is dyslexia friendly but couldn't agree on which one because
+if one of us liked a font, the other person hated it. We eventually landed on a font that we both loved and are really
+happy with. Working in groups is always hard because everyone has different opinions and even though this was a
 challenge, I feel like in the end we made it work, and we learned how to work better with each other. Another challenge
-was that at times it was frustrating when we were pair-programming, and we wanted to work on different things. What would
-end up happening is that we would work on our separate computers and reconvene in the end to put our work and ideas
-together.  
+was that at times it was frustrating when we were pair-programming, and we wanted to work on different things. What
+would end up happening is that we would work on our separate computers and reconvene in the end to put our work and
+ideas together.  
 Another general struggle was trying to figure out how to make the html site look like we wanted it to. Some components
 of this took a lot of trial and error, such as font size, color, grid column and roseIt was hard at times because we
 knew how we wanted it to look, but we didn't know what steps we needed to take to get there. Online documentation was
 helpful in these cases but at times they would lead you down a rabbit hole. We also struggled with the grid and the flex
 boxes for a while because we couldn't figure out how to get the different items in the specific places that we wanted
 them to be. We realized later that we had three separate items in one div, and it wasn't letting us put these items in
-different grid coordinates. It took us a while to figure out why this wasn't working.
-Working with javascript was very challenging at times. There were times when we needed to make changes in the 
-JavaScript files to add functionality but then this would affect the look, and we would spend a lot of time in the css
-file trying to get things to look like we wanted them to again. For example, there was a time when we needed to add div, but it shifted where the menu item was placed. Additionally, figuring out where to do certain actions, like delete item,
-was trial and error because at first we were very unsure of where this code needed to go. The project at first was very 
-overwhelming due to its size. It was only after breaking it up into smaller pieces and making actual progress in these
-smaller parts that we felt it was manageable but at first it was very overwhelming and getting started was challenging. 
+different grid coordinates. It took us a while to figure out why this wasn't working. Working with javascript was very
+challenging at times. There were times when we needed to make changes in the JavaScript files to add functionality but
+then this would affect the look, and we would spend a lot of time in the css file trying to get things to look like we
+wanted them to again. For example, there was a time when we needed to add div, but it shifted where the menu item was
+placed. Additionally, figuring out where to do certain actions, like delete item, was trial and error because at first
+we were very unsure of where this code needed to go. The project at first was very overwhelming due to its size. It was
+only after breaking it up into smaller pieces and making actual progress in these smaller parts that we felt it was
+manageable but at first it was very overwhelming and getting started was challenging. We had some issues working with
+firebase because this is a new interface for us. We had an issue with firebase because the database was not created.
+However, the error message was not super helpful, so we struggled for a bit trying to figure out how to fix it. We also
+struggled with trying to figure out how to leave an inout box on enter key press and make the input box show the text
+wrapped when it is larger than the line. These are features that we spent a while trying to figure out how to do but in
+the end we were not able to, and we had to decide to let it go and not have these features in our app.
 
 ## Parts you're most proud of:
 
@@ -187,11 +194,11 @@ the amount of buttons and creating a clean look. We also like how all the colors
 different shades of a similar green, and we think it ended up looking very nice. We are also proud of the font choice,
 especially considering how long it took us to get there. We also are proud that we were able to actualize all our final
 design plans into html and css code. It is cool that we were able to take our original abstract design ideas into
-drawings on paper and finally into the computer. We were able to go through this process from start to finish, and we are
-proud of that. We are also proud that we were able to add all the functionality that we needed without needing to 
-compromise on our design ideas. Overall, we are proud that we were able to make something that we think looks very pretty
-and aesthetically pleasing and that we would want to use ourselves. As we got into lab 3, we are really proud
+drawings on paper and finally into the computer. We were able to go through this process from start to finish, and we
+are proud of that. We are also proud that we were able to add all the functionality that we needed without needing to
+compromise on our design ideas. Overall, we are proud that we were able to make something that we think looks very
+pretty and aesthetically pleasing and that we would want to use ourselves. As we got into lab 3, we are really proud
 that we were still able to keep the minimalist style even with the addition of new features. This is something we have
-valued in our design from the start so we are happy that we were able to stick with it and still create a functioning 
-design. We are also proud that we were able to implement many suggestions that we received in the last round of user testing, 
-like adding a pencil by the To Do List name to make the editable feature more discoverable. 
+valued in our design from the start, so we are happy that we were able to stick with it and still create a functioning
+design. We are also proud that we were able to implement many suggestions that we received in the last round of user
+testing, like adding a pencil by the To Do List name to make the editable feature more discoverable. 
