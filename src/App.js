@@ -32,7 +32,7 @@ function App() {
     // const [toDoItems, setToDoItems] = useState(data);
 
     const [sortAscending, setSortAscending] = useState('asc');
-    const [sortBy, setSortBy] = useState("timeCreated");
+    const [sortBy, setSortBy] = useState("time created");
 
     function handleChangeSortBy(order) {
         setSortBy(order)
@@ -41,7 +41,7 @@ function App() {
     function compareValues(key, order) {
         return function innerSort(a, b) {
             let aGreater = true
-            if (key === "timeCreated") {
+            if (key === "time created") {
                 aGreater = (a.timeCreated > b.timeCreated)
             } else if (key === "name") {
                 aGreater = (a.content > b.content)
@@ -68,7 +68,6 @@ function App() {
 
     console.log("toDoItems", toDoItems)
 
-    // todo: comment out
     // const [completedItemIDs, setCompletedItemIDs] = useState([]);
 
     function addItem(itemContent) {
@@ -177,6 +176,8 @@ function App() {
                     onSortBy={handleChangeSortBy}
                     sortAscending={sortAscending}
                     onAscendingChange={toggleAscending}
+                    currSortBy={sortBy}
+
                 >
                 </Header>
                 <List

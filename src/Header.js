@@ -5,15 +5,24 @@ import {useState} from "react";
 function Header(props) {
     const [content, setContent] = useState("To Do Items");
 
+    function focusPencil(){
+        document.getElementById("pencil").focus()
+    }
+
     return (
         <div id="Header">
             <h1>
+                <span className={"pencil"} onClick = {()=> focusPencil()}>{"✎ "}</span>
                 <input
+                    id = "pencil"
                     className="titleTextbox"
                     onClick={(e) => e.stopPropagation()}
                     onChange={(e) => setContent(e.target.value)}
                     type="text"
-                    value={content}/></h1>
+                    // value={content[0] ==="✎"? content: "✎ " + content}/>
+                    value = {content}/>
+
+            </h1>
             {/*> To Do List </input>*/}
             <Menu
                 toggleCompletedDisplay={props.toggleCompletedDisplay}
@@ -22,6 +31,7 @@ function Header(props) {
                 onSortBy={props.onSortBy}
                 sortAscending={props.sortAscending}
                 onAscendingChange={props.onAscendingChange}
+                currSortBy = {props.currSortBy}
             />
         </div>);
 }

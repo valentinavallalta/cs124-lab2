@@ -17,7 +17,7 @@ h1 {
 
 #Header h1 input {
     font-size: 22pt;
-    width: 90%;
+    width: 80%;
     font-weight: bold;
     height: auto;
     color: darkgreen;
@@ -33,4 +33,7 @@ h1 {
 #Header input:focus {
     background-color: #a1d2a1;
     outline: none;
+}
+.pencil{
+    padding-right: 5px;
 }
