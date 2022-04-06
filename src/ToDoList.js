@@ -3,7 +3,7 @@ import Header from "./Header"
 import List from "./List"
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import {deleteDoc, doc, serverTimestamp, setDoc, updateDoc} from "firebase/firestore";
+import {deleteDoc, doc, query, serverTimestamp, setDoc, updateDoc} from "firebase/firestore";
 import {useState} from "react";
 
 function ToDoList(props) {
@@ -22,11 +22,12 @@ function ToDoList(props) {
         setSortBy(order)
     }
 
-    const [toDoItems, loading, error] = useCollectionData(props.q)
+    const q = query(props.collectionRef);
+    const [toDoItems, loading, error] = useCollectionData(q)
 
     function addItem(itemContent) {
         const uniqueId = generateUniqueID()
-        setDoc(doc(props.db, props.collectionName, uniqueId), {
+        setDoc(doc(props.collectionRef, uniqueId), {
             id: uniqueId,
             content: itemContent,
             timeCreated: serverTimestamp(),
@@ -38,12 +39,12 @@ function ToDoList(props) {
     function toggleItemCompleted(id) {
         const currItem = toDoItems.filter(p => p.id === id)[0];
         const newVal = !(currItem.completed)
-        const ref = doc(props.db, props.collectionName, id)
+        const ref = doc(props.collectionRef, id)
         updateDoc(ref, {completed : newVal});
     }
 
     function handleChangeContent(id, text) {
-        setDoc(doc(props.db, props.collectionName, id), {
+        setDoc(doc(props.collectionRef, id), {
             content: text
         }, {merge: true})
     }
@@ -60,19 +61,19 @@ function ToDoList(props) {
 
     function deleteCompleted() {
         const temp = toDoItems.filter((p => p.completed === true))
-        temp.forEach(item => deleteDoc(doc(props.db, props.collectionName, item.id)));
+        temp.forEach(item => deleteDoc(doc(props.collectionRef, item.id)));
     }
 
     function deleteItem(id) {
-        deleteDoc(doc(props.db, props.collectionName, id));
+        deleteDoc(doc(props.collectionRef, id));
     }
 
     function quadrogglePriority(id) {
         let item = toDoItems.filter(p => p.id === id)[0];
         if (item.priority === 3) {
-            setDoc(doc(props.db, props.collectionName, id), {priority: 0}, {merge: true})
+            setDoc(doc(props.collectionRef, id), {priority: 0}, {merge: true})
         } else {
-            setDoc(doc(props.db, props.collectionName, id), {priority: item.priority + 1}, {merge: true})
+            setDoc(doc(props.collectionRef, id), {priority: item.priority + 1}, {merge: true})
         }
     }
 
