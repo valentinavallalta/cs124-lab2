@@ -1,0 +1,14 @@
+body {
+    font-size: 15pt;
+    /*200%*/
+    /*display: grid;
+    grid-template-columns: 20pt auto 20pt;n
+    grid-template-rows: 150px auto;*/
+    color: darkgreen;
+    background-color: #d1f5d3;
+    font-family: "Century Gothic",sans-serif;
+}
+
+h3 {
+    padding-left: 21pt;
+}
