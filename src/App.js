@@ -27,6 +27,8 @@ function App() {
     const [sortAscending, setSortAscending] = useState('asc');
     const [sortBy, setSortBy] = useState("time created");
 
+    console.log("sortBy = ", sortBy)
+
     function handleChangeSortBy(order) {
         setSortBy(order)
     }
@@ -41,8 +43,12 @@ function App() {
             } else if (key === "priority") {
                 aGreater = (a.priority > b.priority)
             }
+            let aCompare = 1
+            if (!aGreater) {
+                aCompare = -1
+            }
             return (
-                (order === 'asc') ? aGreater : !aGreater
+                (order === 'asc') ? aCompare : (-1*aCompare)
             )
         }
     }
@@ -121,9 +127,11 @@ function App() {
     } else if (error) {
         return (<h3> an error occurred </h3>)
     } else {
+        toDoItems.sort(compareValues(sortBy, sortAscending))
+
         let uncompletedItems = toDoItems.filter(checkCompleted)
 
-        toDoItems.sort(compareValues(sortBy, sortAscending))
+        console.log("items = ", toDoItems)
 
         return (
             <div className="App">
