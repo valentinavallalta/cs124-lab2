@@ -35,6 +35,16 @@ function Menu(props) {
         numCompletedItems = props.getNumCompletedItems();
     }
 
+    function changeSorted(sortType) {
+        props.onSortBy(sortType)
+        toggleMenuDisplay()
+    }
+
+    function changeAscending() {
+        props.onAscendingChange()
+        toggleMenuDisplay()
+    }
+
     return (
         <div className="menu">
             <button type="button" onClick={() => toggleMenuDisplay()}>···</button>
@@ -53,12 +63,12 @@ function Menu(props) {
                     <span id="sortButton" onClick={() => toggleSortDisplay()}> sort by: {props.currSortBy}</span>
                     <span className={"downArrow"} onClick={() => toggleSortDisplay()}>⌄</span> </p>
                     {sortDisplay && <div className = "sortOptions">
-                        <p id="nameButton" onClick={() => props.onSortBy("name")}> sort by name </p>
-                        <p id="priorityButton" onClick={() => props.onSortBy("priority")}> sort by priority </p>
-                        <p id="timeButton" onClick={() => props.onSortBy("time created")}> sort by time created </p>
+                        <p id="nameButton" onClick={() => changeSorted("name")}> sort by name </p>
+                        <p id="priorityButton" onClick={() => changeSorted("priority")}> sort by priority </p>
+                        <p id="timeButton" onClick={() => changeSorted("time created")}> sort by time created </p>
                     </div>}
 
-                    <p id="ascendingButton" onClick={() => props.onAscendingChange()}>{(props.sortAscending === 'asc') ? "sort descending" : "sort ascending"}</p>
+                    <p id="ascendingButton" onClick={() => changeAscending()}>{(props.sortAscending === 'asc') ? "sort descending" : "sort ascending"}</p>
                     {showAlert &&
                         <AlertPage onDeleteCompleted={props.onDeleteCompleted}
                                    showAlert={showAlert}
