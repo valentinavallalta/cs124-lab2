@@ -113,6 +113,7 @@ function ToDoList(props) {
 
         return (
             <div className="App">
+                <button onClick={() => props.switchList("", "")}> &lt; lists </button>
                 <Header
                     toggleCompletedDisplay={toggleCompletedDisplay}
                     completedDisplay={completedDisplay}
@@ -123,7 +124,9 @@ function ToDoList(props) {
                     sortAscending={sortAscending}
                     onAscendingChange={toggleAscending}
                     currSortBy={sortBy}
-
+                    listTitle={props.listTitle}
+                    listID={props.listID}
+                    onChangeTitle={props.onChangeTitle}
                 >
                 </Header>
                 <List

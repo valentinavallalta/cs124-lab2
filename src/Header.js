@@ -3,7 +3,7 @@ import Menu from "./Menu"
 import {useState} from "react";
 
 function Header(props) {
-    const [content, setContent] = useState("To Do Items");
+    // const [content, setContent] = useState("To Do Items");
 
     function focusPencil(){
         document.getElementById("pencil").focus()
@@ -17,10 +17,9 @@ function Header(props) {
                     id = "pencil"
                     className="titleTextbox"
                     onClick={(e) => e.stopPropagation()}
-                    onChange={(e) => setContent(e.target.value)}
+                    onChange={(e) => props.onChangeTitle(props.listID, e.target.value)}
                     type="text"
-                    value = {content}/>
-
+                    defaultValue={props.listTitle}/>
             </h1>
             <Menu
                 toggleCompletedDisplay={props.toggleCompletedDisplay}

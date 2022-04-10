@@ -12,3 +12,11 @@ body {
 h3 {
   padding-left: 21pt;
 }
+
+button {
+  display: inline-block;
+}
+
+.listButton {
+  display: inline-block;
+}

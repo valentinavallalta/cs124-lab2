@@ -4,9 +4,8 @@ import {useState} from 'react';
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp, updateDoc} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc, updateDoc} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
-import Item from "./Item";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCwrC7AFEMEg9VAxhYk7n5EvwojCYsnpKQ",
@@ -33,12 +32,11 @@ function App() {
 
     const [lists, loading, error] = useCollectionData(q)
 
-    // TODO: add a list adds a list
     function addList(title) {
         const uniqueId = generateUniqueID()
         setDoc(doc(collectionRef, uniqueId), {
             ID: uniqueId,
-            Title: "TRIAL"
+            Title: title
         })
     }
 
@@ -46,11 +44,17 @@ function App() {
         deleteDoc(doc(collectionRef, id));
     }
 
-    // TODO: delete a list
+    function switchList(id, title) {
+        setListID(id)
+        setListTitle(title)
+    }
 
-    // TODO: choose a list and display it
-
-    // TODO: display list of lists
+    function changeTitle(id, title) {
+        setDoc(doc(collectionRef, id), {
+            Title: title
+        }, {merge: true})
+        setListTitle(title)
+    }
 
     if (loading) {
         return (<h3> loading lists ... </h3>)
@@ -66,11 +70,12 @@ function App() {
                         <ul>
                             {lists.length === 0 && <small>No Items</small>}
                             {lists.map(p =>
-                                <li> {p.Title}
-                                    <button onClick={() => deleteList(p.ID)}> X </button>
+                                <li>
+                                    <p className={"listButton"} onClick={() => switchList(p.ID, p.Title)}>{p.Title}</p>
+                                    <button onClick={() => deleteList(p.ID)}> X</button>
                                 </li>
                             )}
-                            <li onClick={() => addList("")}
+                            <li onClick={() => addList("New List")}
                                 className="empty">
                                 <button>+</button>
                             </li>
@@ -83,8 +88,11 @@ function App() {
 
             return (
                 <ToDoList
+                    switchList={switchList}
                     collectionRef={listCollectionRef}
-                    // listTitle = {listTitle}
+                    listTitle={listTitle}
+                    listID={listID}
+                    onChangeTitle={changeTitle}
                 />
             )
         }
