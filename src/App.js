@@ -63,22 +63,21 @@ function App() {
     } else {
         if (listID === "") {
             return (
-                <h3> Lists </h3>,
-
-                    <div>
+                <div>
                         <h3> Lists </h3>
                         <ul>
                             {lists.length === 0 && <small>No Items</small>}
                             {lists.map(p =>
                                 <li>
                                     <p className={"listButton"} onClick={() => switchList(p.ID, p.Title)}>{p.Title}</p>
-                                    <button onClick={() => deleteList(p.ID)}> X</button>
+                                    <button className = "deleteListButton"
+                                            onClick={() => deleteList(p.ID)}> X</button>
                                 </li>
                             )}
-                            <li onClick={() => addList("New List")}
+                            <p onClick={() => addList("New List")}
                                 className="empty">
-                                <button>+</button>
-                            </li>
+                                <button className="addListButton">+</button>
+                            </p>
                         </ul>
                     </div>
             )

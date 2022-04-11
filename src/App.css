@@ -5,6 +5,23 @@ body {
   font-family: "Century Gothic",sans-serif;
 }
 
+body ul li {
+  width: 80%;
+  display: grid;
+  grid-template-columns: auto 20pt;
+  grid-template-rows: max-content;
+}
+
+body ul li p{
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.deleteListButton{
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
 h3 {
   padding-left: 21pt;
 }
