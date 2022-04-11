@@ -11,7 +11,7 @@ function Header(props) {
 
     return (
         <div id="Header">
-            <h1>
+            {/*<h1>*/}
                 <span className={"pencil"} onClick = {()=> focusPencil()}>{"✎ "}</span>
                 <input
                     id = "pencil"
@@ -20,7 +20,7 @@ function Header(props) {
                     onChange={(e) => props.onChangeTitle(props.listID, e.target.value)}
                     type="text"
                     defaultValue={props.listTitle}/>
-            </h1>
+            {/*</h1>*/}
             <Menu
                 toggleCompletedDisplay={props.toggleCompletedDisplay}
                 completedDisplay={props.completedDisplay}

@@ -1,13 +1,14 @@
 #List {
     font-size: 120%;
-    grid-column: 2/ span 1;
-    grid-row: 2/ span 1;
 }
 
 #List ul li {
     margin: 10pt 0;
-    width: fit-content;
+    width: 80%;
     list-style-type: none;
+    display: grid;
+    grid-template-columns: 23pt auto 50pt;
+    grid-template-rows: max-content;
 }
 
 #List ul {

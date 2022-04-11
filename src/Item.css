@@ -13,11 +13,6 @@ ul {
     text-decoration: line-through;
 }
 
-/*.editing {*/
-/*    background: #a1d2a1;*/
-/*    border-bottom: 2px solid darkgreen;*/
-/*}*/
-
 .uncompleted {
     list-style-type: none;
     border-bottom: 2px solid darkgreen;
@@ -66,9 +61,16 @@ ul {
     color: #8ab28a !important;
 }
 
+.checkButton {
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
 .textBox {
+    grid-column-start: 2;
+    grid-column-end: 2;
     text-overflow: ellipsis;
-    width: auto;
+    width: 100%;
     padding-left: 8px;
     height: auto;
     font-size: 15pt;
@@ -83,10 +85,13 @@ ul {
     outline: none;
 }
 
-span {
+.itemSpan {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row: 1 span/1;
     display: inline-block;
     text-align: right;
-    width: 23pt;
+    width: 50pt;
 }
 
 .priorityButton {
@@ -98,10 +103,6 @@ span {
     padding-top: 0 !important;
     border: none !important;
 }
-
-/*.textBox:focus + button {*/
-/*    visibility: visible;*/
-/*}*/
 
 .priority0 {
     color: #8ab28a !important;
