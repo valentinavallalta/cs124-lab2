@@ -47,7 +47,7 @@ function Menu(props) {
 
     return (
         <div className="menu">
-            <button type="button" onClick={() => toggleMenuDisplay()}>···</button>
+            <button aria-label={"list options"} type="button" onClick={() => toggleMenuDisplay()}>···</button>
             {menuDisplay && <div>
                 <div className={"menuBackdrop"}
                      onClick={() => toggleMenuDisplay()}/>
@@ -56,8 +56,10 @@ function Menu(props) {
                         <div>
                             <div>
                                 {props.completedDisplay ?
-                                    <button id="hideButton" onClick={() => hideCompleted()}> hide completed
-                                        items</button> :
+                                    <button
+                                        id="hideButton"
+                                        onClick={() => hideCompleted()}> hide completed
+                                        items </button> :
                                     <button id="showButton" onClick={() => showCompleted()}> show completed
                                         items</button>}
                             </div>
