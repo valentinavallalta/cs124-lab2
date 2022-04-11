@@ -9,7 +9,8 @@ function List(props) {
                 {props.items.length === 0 && <small>No Items</small>}
                 {props.items.map(p =>
                     <Item onItemCompleted={props.onItemCompleted}
-                          class={p.completed === true? "completed" : "uncompleted"}
+                          completed = {p.completed}
+                          // class={p.completed === true? "completed" : "uncompleted"}
                           id={p.id}
                           priority={p.priority}
                           content={p.content}
