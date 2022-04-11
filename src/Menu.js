@@ -53,22 +53,40 @@ function Menu(props) {
                      onClick={() => toggleMenuDisplay()}/>
                 <div className="options">
                     {numCompletedItems !== 0 &&
+                        <div>
+                            <div>
+                                {props.completedDisplay ?
+                                    <button id="hideButton" onClick={() => hideCompleted()}> hide completed
+                                        items</button> :
+                                    <button id="showButton" onClick={() => showCompleted()}> show completed
+                                        items</button>}
+                            </div>
+                            <div>
+                                <button id="deleteButton" onClick={() => setShowAlert(true)}> delete completed items
+                                </button>
+                            </div>
+                        </div>}
+                    <span>
+                    <button id="sortButton" onClick={() => toggleSortDisplay()}> sort by: {props.currSortBy} ⌄ </button>
+                    </span>
+                    {sortDisplay && <div className="sortOptions">
+                        <div>
+                            <button id="nameButton" onClick={() => changeSorted("name")}> sort by name</button>
+                        </div>
+                        <div>
+                            <button id="priorityButton" onClick={() => changeSorted("priority")}> sort by priority
+                            </button>
+                        </div>
+                        <div>
+                            <button id="timeButton" onClick={() => changeSorted("time created")}> sort by time created
+                            </button>
+                        </div>
+                    </div>
+                    }
                     <div>
-                    {props.completedDisplay ?
-                        <p id="hideButton" onClick={() => hideCompleted()}> hide completed items</p> :
-                        <p id="showButton" onClick={() => showCompleted()}> show completed items</p>}
-                    <p id="deleteButton" onClick={() => setShowAlert(true)}> delete completed items</p>
-                    </div>}
-                    <p>
-                    <span id="sortButton" onClick={() => toggleSortDisplay()}> sort by: {props.currSortBy}</span>
-                    <span className={"downArrow"} onClick={() => toggleSortDisplay()}>⌄</span> </p>
-                    {sortDisplay && <div className = "sortOptions">
-                        <p id="nameButton" onClick={() => changeSorted("name")}> sort by name </p>
-                        <p id="priorityButton" onClick={() => changeSorted("priority")}> sort by priority </p>
-                        <p id="timeButton" onClick={() => changeSorted("time created")}> sort by time created </p>
-                    </div>}
-
-                    <p id="ascendingButton" onClick={() => changeAscending()}>{(props.sortAscending === 'asc') ? "sort descending" : "sort ascending"}</p>
+                        <button id="ascendingButton"
+                                onClick={() => changeAscending()}>{(props.sortAscending === 'asc') ? "sort descending" : "sort ascending"}</button>
+                    </div>
                     {showAlert &&
                         <AlertPage onDeleteCompleted={props.onDeleteCompleted}
                                    showAlert={showAlert}
@@ -78,7 +96,8 @@ function Menu(props) {
                 </div>
             </div>
             }
-        </div>);
+        </div>
+    );
 }
 
 export default Menu;

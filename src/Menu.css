@@ -37,7 +37,7 @@ button {
     z-index: 1;
 }
 
-.options p{
+.options p {
     margin: 8pt;
     padding: 4pt 9pt;
 }
@@ -51,10 +51,10 @@ button {
     padding-left: 20px;
 }
 .downArrow {
-    display: inline;
+    /*display: inline;*/
     padding-left: 9pt!important;
 }
 
 #sortButton {
-    display: inline;
+    /*display: inline;*/
 }

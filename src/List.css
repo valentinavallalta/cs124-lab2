@@ -7,7 +7,7 @@
     width: 80%;
     list-style-type: none;
     display: grid;
-    grid-template-columns: 23pt auto 50pt;
+    grid-template-columns: 27pt auto 50pt;
     grid-template-rows: max-content;
 }
 
