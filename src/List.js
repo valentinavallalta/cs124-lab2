@@ -21,7 +21,9 @@ function List(props) {
                     />
                 )}
 
-                <li onClick={() => props.onAddItem("")}
+                <li
+                    aria-label={"add item"}
+                    onClick={() => props.onAddItem("")}
                     className="empty">
                     <button>+</button>
                 </li>
