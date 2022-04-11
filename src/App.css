@@ -12,7 +12,15 @@ body ul li {
   grid-template-rows: max-content;
 }
 
-body ul li p{
+body ul li .listButton{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  text-align: left;
+  border: none;
+  background: #d1f5d3;
+}
+
+body ul li p {
   grid-column-start: 1;
   grid-column-end: 1;
 }

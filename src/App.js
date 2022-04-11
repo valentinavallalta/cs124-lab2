@@ -69,7 +69,8 @@ function App() {
                             {lists.length === 0 && <small>No Items</small>}
                             {lists.map(p =>
                                 <li>
-                                    <p className={"listButton"} onClick={() => switchList(p.ID, p.Title)}>{p.Title}</p>
+                                    <button
+                                        className="listButton" onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
                                     <button className = "deleteListButton"
                                             onClick={() => deleteList(p.ID)}> X</button>
                                 </li>
