@@ -7,7 +7,7 @@ function Item(props) {
     return (<li className={classNameThing}>
         {/*<span className="firstHalf">*/}
             <button
-                aria-label={"check button for " + (props.content ? props.content : "new item") + "currently"+(props.completed ? "uncompleted " : "completed ")}
+                aria-label={"check button for " + (props.content ? props.content : "new item") + " currently"+(props.completed ? " completed " : " uncompleted ")}
                 className="checkButton"
                 onClick={() => props.onItemCompleted(props.id)}
             />
