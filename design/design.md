@@ -38,6 +38,9 @@ home page, a user can click on a list to enter it. Users can also delete lists w
 and they can add lists with a "+" button at the bottom. The design of this homepage has many similar aspects to a To Do List
 page to keep uniformity amongst pages in our app. 
 
+A link to a Google Drive with a video for how to use this website with keyboard only and 
+for how to use this website with VoiceOver only can be found here: https://drive.google.com/drive/u/1/folders/1NNGw-m71zcqOuTYeS6niFWOtRSDRXTG9
+
 #### Images:
 Here we can see what our homepage looks like when there are no items.
 ![](No_items_homepage.png)
