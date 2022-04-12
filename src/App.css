@@ -1,14 +1,78 @@
 body {
-  font-size: 15pt;
-  /*200%*/
-  /*display: grid;
-  grid-template-columns: 20pt auto 20pt;n
-  grid-template-rows: 150px auto;*/
-  color: darkgreen;
+  font-size: 20pt;
+  color: #003800;
   background-color: #d1f5d3;
   font-family: "Century Gothic",sans-serif;
+
+}
+
+
+body ul li {
+  width: 80%;
+  display: grid;
+  grid-template-columns: auto 20pt;
+  grid-template-rows: max-content;
+}
+
+body ul li .listButton{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  text-align: left;
+  border: none;
+  background: #d1f5d3;
+  font-size: 25pt;
+  color: #003800;
+
+}
+body ul li .listButton:hover {
+  color: #516C51 !important;
+}
+
+
+body ul li p {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.deleteListButton{
+  font-size: 20pt;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  background-color: rgba(255,255,255,0)!important;
+  color: #003800 !important;
+  transform: rotate(45deg);
+  padding: 5px !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  border: none !important;
+}
+/*change*/
+.deleteListButton:hover{
+  color: #516C51 !important;
+
+}
+
+.addListButton{
+  font-size: 20pt !important;
 }
 
 h3 {
   padding-left: 21pt;
+  font-size: 25pt;
+}
+
+button {
+  display: inline-block;
+}
+
+.listButton {
+  display: inline-block;
+}
+/*change*/
+.listButton:hover {
+  color: #516C51 !important;
+}
+
+.listItem {
+  border-bottom: 2px solid #003800;
 }

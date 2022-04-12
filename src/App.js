@@ -1,11 +1,10 @@
 import './App.css';
-import List from "./List";
-import Header from "./Header";
+import ToDoList from "./ToDoList";
 import {useState} from 'react';
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc, serverTimestamp, updateDoc} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -20,137 +19,84 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
-const collectionName = "cs124-lab3-9fa78"
+const collectionName = "lists"
 
 function App() {
 
-    const [sortAscending, setSortAscending] = useState('asc');
-    const [sortBy, setSortBy] = useState("time created");
-
-    function handleChangeSortBy(order) {
-        setSortBy(order)
-    }
-
-    function compareValues(key, order) {
-        return function innerSort(a, b) {
-            let aGreater = true
-            if (key === "time created") {
-                aGreater = (a.timeCreated > b.timeCreated)
-            } else if (key === "name") {
-                aGreater = (a.content > b.content)
-            } else if (key === "priority") {
-                aGreater = (a.priority > b.priority)
-            }
-            return (
-                (order === 'asc') ? aGreater : !aGreater
-            )
-        }
-    }
-
-    function toggleAscending() {
-        if (sortAscending === 'asc') {
-            setSortAscending('desc')
-        } else {
-            setSortAscending('asc')
-        }
-    }
-
     const collectionRef = collection(db, collectionName)
     const q = query(collectionRef);
-    const [toDoItems, loading, error] = useCollectionData(q)
 
-    function addItem(itemContent) {
+    const [listID, setListID] = useState("")
+    const [listTitle, setListTitle] = useState("")
+
+
+    const [lists, loading, error] = useCollectionData(q)
+
+    function addList(title) {
         const uniqueId = generateUniqueID()
-        setDoc(doc(db, collectionName, uniqueId), {
-            id: uniqueId,
-            content: itemContent,
-            timeCreated: serverTimestamp(),
-            priority: 0,
-            completed: false
+        setDoc(doc(collectionRef, uniqueId), {
+            ID: uniqueId,
+            Title: title
         })
     }
 
-    function toggleItemCompleted(id) {
-        const currItem = toDoItems.filter(p => p.id === id)[0];
-        const newVal = !(currItem.completed)
-        const ref = doc(db, collectionName, id)
-        updateDoc(ref, {completed : newVal});
+    function deleteList(id) {
+        deleteDoc(doc(collectionRef, id));
     }
 
-    function handleChangeContent(id, text) {
-        setDoc(doc(db, collectionName, id), {
-            content: text
+    function switchList(id, title) {
+        setListID(id)
+        setListTitle(title)
+    }
+
+    function changeTitle(id, title) {
+        setDoc(doc(collectionRef, id), {
+            Title: title
         }, {merge: true})
-    }
-
-    const [completedDisplay, setCompletedDisplay] = useState(true)
-
-    function toggleCompletedDisplay() {
-        setCompletedDisplay(!completedDisplay)
-    }
-
-    function checkCompleted(item) {
-        return !(item.completed === true)
-    }
-
-    function deleteCompleted() {
-        const temp = toDoItems.filter((p => p.completed === true))
-        temp.forEach(item => deleteDoc(doc(db, collectionName, item.id)));
-    }
-
-    function deleteItem(id) {
-        deleteDoc(doc(db, collectionName, id));
-    }
-
-    function quadrogglePriority(id) {
-        let item = toDoItems.filter(p => p.id === id)[0];
-        if (item.priority === 3) {
-            setDoc(doc(db, collectionName, id), {priority: 0}, {merge: true})
-        } else {
-            setDoc(doc(db, collectionName, id), {priority: item.priority + 1}, {merge: true})
-        }
-    }
-
-    function getNumCompletedItems(){
-        let temp = toDoItems.filter(p => p.completed === true);
-        return temp.length
+        setListTitle(title)
     }
 
     if (loading) {
-        return (<h3> loading items ... </h3>)
+        return (<h3 aria-label="loading lists"> loading lists ... </h3>)
     } else if (error) {
-        return (<h3> an error occurred </h3>)
+        return (<h3 aria-label="an error occurred"> an error occurred </h3>)
     } else {
-        let uncompletedItems = toDoItems.filter(checkCompleted)
+        if (listID === "") {
+            return (
+                <div>
+                        <h3 aria-label="Lists"> Lists </h3>
+                        <ul>
+                            {lists.length === 0 && <small>No Lists</small>}
+                            {lists.map(p =>
+                                <li className={"listItem"}>
+                                    <button aria-label={p.Title + " ,click to enter " + p.Title}
+                                        className="listButton" onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
+                                    <button aria-label={"delete " + p.Title}
+                                            className = "deleteListButton"
+                                            onClick={() => deleteList(p.ID)}> + </button>
+                                </li>
+                            )}
+                            <p onClick={() => addList("New List")}
+                                className="empty">
+                                <button aria-label="add a new list " className="addListButton">+</button>
+                            </p>
+                        </ul>
+                    </div>
+            )
+        } else {
 
-        toDoItems.sort(compareValues(sortBy, sortAscending))
+            const listCollectionRef = collection(db, collectionName, listID, "tasks")
 
-        return (
-            <div className="App">
-                <Header
-                    toggleCompletedDisplay={toggleCompletedDisplay}
-                    completedDisplay={completedDisplay}
-                    onDeleteCompleted={deleteCompleted}
-                    getNumCompletedItems={getNumCompletedItems}
-                    sort={sortBy}
-                    onSortBy={handleChangeSortBy}
-                    sortAscending={sortAscending}
-                    onAscendingChange={toggleAscending}
-                    currSortBy={sortBy}
-
-                >
-                </Header>
-                <List
-                    items={completedDisplay ? toDoItems : uncompletedItems}
-                    onAddItem={addItem}
-                    onItemCompleted={toggleItemCompleted}
-                    onContentChange={handleChangeContent}
-                    onDeleteItem={deleteItem}
-                    onPriorityChange={quadrogglePriority}
-                >
-                </List>
-            </div>
-        );
+            return (
+                <ToDoList
+                    switchList={switchList}
+                    collectionRef={listCollectionRef}
+                    listTitle={listTitle}
+                    listID={listID}
+                    onChangeTitle={changeTitle}
+                />
+            )
+        }
     }
 }
 

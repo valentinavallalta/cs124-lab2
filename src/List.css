@@ -1,13 +1,14 @@
-#List {
-    font-size: 120%;
-    grid-column: 2/ span 1;
-    grid-row: 2/ span 1;
-}
+/*#List {*/
+/*    font-size: 120%;*/
+/*}*/
 
 #List ul li {
     margin: 10pt 0;
-    width: fit-content;
+    width: 80%;
     list-style-type: none;
+    display: grid;
+    grid-template-columns: 27pt auto 50pt;
+    grid-template-rows: max-content;
 }
 
 #List ul {
@@ -25,6 +26,7 @@
 
 /*#8ab28a different color option for button*/
 .empty button {
+    color: #003800;
     font-size: 15pt;
     border: none;
     border-radius: 50%;
@@ -34,7 +36,10 @@
     background: #d1f5d3;
 
 }
+.addNewItemButton {
+    font-size: 20pt;
+}
 
 .empty button:hover {
-    color: #8ab28a;
+    color: #516C51;
 }

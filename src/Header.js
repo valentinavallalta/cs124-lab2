@@ -1,9 +1,8 @@
 import './Header.css';
 import Menu from "./Menu"
-import {useState} from "react";
 
 function Header(props) {
-    const [content, setContent] = useState("To Do Items");
+    // const [content, setContent] = useState("To Do Items");
 
     function focusPencil(){
         document.getElementById("pencil").focus()
@@ -11,17 +10,17 @@ function Header(props) {
 
     return (
         <div id="Header">
-            <h1>
+            {/*<h1>*/}
                 <span className={"pencil"} onClick = {()=> focusPencil()}>{"✎ "}</span>
                 <input
+                    aria-label={"List Title "+ props.listTitle + ", click to edit"}
                     id = "pencil"
                     className="titleTextbox"
                     onClick={(e) => e.stopPropagation()}
-                    onChange={(e) => setContent(e.target.value)}
+                    onChange={(e) => props.onChangeTitle(props.listID, e.target.value)}
                     type="text"
-                    value = {content}/>
-
-            </h1>
+                    defaultValue={props.listTitle}/>
+            {/*</h1>*/}
             <Menu
                 toggleCompletedDisplay={props.toggleCompletedDisplay}
                 completedDisplay={props.completedDisplay}

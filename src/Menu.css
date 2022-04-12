@@ -1,8 +1,10 @@
 .menu {
-    grid-column: 2/ span 1;
+    grid-column: 4/ span 1;
     margin-top: auto;
     margin-bottom: auto;
     alignment: right;
+    font-family: "Century Gothic",sans-serif;
+
 }
 
 .menuBackdrop {
@@ -16,34 +18,44 @@
     z-index: 1;
 }
 
-button {
+.dropDownMenuButton {
     cursor:pointer;
     font-size: 129%;
-    margin: auto;
-    color: darkgreen;
+    color: #003800;
     background-color: #a1d2a1;
 }
+
+.options button {
+    cursor:pointer;
+    font-size: 129%;
+    color: #003800;
+    background-color: #a1d2a1;
+    border:none;
+}
+
+
 
 .menu button:hover {
     background-color: #8ab28a;
 }
 
 .options {
-    font-size: 14pt;
+    font-size: 16pt;
     position: fixed;
-    left: 41pt;
+    right: 18.35%;
+    margin: auto;
     background-color: #a1d2a1;
     box-shadow: 10px 10px 16px 0 rgb(0,0,0,0.2);
     z-index: 1;
 }
 
-.options p{
+.options p {
     margin: 8pt;
     padding: 4pt 9pt;
 }
 
 .options p:hover{
-    background-color: #8ab28a;
+    background-color: #516C51;
 }
 
 .sortOptions{
@@ -51,10 +63,10 @@ button {
     padding-left: 20px;
 }
 .downArrow {
-    display: inline;
+    /*display: inline;*/
     padding-left: 9pt!important;
 }
 
 #sortButton {
-    display: inline;
+    /*display: inline;*/
 }
