@@ -40,43 +40,36 @@ page to keep uniformity amongst pages in our app.
 
 #### Images:
 Here we can see what our homepage looks like when there are no items.
+![](No_items_homepage.png)
 
 Here is what it looks like when we add an item.
+![](One_item_homepage.png)
 
-Here we can see what our page looks like when there are no items.
-
+Here we can see what a list page looks like when there are no items.
 ![empty_noItems.PNG](empty_noItems.PNG)
 
 Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on
 the line looks like, what set priorities look like for items, and what an item that is currently being edited looks like
 with the highlight over it.
 
-![all four menu options.png](all%20four%20menu%20options.png)
+![all_four_menu_options.png](all_four_menu_options.png)
 
 Here we can see the options available when the three dots button is clicked.
 
-![og menu.PNG](og%20menu.PNG)
+![og_menu.PNG](og_menu.png)
 
 Here we can see the extension of the sorting menu.
 
-![menu extended.png](menu%20extended.png)
-
-Here we can see how the add button looks when its being hovered.
-
-![add hover.png](add%20hover.png)
-
-Here we can see how the individual delete button looks when its being hovered.
-
-![delete hover.png](delete%20hover.png)
+![menu_extended.png](menu_extended.png)
 
 Here we can see how the title looks like when it is being edited
 
-![to do edit.png](to%20do%20edit.png)
+![to_do_edit.png](to_do_edit.png)
 
 Here we can see the popup asking for confirmation before the user can delete all completed items. Clicking on the
 backdrop closes the popup.
 
-![popup delete.png](popup%20delete.png)
+![popup_delete.png](popup_delete.png)
 
 ## Alternate Designs:
 
@@ -178,7 +171,9 @@ delete a list and change the title of the list. We also asked the student to
 speak through what they thought as they were completing these tasks. One piece 
 of feedback we received is that the student thought that they would be able to change
 the name of a list from the homepage but our implementation only allows this action from the 
-individual list pages. This is a feature we can look to implement in the future.
+individual list pages. This is a feature we can look to implement in the future. We were also 
+notified of the fact that it is really easy to accidentally delete lists and 
+that we might want to include a pop up for the user.
 
 ## Challenges you faced:
 
