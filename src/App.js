@@ -66,7 +66,7 @@ function App() {
                 <div>
                         <h3 aria-label="Lists"> Lists </h3>
                         <ul>
-                            {lists.length === 0 && <small>No Items</small>}
+                            {lists.length === 0 && <small>No Lists</small>}
                             {lists.map(p =>
                                 <li className={"listItem"}>
                                     <button aria-label={p.Title + " ,click to enter " + p.Title}

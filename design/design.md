@@ -39,6 +39,9 @@ and they can add lists with a "+" button at the bottom. The design of this homep
 page to keep uniformity amongst pages in our app. 
 
 #### Images:
+Here we can see what our homepage looks like when there are no items.
+
+Here is what it looks like when we add an item.
 
 Here we can see what our page looks like when there are no items.
 
@@ -169,6 +172,14 @@ and we were not able to implement this feature. Also, the user mentioned how the
 show when it was too long (and the To Do List Title too) but this is also a feature we tried to implement but were not
 able to.
 
+For our 4th round of user testing, we specifically focused on user testing for 
+our new added feature for multiple lists. We asked a student to add a new list,
+delete a list and change the title of the list. We also asked the student to 
+speak through what they thought as they were completing these tasks. One piece 
+of feedback we received is that the student thought that they would be able to change
+the name of a list from the homepage but our implementation only allows this action from the 
+individual list pages. This is a feature we can look to implement in the future.
+
 ## Challenges you faced:
 
 The main challenge that comes to mind is making decisions as a pair. At times, it was difficult to come to a singular
@@ -201,7 +212,9 @@ firebase because this is a new interface for us. We had an issue with firebase b
 However, the error message was not super helpful, so we struggled for a bit trying to figure out how to fix it. We also
 struggled with trying to figure out how to leave an inout box on enter key press and make the input box show the text
 wrapped when it is larger than the line. These are features that we spent a while trying to figure out how to do but in
-the end we were not able to, and we had to decide to let it go and not have these features in our app.
+the end we were not able to, and we had to decide to let it go and not have these features in our app. We also 
+still hope to add a wrapping feature to our items, which we have not yet been able to 
+implement.
 
 ## Parts you're most proud of:
 
@@ -220,3 +233,7 @@ that we were still able to keep the minimalist style even with the addition of n
 valued in our design from the start, so we are happy that we were able to stick with it and still create a functioning
 design. We are also proud that we were able to implement many suggestions that we received in the last round of user
 testing, like adding a pencil by the To Do List name to make the editable feature more discoverable. 
+We are also really proud of how we were able to figure out firestorm to have a main 
+collection and a sub-collection and we are proud that for Lab 4, we were able to 
+break the tasks down into smaller pieces and make small progress without breaking 
+our entire code.
