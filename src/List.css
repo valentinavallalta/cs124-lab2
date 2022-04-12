@@ -26,7 +26,7 @@
 
 /*#8ab28a different color option for button*/
 .empty button {
-    color: darkgreen;
+    color: #003800;
     font-size: 15pt;
     border: none;
     border-radius: 50%;
@@ -36,7 +36,10 @@
     background: #d1f5d3;
 
 }
+.addNewItemButton {
+    font-size: 20pt;
+}
 
 .empty button:hover {
-    color: #8ab28a;
+    color: #516C51;
 }

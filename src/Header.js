@@ -1,6 +1,5 @@
 import './Header.css';
 import Menu from "./Menu"
-import {useState} from "react";
 
 function Header(props) {
     // const [content, setContent] = useState("To Do Items");
@@ -14,6 +13,7 @@ function Header(props) {
             {/*<h1>*/}
                 <span className={"pencil"} onClick = {()=> focusPencil()}>{"✎ "}</span>
                 <input
+                    aria-label={"List Title "+ props.listTitle + ", click to edit"}
                     id = "pencil"
                     className="titleTextbox"
                     onClick={(e) => e.stopPropagation()}

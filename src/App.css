@@ -1,9 +1,9 @@
 body {
   font-size: 20pt;
-  color: darkgreen;
+  color: #003800;
   background-color: #d1f5d3;
-  font-family: "Century Gothic",sans-serif;
 }
+
 
 body ul li {
   width: 80%;
@@ -19,12 +19,11 @@ body ul li .listButton{
   border: none;
   background: #d1f5d3;
   font-size: 25pt;
-  color: darkgreen;
+  color: #003800;
 
 }
-
 body ul li .listButton:hover {
-  color: #8ab28a !important;
+  color: #516C51 !important;
 }
 
 
@@ -38,16 +37,16 @@ body ul li p {
   grid-column-start: 2;
   grid-column-end: 2;
   background-color: rgba(255,255,255,0)!important;
-  color: darkgreen !important;
+  color: #003800 !important;
   transform: rotate(45deg);
   padding: 5px !important;
   padding-bottom: 0 !important;
   padding-top: 0 !important;
   border: none !important;
 }
-
+/*change*/
 .deleteListButton:hover{
-  color: #8ab28a !important;
+  color: #516C51 !important;
 
 }
 
@@ -67,10 +66,11 @@ button {
 .listButton {
   display: inline-block;
 }
+/*change*/
 .listButton:hover {
-  color: #8ab28a !important;
+  color: #516C51 !important;
 }
 
 .listItem {
-  border-bottom: 2px solid darkgreen;
+  border-bottom: 2px solid #003800;
 }

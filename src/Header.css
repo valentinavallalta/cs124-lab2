@@ -2,25 +2,25 @@
 #Header {
     width: 80%;
     display: grid;
-    grid-template-columns: 27pt 35pt auto 23pt;
+    grid-template-columns: 27pt 40pt auto 23pt;
     grid-template-rows: auto;
 }
 
 h1 {
-    font-size: 22pt;
+    font-size: 18pt;
     padding-left: 10%;
     text-align: left;
 }
 
 #Header input {
     grid-column: 3/ span 1;
-    font-size: 30pt;
+    font-size: 27pt;
     width: 90%;
     font-weight: bold;
     height: auto;
-    color: darkgreen;
+    color: #003800;
     background-color: #d1f5d3;
-    font-family: "Century Gothic", sans-serif;
+    /*font-family: "Century Gothic", sans-serif;*/
     border: none;
 }
 

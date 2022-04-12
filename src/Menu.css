@@ -19,14 +19,14 @@
 .dropDownMenuButton {
     cursor:pointer;
     font-size: 129%;
-    color: darkgreen;
+    color: #003800;
     background-color: #a1d2a1;
 }
 
 .options button {
     cursor:pointer;
     font-size: 129%;
-    color: darkgreen;
+    color: #003800;
     background-color: #a1d2a1;
     border:none;
 }
@@ -52,7 +52,7 @@
 }
 
 .options p:hover{
-    background-color: #8ab28a;
+    background-color: #516C51;
 }
 
 .sortOptions{

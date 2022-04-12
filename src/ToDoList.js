@@ -114,7 +114,7 @@ function ToDoList(props) {
 
         return (
             <div className="App">
-                <button className = {"backButton"} onClick={() => props.switchList("", "")}> ⇦ lists </button>
+                <button  aria-label = {"back to main page"} className = {"backButton"} onClick={() => props.switchList("", "")}> ⇦ lists </button>
                 <Header
                     toggleCompletedDisplay={toggleCompletedDisplay}
                     completedDisplay={completedDisplay}

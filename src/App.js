@@ -4,7 +4,7 @@ import {useState} from 'react';
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc, updateDoc} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -57,27 +57,28 @@ function App() {
     }
 
     if (loading) {
-        return (<h3> loading lists ... </h3>)
+        return (<h3 aria-label="loading lists"> loading lists ... </h3>)
     } else if (error) {
-        return (<h3> an error occurred </h3>)
+        return (<h3 aria-label="an error occurred"> an error occurred </h3>)
     } else {
         if (listID === "") {
             return (
                 <div>
-                        <h3> Lists </h3>
+                        <h3 aria-label="Lists"> Lists </h3>
                         <ul>
                             {lists.length === 0 && <small>No Items</small>}
                             {lists.map(p =>
                                 <li className={"listItem"}>
-                                    <button
+                                    <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton" onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
-                                    <button className = "deleteListButton"
+                                    <button aria-label={"delete " + p.Title}
+                                            className = "deleteListButton"
                                             onClick={() => deleteList(p.ID)}> + </button>
                                 </li>
                             )}
                             <p onClick={() => addList("New List")}
                                 className="empty">
-                                <button className="addListButton">+</button>
+                                <button aria-label="add a new list " className="addListButton">+</button>
                             </p>
                         </ul>
                     </div>

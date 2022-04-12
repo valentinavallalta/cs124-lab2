@@ -3,27 +3,27 @@ ul {
 }
 
 .completed {
-    color: #8ab28a;
+    color: #5c8d5c;
     text-decoration: line-through;
-    border-bottom: 2px solid darkgreen;
+    border-bottom: 2px solid #003800;
 }
 
 .completed .textBox {
-    color: #8ab28a;
+    color: #5c8d5c;
     text-decoration: line-through;
 }
 
 .uncompleted {
     list-style-type: none;
-    border-bottom: 2px solid darkgreen;
+    border-bottom: 2px solid #003800;
     overflow-wrap: break-word;
     word-wrap: anywhere;
 }
 
 .uncompleted button {
     color: #d1f5d3;
-    font-size: 15pt !important;
-    border: 2px solid darkgreen;
+    /*font-size: 15pt !important;*/
+    border: 2px solid #003800;
     border-radius: 50%;
     background: #d1f5d3;
     padding: 17px;
@@ -32,33 +32,34 @@ ul {
 }
 
 .completed button {
-    border: 2px solid #8ab28a;
+    border: 2px solid #5c8d5c;
     border-radius: 50%;
-    background: #8ab28a;
-    color: #8ab28a;
-    font-size: 15pt !important;
+    background: #5c8d5c;
+    color: #5c8d5c;
+    /*font-size: 15pt !important;*/
     padding: 17px;
     padding-bottom: 2px;
     padding-left:2px;
 }
 
 ::placeholder {
-    color: rgb(97, 167, 98);
-    /*color: #8ab28a;*/
+    /*color: rgb(97, 167, 98);*/
+    color: #516C51;
 }
 
 .deleteItemButton{
     background-color: rgba(255,255,255,0)!important;
-    color: darkgreen !important;
+    color: #003800 !important;
     transform: rotate(45deg);
     padding: 5px !important;
     padding-bottom: 0 !important;
     padding-top: 0 !important;
     border: none !important;
+    font-size: 20pt !important;
 }
 
 .deleteItemButton:hover{
-    color: #8ab28a !important;
+    color: #516C51 !important;
 }
 
 .checkButton {
@@ -75,7 +76,7 @@ ul {
     padding-left: 8px;
     height: auto;
     font-size: 20pt;
-    color: darkgreen;
+    color: #003800;
     background-color: #d1f5d3;
     font-family: "Century Gothic",sans-serif;
     border: none;
@@ -98,30 +99,31 @@ ul {
 .priorityButton {
     /*visibility: hidden;*/
     background-color: rgba(255,255,255,0)!important;
-    color: darkgreen !important;
+    color: #003800 !important;
     padding: 5px !important;
     padding-bottom: 0 !important;
     padding-top: 0 !important;
     border: none !important;
+    font-size: 20pt !important;
 }
 
 .priority0 {
-    color: #8ab28a !important;
+    color: #5c8d5c !important;
 }
 
 .priority0:before {
     content: "!!";
-    color: #8ab28a !important;
+    color: #5c8d5c !important;
 }
 
 .priority1:before {
     content: "!!";
-    color: #8ab28a !important;
+    color: #5c8d5c !important;
 }
 
 .priority2:before {
     content: "!";
-    color: #8ab28a !important;
+    color: #5c8d5c !important;
 }
 
 .priority3:before {

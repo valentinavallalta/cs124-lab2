@@ -25,7 +25,7 @@ function List(props) {
                     aria-label={"add item"}
                     onClick={() => props.onAddItem("")}
                     className="empty">
-                    <button>+</button>
+                    <button className = "addNewItemButton">+</button>
                 </li>
             </ul>
         </div>)
