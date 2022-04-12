@@ -32,7 +32,11 @@ plus, the x and the three dots allows us to keep a simple look while still makin
 intuitive. When to do items are too long and don't fit on the line, the first part appears and there is an ellipse at
 the end to indicate that there is more text there. The final feature we added was to make the title of the list
 editable. This can fit the users needs more. The default is "To Do List" but this way users can change it to "Grocery
-List" or any other title to fit their needs.
+List" or any other title to fit their needs. When adding features for multiple lists, we took inspiration againf from the Remind
+App and also from the Notes App. We decided to have a homepage with all the current lists written in a list. From this
+home page, a user can click on a list to enter it. Users can also delete lists with the "x" button, similar to before
+and they can add lists with a "+" button at the bottom. The design of this homepage has many similar aspects to a To Do List
+page to keep uniformity amongst pages in our app. 
 
 #### Images:
 
@@ -96,7 +100,15 @@ We also considered an idea of having a right click option on each item. In the e
 because we found it simpler to use and easier to implement.
 We were also originally going to have all the sort options shown in the drop-down menu at one time, but we
 decided against this because we felt it would be confusing and the user would not be able to clearly tell that the list
-was being sorted by. Thus, we ended on the idea of having a drop down within our drop down.
+was being sorted by. Thus, we ended on the idea of having a drop-down within our drop-down.
+When implementing multiple lists, there was a different design that we were first considering. This design was more like
+a tab design, like you would find on a browser. For this design, we weren't sure if it was best to include each list title
+in the tab and in the list or just in the tab, and we couldnt agree on one decision. We also thought it would be more complicated
+to code, without adding significant simplicity to the design. We also were unsure how to maek this design compatible with
+different screen sizes in an effective way. Because of these reasons, we decided to go 
+with the homepage design. We also considered different ways of displaying our lists in the homepage.
+We considered having no separation, separating them with boxes and separating them with lines. 
+We landed on separating them with lines to be consistent with our individual list design.
 
 #### Images:
 
@@ -115,6 +127,12 @@ items and having the user click next to the circle to add a new item. The menu i
 completed items and the circle is not as intuitive for everyone and a plus sign is much more universal.
 
 ![crossedOutAnd Menu.png](crossedOutand Menu.png)
+
+Here we see our tab design for our multiple lists implementation
+![tab_design.jpeg](tab_design.jpeg)
+
+Here we see our differing ideas for seperating the list items in our main page
+![diff_mainpage.jpeg](diff_mainpage.jpeg)
 
 ## User Testing:
 

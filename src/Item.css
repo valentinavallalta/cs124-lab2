@@ -55,7 +55,7 @@ ul {
     padding-bottom: 0 !important;
     padding-top: 0 !important;
     border: none !important;
-    font-size: 20pt !important;
+    font-size: 17pt !important;
 }
 
 .deleteItemButton:hover{
@@ -75,7 +75,7 @@ ul {
     width: 100%;
     padding-left: 8px;
     height: auto;
-    font-size: 20pt;
+    font-size: 17pt;
     color: #003800;
     background-color: #d1f5d3;
     font-family: "Century Gothic",sans-serif;
@@ -104,7 +104,7 @@ ul {
     padding-bottom: 0 !important;
     padding-top: 0 !important;
     border: none !important;
-    font-size: 20pt !important;
+    font-size: 17pt !important;
 }
 
 .priority0 {

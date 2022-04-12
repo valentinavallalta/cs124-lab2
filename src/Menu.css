@@ -3,6 +3,8 @@
     margin-top: auto;
     margin-bottom: auto;
     alignment: right;
+    font-family: "Century Gothic",sans-serif;
+
 }
 
 .menuBackdrop {
@@ -38,9 +40,10 @@
 }
 
 .options {
-    font-size: 14pt;
+    font-size: 16pt;
     position: fixed;
     right: 18.35%;
+    margin: auto;
     background-color: #a1d2a1;
     box-shadow: 10px 10px 16px 0 rgb(0,0,0,0.2);
     z-index: 1;
