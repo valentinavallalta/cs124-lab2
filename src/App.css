@@ -1,5 +1,5 @@
 body {
-  font-size: 15pt;
+  font-size: 20pt;
   color: darkgreen;
   background-color: #d1f5d3;
   font-family: "Century Gothic",sans-serif;
@@ -18,7 +18,15 @@ body ul li .listButton{
   text-align: left;
   border: none;
   background: #d1f5d3;
+  font-size: 25pt;
+  color: darkgreen;
+
 }
+
+body ul li .listButton:hover {
+  color: #8ab28a !important;
+}
+
 
 body ul li p {
   grid-column-start: 1;
@@ -26,12 +34,30 @@ body ul li p {
 }
 
 .deleteListButton{
+  font-size: 20pt;
   grid-column-start: 2;
   grid-column-end: 2;
+  background-color: rgba(255,255,255,0)!important;
+  color: darkgreen !important;
+  transform: rotate(45deg);
+  padding: 5px !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  border: none !important;
+}
+
+.deleteListButton:hover{
+  color: #8ab28a !important;
+
+}
+
+.addListButton{
+  font-size: 20pt !important;
 }
 
 h3 {
   padding-left: 21pt;
+  font-size: 25pt;
 }
 
 button {
@@ -40,4 +66,11 @@ button {
 
 .listButton {
   display: inline-block;
+}
+.listButton:hover {
+  color: #8ab28a !important;
+}
+
+.listItem {
+  border-bottom: 2px solid darkgreen;
 }

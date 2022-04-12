@@ -2,7 +2,7 @@
 #Header {
     width: 80%;
     display: grid;
-    grid-template-columns: 27pt 29pt auto 23pt;
+    grid-template-columns: 27pt 35pt auto 23pt;
     grid-template-rows: auto;
 }
 
@@ -14,7 +14,7 @@ h1 {
 
 #Header input {
     grid-column: 3/ span 1;
-    font-size: 22pt;
+    font-size: 30pt;
     width: 90%;
     font-weight: bold;
     height: auto;
@@ -34,7 +34,7 @@ h1 {
 }
 
 .pencil {
-    font-size: 22pt;
+    font-size: 35pt;
     padding-left: 10%;
     text-align: left;
     grid-column: 2/ span 1;

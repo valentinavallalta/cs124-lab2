@@ -68,11 +68,11 @@ function App() {
                         <ul>
                             {lists.length === 0 && <small>No Items</small>}
                             {lists.map(p =>
-                                <li>
+                                <li className={"listItem"}>
                                     <button
                                         className="listButton" onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
                                     <button className = "deleteListButton"
-                                            onClick={() => deleteList(p.ID)}> X</button>
+                                            onClick={() => deleteList(p.ID)}> + </button>
                                 </li>
                             )}
                             <p onClick={() => addList("New List")}

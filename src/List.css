@@ -1,6 +1,6 @@
-#List {
-    font-size: 120%;
-}
+/*#List {*/
+/*    font-size: 120%;*/
+/*}*/
 
 #List ul li {
     margin: 10pt 0;
@@ -26,6 +26,7 @@
 
 /*#8ab28a different color option for button*/
 .empty button {
+    color: darkgreen;
     font-size: 15pt;
     border: none;
     border-radius: 50%;

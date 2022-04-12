@@ -24,6 +24,7 @@ function ToDoList(props) {
 
     const q = query(props.collectionRef);
     const [toDoItems, loading, error] = useCollectionData(q)
+    console.log(toDoItems)
 
     function addItem(itemContent) {
         const uniqueId = generateUniqueID()
@@ -113,7 +114,7 @@ function ToDoList(props) {
 
         return (
             <div className="App">
-                <button onClick={() => props.switchList("", "")}> &lt; lists </button>
+                <button className = {"backButton"} onClick={() => props.switchList("", "")}> ⇦ lists </button>
                 <Header
                     toggleCompletedDisplay={toggleCompletedDisplay}
                     completedDisplay={completedDisplay}

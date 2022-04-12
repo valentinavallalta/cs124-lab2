@@ -16,13 +16,22 @@
     z-index: 1;
 }
 
-button {
+.dropDownMenuButton {
     cursor:pointer;
     font-size: 129%;
-    /*margin: auto;*/
     color: darkgreen;
     background-color: #a1d2a1;
 }
+
+.options button {
+    cursor:pointer;
+    font-size: 129%;
+    color: darkgreen;
+    background-color: #a1d2a1;
+    border:none;
+}
+
+
 
 .menu button:hover {
     background-color: #8ab28a;

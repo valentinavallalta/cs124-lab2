@@ -1,10 +1,15 @@
-body {
-    font-size: 15pt;
-    color: darkgreen;
-    background-color: #d1f5d3;
-    font-family: "Century Gothic",sans-serif;
-}
-
 h3 {
     padding-left: 21pt;
+}
+
+.backButton {
+    color: darkgreen;
+    font-size: 17pt;
+    background-color: #d1f5d3;
+    font-family: "Century Gothic",sans-serif;
+    border: none;
+}
+.backButton:hover {
+    color: #8ab28a
+
 }

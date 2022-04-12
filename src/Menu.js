@@ -47,7 +47,7 @@ function Menu(props) {
 
     return (
         <div className="menu">
-            <button aria-label={"list options"} type="button" onClick={() => toggleMenuDisplay()}>···</button>
+            <button aria-label={"list options"} className = {"dropDownMenuButton"}type="button" onClick={() => toggleMenuDisplay()}>···</button>
             {menuDisplay && <div>
                 <div className={"menuBackdrop"}
                      onClick={() => toggleMenuDisplay()}/>
@@ -87,7 +87,7 @@ function Menu(props) {
                     }
                     <div>
                         <button id="ascendingButton"
-                                onClick={() => changeAscending()}>{(props.sortAscending === 'asc') ? "sort descending" : "sort ascending"}</button>
+                                onClick={() => changeAscending()}>{(props.sortAscending === 'asc') ? "sort by: ascending" : "sort by: descending"}</button>
                     </div>
                     {showAlert &&
                         <AlertPage onDeleteCompleted={props.onDeleteCompleted}
