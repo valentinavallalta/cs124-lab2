@@ -42,13 +42,17 @@ A link to a Google Drive with a video for how to use this website with keyboard 
 for how to use this website with VoiceOver only can be found here: https://drive.google.com/drive/u/1/folders/1NNGw-m71zcqOuTYeS6niFWOtRSDRXTG9
 
 #### Images:
+
 Here we can see what our homepage looks like when there are no items.
+
 ![](No_items_homepage.png)
 
 Here is what it looks like when we add an item.
+
 ![](One_item_homepage.png)
 
 Here we can see what a list page looks like when there are no items.
+
 ![empty_noItems.PNG](empty_noItems.PNG)
 
 Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on
