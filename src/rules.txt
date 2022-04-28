@@ -1,0 +1,16 @@
+Read: isOwner
+   or isViewer && isVerified
+
+Create: request.owner == user.id
+
+Update:
+    tasks: isEditor
+    viewers:  isOwner && user.id in requestViewers (and owner cant remove self)
+          or  isViewer && only remove self && isVerified
+          and resourceViewers - requestViewers == user.id
+          or resourceViewers > requestViewers
+          or resourceViewers == requestViewers
+
+    editors: isOwner && user.id in requestEditors
+
+ Delete: isOwner
