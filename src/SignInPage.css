@@ -1,0 +1,16 @@
+.login {
+    display: grid;
+    grid-template-columns: 15pt auto 30pt auto 15pt;
+    grid-template-rows: 15pt auto 15pt;
+}
+
+.signIn {
+    grid-column: 2/ span 1;
+    grid-row: 2;
+    border-right: 1px solid black;
+}
+
+.signUp {
+    grid-row: 2;
+    grid-column: 4/ span 1;
+}
