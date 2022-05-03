@@ -1,16 +1,79 @@
-Read: isOwner
-   or isViewer && isVerified
+function isOwner() {
+    return request.auth.uid == request.resource.data.owner;
+}
 
-Create: request.owner == user.id
+function isViewer() {
+    return request.auth.uid in resource.data.canView;
+}
 
-Update:
-    tasks: isEditor
-    viewers:  isOwner && user.id in requestViewers (and owner cant remove self)
-          or  isViewer && only remove self && isVerified
-          and resourceViewers - requestViewers == user.id
-          or resourceViewers > requestViewers
-          or resourceViewers == requestViewers
+function isVerified() {
+    return request.auth.token.email_verified;
+}
 
-    editors: isOwner && user.id in requestEditors
+function isAllowedRead() {
+    return isViewer() && isVerified();
+}
 
- Delete: isOwner
+allow read: if isOwner() || isAllowedRead();
+
+function isAllowedCreate() {
+    return request.auth.uid == request.resource.data.owner;
+}
+
+allow create: if isAllowedCreate();
+
+function isEditor() {
+    return request.auth.uid in resource.data.canEdit;
+}
+
+function tasksUnchanged() {
+    return request.resource.data.tasks == resource.data.tasks;
+}
+
+function tasksEditable() {
+    return isEditor() || tasksUnchanged();
+}
+
+function ownerStillInViewers() {
+    return request.auth.uid in request.resource.data.canView;
+}
+
+function ownerEditsViewers() {
+    return isOwner() && ownerStillInViewers();
+}
+
+function removedSelfFromViewers() {
+    return resource.data.canView - request.resource.data.canView == request.auth.uid;
+}
+
+functions viewersUnchanged() {
+    return request.resource.data.canView == resource.data.canView;
+}
+
+function viewerEditsViewers() {
+    return isViewer() && removedSelfFromViewers() && isVerified();
+}
+
+function viewersEditable() {
+    return ownerEditsViewers() || viewerEditsViewers() || viewersUnchanged();
+}
+
+function ownerStillInEditors() {
+    return request.auth.uid in request.resource.data.canEdit;
+}
+
+function ownerEditsEditors() {
+    return isOwner() && ownerStillInEditors();
+}
+
+function editorsUnchanged() {
+    return request.resource.data.canEdit == resource.data.canEdit;
+}
+
+function editorsEditable() {
+    return editorsUnchanged() || ownerEditsEditors();
+}
+
+allow update: if editorsEditable() && viewersEditable() && tasksEditable();
+
+allow delete: if isOwner();
