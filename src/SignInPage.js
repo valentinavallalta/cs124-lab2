@@ -33,47 +33,12 @@ function SignInPage(props) {
 
     return (<div className={"login"}>
             <div className={"signIn"}>
-                {/*<h1> Sign In </h1>*/}
-                {/*{error1 && <p>"Error logging in: " {error1.message}</p>}*/}
-                {/*{error2 && <p>"Error logging in: " {error2.message}</p>}*/}
-                {/*<label htmlFor='email'>email: </label>*/}
-                {/*<br/>*/}
-                {/*<input type="text" id='email' value={email}*/}
-                {/*       onChange={e=>setEmail(e.target.value)}/>*/}
-                {/*<br/>*/}
-                {/*<label htmlFor='pw'>password: </label>*/}
-                {/*<br/>*/}
-                {/*<input type="text" id='pw' value={pw}*/}
-                {/*       onChange={e=>setPw(e.target.value)}/>*/}
-                {/*<br/>*/}
-                {/*<button onClick={() =>signInWithEmailAndPassword(email, pw)}>*/}
-                {/*    Sign in*/}
-                {/*</button>*/}
-
-                {/*<hr/>*/}
-                {/*<button onClick={() => signInWithGoogle()}>*/}
-                {/*    Sign in with Google*/}
-                {/*</button>*/}
+                <h1> Sign In </h1>
                 <SignIn auth={props.auth}/>
             </div>
 
             <div className={"signUp"}>
-                {/*<h1> Sign up </h1>*/}
-                {/*{signUperror && <p>"Error signing up: " {signUperror.message}</p>}*/}
-                {/*<label htmlFor='email'>email: </label>*/}
-                {/*<br/>*/}
-                {/*<input type="text" id='email' value={email}*/}
-                {/*       onChange={e=>setEmail(e.target.value)}/>*/}
-                {/*<br/>*/}
-                {/*<label htmlFor='pw'>password: </label>*/}
-                {/*<br/>*/}
-                {/*<input type="text" id='pw' value={pw}*/}
-                {/*       onChange={e=>setPw(e.target.value)}/>*/}
-                {/*<br/>*/}
-                {/*<button onClick={() =>*/}
-                {/*    createUserWithEmailAndPassword(email, pw)}>*/}
-                {/*    Sign Up*/}
-                {/*</button>*/}
+                <h1> Sign Up </h1>
                 <SignUp auth={props.auth}/>
             </div>
         </div>
@@ -106,12 +71,12 @@ function SignIn(props) {
         <input type="text" id='email' value={email}
                onChange={e=>setEmail(e.target.value)}/>
         <br/>
-        <label htmlFor='pw'>pw: </label>
+        <label htmlFor='pw'>password: </label>
         <input type="text" id='pw' value={pw}
                onChange={e=>setPw(e.target.value)}/>
         <br/>
         <button onClick={() =>signInWithEmailAndPassword(email, pw)}>
-            Sign in with email/pw
+            Sign in
         </button>
 
         <hr/>
@@ -142,13 +107,13 @@ function SignUp(props) {
         <input type="text" id='email' value={email}
                onChange={e=>setEmail(e.target.value)}/>
         <br/>
-        <label htmlFor='pw'>pw: </label>
+        <label htmlFor='pw'>password: </label>
         <input type="text" id='pw' value={pw}
                onChange={e=>setPw(e.target.value)}/>
         <br/>
         <button onClick={() =>
             createUserWithEmailAndPassword(email, pw)}>
-            Create test user
+            Sign up
         </button>
 
     </div>
