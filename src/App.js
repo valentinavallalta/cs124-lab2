@@ -5,9 +5,11 @@ import UserLists from "./UserLists";
 
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc} from "firebase/firestore";
+import {getFirestore, query, collection, doc, setDoc, deleteDoc, where} from "firebase/firestore";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import SignInPage from "./SignInPage";
+import {useAuthState} from "react-firebase-hooks/auth";
+import {getAuth} from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -23,26 +25,25 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 const collectionName = "lab5"
+const auth = getAuth();
 
 function App() {
-
     const collectionRef = collection(db, collectionName)
-    const q = query(collectionRef);
-
-    const [lists, loading, error] = useCollectionData(q)
-
-    let signedIn = false;
+    const [user, loading, error] = useAuthState(auth);
 
     if (loading) {
         return (<h3 aria-label="loading lists"> loading lists ... </h3>)
     } else if (error) {
         return (<h3 aria-label="an error occurred"> an error occurred </h3>)
     } else {
-        if (signedIn) {
-            return (<UserLists lists={lists}
-                               collectionRef={collectionRef}/>)
+        if (user) {
+            return (<UserLists
+                user={user}
+                auth={auth}
+                collectionRef={collectionRef}/>)
         } else {
-            return <SignInPage/>
+            return <SignInPage
+            auth={auth}/>
         }
 
     }
