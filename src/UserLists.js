@@ -49,7 +49,7 @@ function UserLists(props) {
     const [displayShare, setDisplayshare] = useState(false);
 
     function toggleSharePopup(id) {
-        let list = lists.filter(p => p.ID == id)[0]
+        let list = lists.filter(p => p.ID === id)[0]
         setDoc(doc(props.collectionRef, id), {
             displayShare: !list.displayShare
         }, {merge: true})
@@ -69,7 +69,7 @@ function UserLists(props) {
                 </span>
                     <ul>
                         {lists.length === 0 && <small>No Lists</small>}
-                        {lists.filter(p => p.owner == props.user.uid).map(p =>
+                        {lists.filter(p => p.owner === props.user.uid).map(p =>
                             <li className={"listItem"}>
                                 <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton"
@@ -102,7 +102,7 @@ function UserLists(props) {
                     <h3> shared with me </h3>
                     <ul>
                         {lists.length === 0 && <small>No Lists</small>}
-                        {lists.filter(p => p.owner != props.user.uid).map(p =>
+                        {lists.filter(p => p.owner !== props.user.uid).map(p =>
                             <li className={"listItem"}>
                                 <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton"
@@ -127,10 +127,6 @@ function UserLists(props) {
                                 </button>
                             </li>
                         )}
-                        <p onClick={() => addList("New List")}
-                           className="empty">
-                            <button aria-label="add a new list " className="addListButton">+</button>
-                        </p>
                     </ul>
                 </div>
             )
