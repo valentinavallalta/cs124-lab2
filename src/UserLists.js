@@ -151,7 +151,7 @@ function UserLists(props) {
                         )}
                         {showAlertShared &&
                             <AlertPage onDeleteCompleted={deleteList}
-                                       showAlert={showAlert}
+                                       showAlert={showAlertShared}
                                        onShowAlert={setShowAlertShared}
                                        listID={listPopupID}
                                        message={"Are you sure you want to delete this list from your view?"}

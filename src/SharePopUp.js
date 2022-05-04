@@ -7,7 +7,7 @@ function SharePopUp(props) {
 
     function addViewer(email) {
         if (!props.list.canView.includes(email)) {
-            setDoc(doc(props.collectionRef, props.list.id), {
+            setDoc(doc(props.collectionRef, props.list.ID), {
                 canView: [...props.list.canView, email]
             }, {merge: true})
         }
@@ -15,12 +15,12 @@ function SharePopUp(props) {
 
     function addEditor(email) {
         if (!props.list.canView.includes(email)) {
-            setDoc(doc(props.collectionRef, props.list.id), {
+            setDoc(doc(props.collectionRef, props.list.ID), {
                 canView: [...props.list.canView, email],
                 canEdit: [...props.list.canEdit, email]
             }, {merge: true})
         } else if (!props.list.canEdit.includes(email)) {
-            setDoc(doc(props.collectionRef, props.list.id), {
+            setDoc(doc(props.collectionRef, props.list.ID), {
                 canEdit: [...props.list.canEdit, email]
             }, {merge: true})
         }
