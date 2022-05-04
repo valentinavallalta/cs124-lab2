@@ -67,7 +67,7 @@ function SignIn(props) {
     return <div>
         {error1 && <p>"Error logging in: " {error1.message}</p>}
         {error2 && <p>"Error logging in: " {error2.message}</p>}
-        <label htmlFor='email'>email: </label>
+        <label htmlFor='email'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: </label>
         <input type="text" id='email' value={email}
                onChange={e=>setEmail(e.target.value)}/>
         <br/>
@@ -75,12 +75,13 @@ function SignIn(props) {
         <input type="text" id='pw' value={pw}
                onChange={e=>setPw(e.target.value)}/>
         <br/>
-        <button onClick={() =>signInWithEmailAndPassword(email, pw)}>
+        <br/>
+        <button className="SignButton" onClick={() =>signInWithEmailAndPassword(email, pw)}>
             Sign in
         </button>
 
         <hr/>
-        <button onClick={() => signInWithGoogle()}>
+        <button className="SignButton" onClick={() => signInWithGoogle()}>
             Sign in with Google
         </button>
     </div>
@@ -103,7 +104,7 @@ function SignUp(props) {
     }
     return <div>
         {error && <p>"Error signing up: " {error.message}</p>}
-        <label htmlFor='email'>email: </label>
+        <label htmlFor='email'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: </label>
         <input type="text" id='email' value={email}
                onChange={e=>setEmail(e.target.value)}/>
         <br/>
@@ -111,7 +112,8 @@ function SignUp(props) {
         <input type="text" id='pw' value={pw}
                onChange={e=>setPw(e.target.value)}/>
         <br/>
-        <button onClick={() =>
+        <br/>
+        <button className="SignButton"  onClick={() =>
             createUserWithEmailAndPassword(email, pw)}>
             Sign up
         </button>

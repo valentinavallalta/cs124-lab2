@@ -5,6 +5,7 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {useState} from "react";
 import {signOut, sendEmailVerification} from "firebase/auth";
 import {useCollectionData} from "react-firebase-hooks/firestore";
+import UserListsHeader from "./UserListsHeader";
 
 function UserLists(props) {
     const q = query(props.collectionRef,
@@ -57,9 +58,10 @@ function UserLists(props) {
             return (
                 <div>
                 <span>
-                    <h3 aria-label="Lists"> Lists </h3>
-                    <p> current user: {props.user.email} </p>
-                    <button onClick={() => signOut(props.auth)}> sign out </button>
+                    <UserListsHeader email={props.user.email} auth={props.auth}/>
+                    {/*<h3 aria-label="Lists"> Lists </h3>*/}
+                    {/*<p> current user: {props.user.email} </p>*/}
+                    {/*<button onClick={() => signOut(props.auth)}> sign out </button>*/}
                     {!props.user.emailVerified && <button type="button" onClick={verifyEmail}>Verify email</button>}
                     {emailVerifySent && <p> email verification sent
                         <button onClick={() => setEmailVerifySent(false)}> x </button></p>}

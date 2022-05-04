@@ -1,0 +1,32 @@
+.ListHeader {
+    display: grid;
+    grid-template-columns: 25% auto 72pt auto;
+    grid-template-rows: 15pt 40pt;
+
+}
+.Title{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.currently{
+    font-size: 14pt;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: right;
+    vertical-align: baseline;
+}
+.SignOutButton {
+    cursor:pointer;
+    font-size: 14pt;
+    color: #003800;
+    background-color: #a1d2a1;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
