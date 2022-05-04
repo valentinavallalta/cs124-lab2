@@ -1,6 +1,6 @@
 .ListHeader {
     display: grid;
-    grid-template-columns: 25% auto 100pt 72pt auto;
+    grid-template-columns: 25% auto max-content 72pt 20%;
     grid-template-rows: 15pt 40pt;
 
 }
