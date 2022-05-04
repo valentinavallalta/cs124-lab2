@@ -1,10 +1,5 @@
 import "./SignInPage.css";
 import {
-    getAuth,
-    sendEmailVerification,
-    signOut } from "firebase/auth";
-import {
-    useAuthState,
     useCreateUserWithEmailAndPassword,
     useSignInWithEmailAndPassword,
     useSignInWithGoogle

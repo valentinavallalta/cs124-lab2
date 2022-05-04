@@ -59,7 +59,7 @@ function SharePopUp(props) {
                        placeholder={"Add an email"}/>
                 <button onClick={() => addViewer(addEmail)}> add as viewer</button>
                 <button onClick={() => addEditor(addEmail)}> add as editor</button>
-                <button className={"doneButton"}onClick={() => props.toggleSharePopup(null)}> Done</button>
+                <button className={"doneButton"} onClick={() => props.toggleSharePopup(null)}> Done</button>
                 </div>
             </ul>
         </div>

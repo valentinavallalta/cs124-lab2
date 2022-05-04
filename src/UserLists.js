@@ -1,11 +1,9 @@
 import "./userLists.css"
 import ToDoList from "./ToDoList";
-import alertPage from "./AlertPage";
 
 import {collection, deleteDoc, doc, query, setDoc, where} from "firebase/firestore";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {useState} from "react";
-import {signOut, sendEmailVerification} from "firebase/auth";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import UserListsHeader from "./UserListsHeader";
 import SharePopUp from "./SharePopUp";

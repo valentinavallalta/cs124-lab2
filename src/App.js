@@ -1,12 +1,8 @@
 import './App.css';
-import ToDoList from "./ToDoList";
-import {useState} from 'react';
 import UserLists from "./UserLists";
 
-import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc, where} from "firebase/firestore";
-import {useCollectionData} from "react-firebase-hooks/firestore";
+import {getFirestore, collection} from "firebase/firestore";
 import SignInPage from "./SignInPage";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {getAuth} from "firebase/auth";
