@@ -11,6 +11,7 @@
 }
 
 .sharePopup{
+    z-index: 2;
     align-content: space-around;
     padding: 20pt;
     background-color: white;
@@ -32,4 +33,8 @@
     padding: 20pt;
     display: inline;
     /*width: 50%;*/
+}
+
+.highlight {
+    background-color: hotpink !important;
 }

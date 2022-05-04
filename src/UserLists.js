@@ -25,7 +25,8 @@ function UserLists(props) {
             Title: title,
             owner: props.user.uid,
             canView: [props.user.email],
-            canEdit: [props.user.email]
+            canEdit: [props.user.email],
+            displayShare: false
         })
     }
 
@@ -47,8 +48,11 @@ function UserLists(props) {
 
     const [displayShare, setDisplayshare] = useState(false);
 
-    function toggleSharePopup() {
-        setDisplayshare(!displayShare)
+    function toggleSharePopup(id) {
+        let list = lists.filter(p => p.ID == id)[0]
+        setDoc(doc(props.collectionRef, id), {
+            displayShare: !list.displayShare
+        }, {merge: true})
     }
 
     if (loading) {
@@ -72,15 +76,17 @@ function UserLists(props) {
                                         onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
                                 <button aria-label={"share " + p.Title}
                                         className={"shareListButton"}
-                                        onClick={() => toggleSharePopup()}>👤
+                                        onClick={() => toggleSharePopup(p.ID)}>👤
                                 </button>
-                                {displayShare &&
-                                    <SharePopUp listId={p.ID}
+                                {p.displayShare &&
+                                    <SharePopUp list={p}
+                                                listId={p.ID}
                                                 title={p.Title}
                                                 toggleSharePopup={toggleSharePopup}
                                                 canView={p.canView}
                                                 canEdit={p.canEdit}
                                                 userEmail={props.user.email}
+                                                collectionRef={props.collectionRef}
                                     />}
                                 <button aria-label={"delete " + p.Title}
                                         className="deleteListButton"
