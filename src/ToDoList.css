@@ -8,8 +8,27 @@ h3 {
     background-color: #d1f5d3;
     font-family: "Century Gothic",sans-serif;
     border: none;
+
+    grid-column-start: 1;
+    grid-column-end: 1;
+    text-align: left;
 }
 .backButton:hover {
     color: #8ab28a
+
+}
+
+.BackAndOwner {
+    display: grid;
+    grid-template-columns: max-content auto 20%;
+    grid-template-rows: min-content;
+}
+
+.ownerEmail {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    text-align: right;
+    font-size: 15pt;
+    margin: 1pt;
 
 }

@@ -41,7 +41,7 @@ function ToDoList(props) {
         const currItem = toDoItems.filter(p => p.id === id)[0];
         const newVal = !(currItem.completed)
         const ref = doc(props.collectionRef, id)
-        updateDoc(ref, {completed : newVal});
+        updateDoc(ref, {completed: newVal});
     }
 
     function handleChangeContent(id, text) {
@@ -78,7 +78,7 @@ function ToDoList(props) {
         }
     }
 
-    function getNumCompletedItems(){
+    function getNumCompletedItems() {
         let temp = toDoItems.filter(p => p.completed === true);
         return temp.length
     }
@@ -98,7 +98,7 @@ function ToDoList(props) {
                 aCompare = -1
             }
             return (
-                (order === 'asc') ? aCompare : (-1*aCompare)
+                (order === 'asc') ? aCompare : (-1 * aCompare)
             )
         }
     }
@@ -114,9 +114,21 @@ function ToDoList(props) {
 
         return (
             <div className="App">
-                <button  aria-label = {"back to main page"} className = {"backButton"} onClick={() => props.switchList("", "")}> ⇦ lists </button>
-                {props.email !== props.list.owner ? <p> owner: {props.list.owner}, you are currently
-                    {props.list.canEdit.includes(props.email) ? " editing" : " viewing"} </p> : <p/>}
+                <div className={"BackAndOwner"}>
+                    <button aria-label={"back to main page"} className={"backButton"}
+                            onClick={() => props.switchList("", "")}> ⇦ lists
+                    </button>
+                    {/*<span>*/}
+                    {/*{props.email !== props.list.owner ? <p className="ownerEmail"> owner: {props.list.owner} role:*/}
+                    {/*    {props.list.canEdit.includes(props.email) ? " editor" : " viewer"} </p> : <p/>}*/}
+                    {/*</span>*/}
+
+                    <div className={"ownerAndRole"}>
+                         {props.email !== props.list.owner &&
+                            <p className="ownerEmail"> {"owner: "+ props.list.owner} </p>}
+                        {props.email !== props.list.owner && props.list.canEdit.includes(props.email) ? <p className="ownerEmail"> role: editor </p> : <p className="ownerEmail"> role: viewer </p>}
+                    </div>
+                </div>
                 <Header
                     toggleCompletedDisplay={toggleCompletedDisplay}
                     completedDisplay={completedDisplay}
