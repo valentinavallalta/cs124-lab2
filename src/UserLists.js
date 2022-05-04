@@ -69,7 +69,40 @@ function UserLists(props) {
                 </span>
                     <ul>
                         {lists.length === 0 && <small>No Lists</small>}
-                        {lists.map(p =>
+                        {lists.filter(p => p.owner == props.user.uid).map(p =>
+                            <li className={"listItem"}>
+                                <button aria-label={p.Title + " ,click to enter " + p.Title}
+                                        className="listButton"
+                                        onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
+                                <button aria-label={"share " + p.Title}
+                                        className={"shareListButton"}
+                                        onClick={() => toggleSharePopup(p.ID)}>👤
+                                </button>
+                                {p.displayShare &&
+                                    <SharePopUp list={p}
+                                                listId={p.ID}
+                                                title={p.Title}
+                                                toggleSharePopup={toggleSharePopup}
+                                                canView={p.canView}
+                                                canEdit={p.canEdit}
+                                                userEmail={props.user.email}
+                                                collectionRef={props.collectionRef}
+                                    />}
+                                <button aria-label={"delete " + p.Title}
+                                        className="deleteListButton"
+                                        onClick={() => deleteList(p.ID)}> +
+                                </button>
+                            </li>
+                        )}
+                        <p onClick={() => addList("New List")}
+                           className="empty">
+                            <button aria-label="add a new list " className="addListButton">+</button>
+                        </p>
+                    </ul>
+                    <h3> shared with me </h3>
+                    <ul>
+                        {lists.length === 0 && <small>No Lists</small>}
+                        {lists.filter(p => p.owner != props.user.uid).map(p =>
                             <li className={"listItem"}>
                                 <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton"
