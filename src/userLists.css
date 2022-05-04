@@ -1,4 +1,23 @@
 .listItem {
     display: grid;
+    grid-template-columns: auto 30pt 30pt;
+    grid-template-rows: auto;
+}
 
+.listButton {
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.shareListButton {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    background: #d1f5d3;
+    border:none;
+    color: #003800; /*should turn from blue to dark green but doesnt*/
+}
+
+.deleteListButton{
+    grid-column-start: 3;
+    grid-column-end: 3;
 }
