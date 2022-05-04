@@ -3,16 +3,20 @@ import './AlertPage.css'
 function AlertPage(props) {
 
     function onDelete() {
-        props.onDeleteCompleted();
+        if (props.listID == null) {
+            props.onDeleteCompleted();
+            props.onToggleMenu();
+        } else {
+            props.onDeleteCompleted(props.listID)
+        }
         props.onShowAlert(false);
-        props.onToggleMenu();
     }
 
     return (
         <div>
             {props.showAlert && <div className={"backdrop"} onClick={() => props.onShowAlert(false)}>
                 <div className="modal">
-                    Are you sure you want to delete completed items?
+                    {props.message}
                     <div className="alert-buttons">
                         <button className={"alert-button alert-cancel"} type={"button"}
                                 onClick={() => props.onShowAlert(false)}>

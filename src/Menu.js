@@ -94,6 +94,7 @@ function Menu(props) {
                                    showAlert={showAlert}
                                    onShowAlert={setShowAlert}
                                    onToggleMenu={toggleMenuDisplay}
+                                   message={"Are you sure you want to delete completed items?"}
                         />}
                 </div>
             </div>

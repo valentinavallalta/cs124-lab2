@@ -42,7 +42,7 @@ function SharePopUp(props) {
     return (
         <div className="sharePopupBG">
             <ul className="sharePopup">
-                <h3> Share Settings for: {props.list.title} </h3>
+                <h3> Share Settings for: {props.list.Title} </h3>
                 {props.list.canView.filter(p => p !== props.userEmail).map(p =>
                     <li className={"SharedWithDisplay"}>
                         <p className={"email"}>{p}</p>
@@ -58,7 +58,7 @@ function SharePopUp(props) {
                        placeholder={"Add an email"}/>
                 <button onClick={() => addViewer(addEmail)}> add as viewer</button>
                 <button onClick={() => addEditor(addEmail)}> add as editor</button>
-                <button onClick={() => props.toggleSharePopup(props.list.id)}> Done</button>
+                <button onClick={() => props.toggleSharePopup(null)}> Done</button>
             </ul>
         </div>
     )

@@ -1,5 +1,6 @@
 import "./userLists.css"
 import ToDoList from "./ToDoList";
+import alertPage from "./AlertPage";
 
 import {collection, deleteDoc, doc, query, setDoc, where} from "firebase/firestore";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
@@ -8,6 +9,7 @@ import {signOut, sendEmailVerification} from "firebase/auth";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import UserListsHeader from "./UserListsHeader";
 import SharePopUp from "./SharePopUp";
+import AlertPage from "./AlertPage";
 
 function UserLists(props) {
     const q = query(props.collectionRef,
@@ -25,8 +27,7 @@ function UserLists(props) {
             Title: title,
             owner: props.user.uid,
             canView: [props.user.email],
-            canEdit: [props.user.email],
-            displayShare: false
+            canEdit: [props.user.email]
         })
     }
 
@@ -49,11 +50,28 @@ function UserLists(props) {
     const [displayShare, setDisplayshare] = useState(false);
 
     function toggleSharePopup(id) {
-        let list = lists.filter(p => p.ID === id)[0]
-        setDoc(doc(props.collectionRef, id), {
-            displayShare: !list.displayShare
-        }, {merge: true})
+        // let list = lists.filter(p => p.ID === id)[0]
+        // setDoc(doc(props.collectionRef, id), {
+        //     displayShare: !list.displayShare
+        // }, {merge: true})
+        setDisplayshare(!displayShare)
+        setlistPopupID(id)
     }
+
+    const [showAlert, setShowAlert] = useState(false);
+    const [showAlertShared, setShowAlertShared] = useState(false);
+
+    function showShareList(id) {
+        setShowAlert(true)
+        setlistPopupID(id)
+    }
+
+    function showShareListShared(id) {
+        setShowAlertShared(true)
+        setlistPopupID(id)
+    }
+
+    const [listPopupID, setlistPopupID] = useState("");
 
     if (loading) {
         return (<h3 aria-label="loading lists"> loading lists ... </h3>)
@@ -78,19 +96,9 @@ function UserLists(props) {
                                         className={"shareListButton"}
                                         onClick={() => toggleSharePopup(p.ID)}>👤
                                 </button>
-                                {p.displayShare &&
-                                    <SharePopUp list={p}
-                                                listId={p.ID}
-                                                title={p.Title}
-                                                toggleSharePopup={toggleSharePopup}
-                                                canView={p.canView}
-                                                canEdit={p.canEdit}
-                                                userEmail={props.user.email}
-                                                collectionRef={props.collectionRef}
-                                    />}
                                 <button aria-label={"delete " + p.Title}
                                         className="deleteListButton"
-                                        onClick={() => deleteList(p.ID)}> +
+                                        onClick={() => showShareList(p.ID)}> +
                                 </button>
                             </li>
                         )}
@@ -98,6 +106,20 @@ function UserLists(props) {
                            className="empty">
                             <button aria-label="add a new list " className="addListButton">+</button>
                         </p>
+                        {displayShare &&
+                            <SharePopUp list={lists.filter(p => p.ID === listPopupID)[0]}
+                                        listId={listPopupID}
+                                        toggleSharePopup={toggleSharePopup}
+                                        userEmail={props.user.email}
+                                        collectionRef={props.collectionRef}
+                            />}
+                        {showAlert &&
+                            <AlertPage onDeleteCompleted={deleteList}
+                                       showAlert={showAlert}
+                                       onShowAlert={setShowAlert}
+                                       listID={listPopupID}
+                                       message={"Are you sure you want to delete this list, for you and everyone it is shared with?"}
+                            />}
                     </ul>
                     <h3> shared with me </h3>
                     <ul>
@@ -111,22 +133,29 @@ function UserLists(props) {
                                         className={"shareListButton"}
                                         onClick={() => toggleSharePopup(p.ID)}>👤
                                 </button>
-                                {p.displayShare &&
-                                    <SharePopUp list={p}
-                                                listId={p.ID}
-                                                title={p.Title}
-                                                toggleSharePopup={toggleSharePopup}
-                                                canView={p.canView}
-                                                canEdit={p.canEdit}
-                                                userEmail={props.user.email}
-                                                collectionRef={props.collectionRef}
-                                    />}
+                                {/*{p.displayShare &&*/}
+                                {/*    <SharePopUp list={p}*/}
+                                {/*                listId={p.ID}*/}
+                                {/*                title={p.Title}*/}
+                                {/*                toggleSharePopup={toggleSharePopup}*/}
+                                {/*                canView={p.canView}*/}
+                                {/*                canEdit={p.canEdit}*/}
+                                {/*                userEmail={props.user.email}*/}
+                                {/*                collectionRef={props.collectionRef}*/}
+                                {/*    />}*/}
                                 <button aria-label={"delete " + p.Title}
                                         className="deleteListButton"
-                                        onClick={() => deleteList(p.ID)}> +
+                                        onClick={() => showShareListShared(p.ID)}> +
                                 </button>
                             </li>
                         )}
+                        {showAlertShared &&
+                            <AlertPage onDeleteCompleted={deleteList}
+                                       showAlert={showAlert}
+                                       onShowAlert={setShowAlertShared}
+                                       listID={listPopupID}
+                                       message={"Are you sure you want to delete this list from your view?"}
+                            />}
                     </ul>
                 </div>
             )
