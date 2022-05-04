@@ -115,6 +115,8 @@ function ToDoList(props) {
         return (
             <div className="App">
                 <button  aria-label = {"back to main page"} className = {"backButton"} onClick={() => props.switchList("", "")}> ⇦ lists </button>
+                {props.email !== props.list.owner ? <p> owner: {props.list.owner}, you are currently
+                    {props.list.canEdit.includes(props.email) ? " editing" : " viewing"} </p> : <p/>}
                 <Header
                     toggleCompletedDisplay={toggleCompletedDisplay}
                     completedDisplay={completedDisplay}

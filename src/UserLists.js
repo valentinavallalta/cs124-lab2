@@ -25,7 +25,7 @@ function UserLists(props) {
         setDoc(doc(props.collectionRef, uniqueId), {
             ID: uniqueId,
             Title: title,
-            owner: props.user.uid,
+            owner: props.user.email,
             canView: [props.user.email],
             canEdit: [props.user.email]
         })
@@ -87,7 +87,7 @@ function UserLists(props) {
                 </span>
                     <ul>
                         {lists.length === 0 && <small>No Lists</small>}
-                        {lists.filter(p => p.owner === props.user.uid).map(p =>
+                        {lists.filter(p => p.owner === props.user.email).map(p =>
                             <li className={"listItem"}>
                                 <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton"
@@ -124,7 +124,7 @@ function UserLists(props) {
                     <h3> shared with me </h3>
                     <ul>
                         {lists.length === 0 && <small>No Lists</small>}
-                        {lists.filter(p => p.owner !== props.user.uid).map(p =>
+                        {lists.filter(p => p.owner !== props.user.email).map(p =>
                             <li className={"listItem"}>
                                 <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton"
@@ -170,6 +170,8 @@ function UserLists(props) {
                     listTitle={listTitle}
                     listID={listID}
                     onChangeTitle={changeTitle}
+                    email={props.user.email}
+                    list={lists.filter(p => p.ID === listID)[0]}
                 />
             )
         }
