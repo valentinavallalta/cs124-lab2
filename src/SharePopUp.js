@@ -53,12 +53,14 @@ function SharePopUp(props) {
                         <button className={"deleteViewer"} onClick={() => deleteViewer(p)}> X</button>
                     </li>
                 )}
-                <input type={"text"} id='email' value={addEmail}
+                <div className={"ShareWithNewPerson"}>
+                <input className={"EmailInput"} type={"text"} id='email' value={addEmail}
                        onChange={e => setAddEmail(e.target.value)}
                        placeholder={"Add an email"}/>
                 <button onClick={() => addViewer(addEmail)}> add as viewer</button>
                 <button onClick={() => addEditor(addEmail)}> add as editor</button>
-                <button onClick={() => props.toggleSharePopup(null)}> Done</button>
+                <button className={"doneButton"}onClick={() => props.toggleSharePopup(null)}> Done</button>
+                </div>
             </ul>
         </div>
     )
