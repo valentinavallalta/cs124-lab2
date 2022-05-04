@@ -34,7 +34,7 @@
     /*display: inline;*/
     font-size: 12pt;
     color: #003800;
-    background-color: #d1f5d3;
+    background-color:  #a1d2a1;
     width: auto;
     height: auto;
     text-align: center;
@@ -47,7 +47,7 @@
 
 .SharedWithDisplay{
     display: grid;
-    grid-template-columns: auto 70pt 70pt 50pt;
+    grid-template-columns: auto max-content max-content 5pt min-content;
     grid-template-rows: max-content;
 }
 
@@ -61,21 +61,22 @@
 .canViewButton{
     grid-column-start: 2;
     grid-column-end: 2;
-
+    text-align: right;
 
 }
 
 .canEditButton{
     grid-column-start: 3;
     grid-column-end: 3;
+    text-align: left;
 
 
 }
 
 .deleteViewer{
     background-color: #a1d2a1 !important;
-    grid-column-start: 4;
-    grid-column-end: 4;
+    grid-column-start: 5;
+    grid-column-end: 5;
 
 }
 
