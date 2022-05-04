@@ -15,7 +15,6 @@ function UserLists(props) {
 
     const [listID, setListID] = useState("")
     const [listTitle, setListTitle] = useState("")
-    const [emailVerifySent, setEmailVerifySent] = useState(false);
 
     function addList(title) {
         const uniqueId = generateUniqueID()
@@ -44,11 +43,6 @@ function UserLists(props) {
         setListTitle(title)
     }
 
-    function verifyEmail() {
-        sendEmailVerification(props.user);
-        setEmailVerifySent(true);
-    }
-
     if (loading) {
         return (<h3 aria-label="loading lists"> loading lists ... </h3>)
     } else if (error) {
@@ -58,13 +52,7 @@ function UserLists(props) {
             return (
                 <div>
                 <span>
-                    <UserListsHeader email={props.user.email} auth={props.auth}/>
-                    {/*<h3 aria-label="Lists"> Lists </h3>*/}
-                    {/*<p> current user: {props.user.email} </p>*/}
-                    {/*<button onClick={() => signOut(props.auth)}> sign out </button>*/}
-                    {!props.user.emailVerified && <button type="button" onClick={verifyEmail}>Verify email</button>}
-                    {emailVerifySent && <p> email verification sent
-                        <button onClick={() => setEmailVerifySent(false)}> x </button></p>}
+                    <UserListsHeader email={props.user.email} auth={props.auth} emailVerified = {props.user.emailVerified}/>
                 </span>
                     <ul>
                         {lists.length === 0 && <small>No Lists</small>}
@@ -73,6 +61,8 @@ function UserLists(props) {
                                 <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton"
                                         onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
+                                <button aria-label={"share " + p.Title}
+                                        className={"shareListButton"}>👤</button>
                                 <button aria-label={"delete " + p.Title}
                                         className="deleteListButton"
                                         onClick={() => deleteList(p.ID)}> +
