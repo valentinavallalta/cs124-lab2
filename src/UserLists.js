@@ -1,15 +1,17 @@
 import "./userLists.css"
 import ToDoList from "./ToDoList";
+
 import {collection, deleteDoc, doc, query, setDoc, where} from "firebase/firestore";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {useState} from "react";
 import {signOut, sendEmailVerification} from "firebase/auth";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import UserListsHeader from "./UserListsHeader";
+import SharePopUp from "./SharePopUp";
 
 function UserLists(props) {
     const q = query(props.collectionRef,
-        where("owner", "==", props.user.uid));
+        where("canView", "array-contains", props.user.email));
 
     const [lists, loading, error] = useCollectionData(q)
 
@@ -22,8 +24,8 @@ function UserLists(props) {
             ID: uniqueId,
             Title: title,
             owner: props.user.uid,
-            canView: [props.user.uid],
-            canEdit: [props.user.uid]
+            canView: [props.user.email],
+            canEdit: [props.user.email]
         })
     }
 
@@ -43,6 +45,12 @@ function UserLists(props) {
         setListTitle(title)
     }
 
+    const [displayShare, setDisplayshare] = useState(false);
+
+    function toggleSharePopup() {
+        setDisplayshare(!displayShare)
+    }
+
     if (loading) {
         return (<h3 aria-label="loading lists"> loading lists ... </h3>)
     } else if (error) {
@@ -52,7 +60,8 @@ function UserLists(props) {
             return (
                 <div>
                 <span>
-                    <UserListsHeader email={props.user.email} auth={props.auth} emailVerified = {props.user.emailVerified}/>
+                    <UserListsHeader email={props.user.email} auth={props.auth}
+                                     emailVerified={props.user.emailVerified}/>
                 </span>
                     <ul>
                         {lists.length === 0 && <small>No Lists</small>}
@@ -62,7 +71,17 @@ function UserLists(props) {
                                         className="listButton"
                                         onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
                                 <button aria-label={"share " + p.Title}
-                                        className={"shareListButton"}>👤</button>
+                                        className={"shareListButton"}
+                                        onClick={() => toggleSharePopup()}>👤
+                                </button>
+                                {displayShare &&
+                                    <SharePopUp listId={p.ID}
+                                                title={p.Title}
+                                                toggleSharePopup={toggleSharePopup}
+                                                canView={p.canView}
+                                                canEdit={p.canEdit}
+                                                userEmail={props.user.email}
+                                    />}
                                 <button aria-label={"delete " + p.Title}
                                         className="deleteListButton"
                                         onClick={() => deleteList(p.ID)}> +

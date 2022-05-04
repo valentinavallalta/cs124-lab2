@@ -239,3 +239,5 @@ We are also really proud of how we were able to figure out firestorm to have a m
 collection and a sub-collection and we are proud that for Lab 4, we were able to 
 break the tasks down into smaller pieces and make small progress without breaking 
 our entire code.
+
+## TODO: filtering for what you can see happens based on rules! :)

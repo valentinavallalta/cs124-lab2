@@ -1,0 +1,35 @@
+.sharePopupBG{
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 100%;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.sharePopup{
+    align-content: space-around;
+    padding: 20pt;
+    background-color: white;
+    border-radius: 5pt;
+    border-color: black;
+    border-style: solid;
+    margin: 0 auto;
+    padding-left: 10pt;
+    padding-top: 10pt;
+    top: 50pt;
+    /*height: 100pt;*/
+    /*width: 200pt;*/
+    position: relative;
+}
+
+.sharePopup button {
+    margin: auto;
+    align-content: space-around;
+    padding: 20pt;
+    display: inline;
+    /*width: 50%;*/
+}
