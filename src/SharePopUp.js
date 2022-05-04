@@ -42,17 +42,17 @@ function SharePopUp(props) {
     return (
         <div className="sharePopupBG">
             <ul className="sharePopup">
-                <h3> Share list {props.title} </h3>
-                {props.canView.filter(p => p != props.userEmail).map(p =>
-                    <li>
-                        <p>{p}</p>
+                <h3> Share Settings for: {props.title} </h3>
+                {props.canView.filter(p => p !== props.userEmail).map(p =>
+                    <li className={"SharedWithDisplay"}>
+                        <p className={"email"}>{p}</p>
                         <span>
                             <button onClick={() => toggleToViewer(p)}
-                                className={props.canEdit.includes(p)? "noHighlight" : "highlight"}>can view</button>
+                                className={props.canEdit.includes(p)? "noHighlight canViewButton" : "highlight canViewButton"}>can view</button>
                         <button onClick={() => addEditor(p)}
-                                className={props.canEdit.includes(p)? "highlight" : "noHighlight"}>can edit</button>
+                                className={props.canEdit.includes(p)? "highlight canEditButton" : "noHighlight canEditButton"}>can edit</button>
                         </span>
-                        <button onClick={() => deleteViewer(p)}> X</button>
+                        <button className={"deleteViewer"} onClick={() => deleteViewer(p)}> X</button>
                     </li>
                 )}
                 <input type={"text"} id='email' value={addEmail}
