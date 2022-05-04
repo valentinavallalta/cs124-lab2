@@ -30,11 +30,58 @@
 .sharePopup button {
     margin: auto;
     align-content: space-around;
-    padding: 20pt;
+    padding: initial;
     display: inline;
-    /*width: 50%;*/
+    font-size: 14pt;
+    color: #003800;
+    background-color: #d1f5d3;
+    width: auto;
+    height: auto;
+    text-align: center;
 }
 
 .highlight {
-    background-color: hotpink !important;
+    background-color: #5c8d5c !important;
 }
+
+
+.SharedWithDisplay{
+    display: grid;
+    grid-template-columns: auto 50pt 5pt 50pt 5pt 50pt 5pt;
+    grid-template-rows: max-content;
+}
+
+.email{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+}
+
+.canViewButton{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+}
+
+.canEditButton{
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+
+}
+
+.deleteViewer{
+    background-color: #a1d2a1 !important;
+    grid-column-start: 6;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    width: 10pt !important;
+}
+
