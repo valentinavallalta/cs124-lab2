@@ -124,9 +124,12 @@ function ToDoList(props) {
                     {/*</span>*/}
 
                     <div className={"ownerAndRole"}>
-                         {props.email !== props.list.owner &&
-                            <p className="ownerEmail"> {"owner: "+ props.list.owner} </p>}
-                        {props.email !== props.list.owner && props.list.canEdit.includes(props.email) ? <p className="ownerEmail"> role: editor </p> : <p className="ownerEmail"> role: viewer </p>}
+                        {props.email !== props.list.owner &&
+                            <p className="ownerEmail"> {"owner: " + props.list.owner} </p>}
+                        {props.email !== props.list.owner &&
+                        props.list.canEdit.includes(props.email) ? <p className="ownerEmail"> role: editor </p> :
+                            <p className="ownerEmail"> role: viewer </p>
+                        }
                     </div>
                 </div>
                 <Header
