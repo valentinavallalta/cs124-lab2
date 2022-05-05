@@ -178,7 +178,7 @@ function UserLists(props) {
                     listID={listID}
                     onChangeTitle={changeTitle}
                     email={props.user.email}
-                    list={lists.filter(p => p.ID === listID)[0]}
+                    list={lists.filter(p => p.ID === listID)[0] || sharedLists.filter(p => p.ID === listID)[0]}
                 />
             )
         }
