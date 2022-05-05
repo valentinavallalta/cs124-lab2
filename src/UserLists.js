@@ -71,14 +71,14 @@ function UserLists(props) {
     }
 
     function showShareListShared(id) {
-        setShowAlertShared(true)
         setlistPopupID(id)
+        setShowAlertShared(true)
     }
 
     const [listPopupID, setlistPopupID] = useState("");
 
     function deleteViewer(email) {
-        let list = lists.filter(p => p.ID === listPopupID)[0]
+        let list = lists.filter(p => p.ID === listPopupID)[0] || sharedLists.filter(p=>p.ID === listPopupID)[0];
         setDoc(doc(props.collectionRef, listPopupID), {
             canView: list.canView.filter(p => p !== email),
             canEdit: list.canEdit.filter(p => p !== email)
@@ -148,16 +148,6 @@ function UserLists(props) {
                                             className={"shareListButton"}
                                             onClick={() => toggleSharePopup(p.ID)}>👤
                                     </button>
-                                    {/*{p.displayShare &&*/}
-                                    {/*    <SharePopUp list={p}*/}
-                                    {/*                listId={p.ID}*/}
-                                    {/*                title={p.Title}*/}
-                                    {/*                toggleSharePopup={toggleSharePopup}*/}
-                                    {/*                canView={p.canView}*/}
-                                    {/*                canEdit={p.canEdit}*/}
-                                    {/*                userEmail={props.user.email}*/}
-                                    {/*                collectionRef={props.collectionRef}*/}
-                                    {/*    />}*/}
                                     <button aria-label={"delete " + p.Title}
                                             className="deleteListButton"
                                             onClick={() => showShareListShared(p.ID)}> +
