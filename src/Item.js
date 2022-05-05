@@ -11,6 +11,7 @@ function Item(props) {
                 className="checkButton"
                 onClick={() => props.onItemCompleted(props.id)}
             />
+        {props.canEdit ?
             <input
                 aria-label={(props.content ? props.content : "new item")}
                 type="text"
@@ -20,6 +21,15 @@ function Item(props) {
                 defaultValue={props.content}
                 placeholder="add an item here"
             />
+            :
+            <label aria-label={(props.content ? props.content : "new item")}
+                   type="text"
+                   className="textBox"
+                   onClick={(e) => e.stopPropagation()}
+                   onChange={(e) => props.onContentChange(props.id, e.target.value)}
+                   defaultValue={props.content}
+                   placeholder="add an item here">{props.content}</label>
+        }
         {/*</span>*/}
         <span className="itemSpan">
         <button

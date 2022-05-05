@@ -10,6 +10,8 @@ function ToDoList(props) {
     const [sortAscending, setSortAscending] = useState('asc');
     const [sortBy, setSortBy] = useState("time created");
 
+    let canEdit = props.list.canEdit.includes(props.email)
+
     function toggleAscending() {
         if (sortAscending === 'asc') {
             setSortAscending('desc')
@@ -145,6 +147,7 @@ function ToDoList(props) {
                     listTitle={props.listTitle}
                     listID={props.listID}
                     onChangeTitle={props.onChangeTitle}
+                    canEdit = {canEdit}
                 >
                 </Header>
                 <List
@@ -154,6 +157,7 @@ function ToDoList(props) {
                     onContentChange={handleChangeContent}
                     onDeleteItem={deleteItem}
                     onPriorityChange={quadrogglePriority}
+                    canEdit = {canEdit}
                 >
                 </List>
             </div>

@@ -1,79 +1,131 @@
-function isOwner() {
-    return request.auth.uid == request.resource.data.owner;
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+  	match /lab5/{list} {
+      // function signedIn() {
+      //   return request.auth.uid != null;
+      // }
+      
+      // base functions for allowing read
+      
+      function isOwner() {
+        	return request.auth.token.email == resource.data.owner;
+      }
+
+      function isViewer() {
+          return request.auth.token.email in resource.data.canView;
+      }
+
+      function isVerified() {
+          return request.auth.token.email_verified;
+      }
+
+      function isAllowedRead() {
+          return isViewer() && isVerified();
+      }
+
+			// ALLOW
+      allow read: if isOwner() || isAllowedRead();
+
+			// base function for allowing create
+      
+      function isAllowedCreate() {
+          return request.auth.token.email == request.resource.data.owner;
+      }
+
+			// ALLOW
+      allow create: if isAllowedCreate();
+			
+      // base functions for allowing task editing
+      
+      function isEditor() {
+          return request.auth.token.email in resource.data.canEdit;
+      }
+
+      function tasksUnchanged() {
+          // return request.resource.data.tasks == resource.data.tasks;
+          return true;
+      }
+
+      function tasksEditable() {
+          return isEditor() || tasksUnchanged();
+      }
+			
+      // base functions for allowing viewer editing
+      
+      function ownerStillInViewers() {
+          return request.auth.token.email in request.resource.data.canView;
+      }
+
+      function ownerEditsViewers() {
+          return isOwner() && ownerStillInViewers();
+      }
+
+      function removedSelfFromViewers() {
+      		let set = resource.data.canView.toSet();
+          let setafter = request.resource.data.canView.toSet();
+          return set.difference(setafter) == [request.auth.token.email].toSet();
+      }
+
+      function viewersUnchanged() {
+          return request.resource.data.canView == resource.data.canView;
+      }
+
+      function viewerEditsViewers() {
+          return isViewer() && removedSelfFromViewers() && isVerified();
+      }
+
+      function viewersEditable() {
+          return ownerEditsViewers() || viewerEditsViewers() || viewersUnchanged();
+      }
+      
+      // base functions for allowing editor editing
+
+      function ownerStillInEditors() {
+          return request.auth.token.email in request.resource.data.canEdit;
+      }
+
+      function ownerEditsEditors() {
+          return isOwner() && ownerStillInEditors();
+      }
+
+      function editorsUnchanged() {
+          return request.resource.data.canEdit == resource.data.canEdit;
+      }
+      
+      function removedSelfFromEditors() {
+      		let set = resource.data.canEdit.toSet();
+          let setafter = request.resource.data.canEdit.toSet();
+          return set.difference(setafter) == [request.auth.token.email].toSet();
+      }
+      
+      function editorEditsEditors() {
+          return isEditor() && removedSelfFromEditors();
+      }
+
+      function editorsEditable() {
+          return editorsUnchanged() || ownerEditsEditors() || editorEditsEditors();
+      }
+      
+      // ALLOW
+
+      allow update: if editorsEditable() && viewersEditable() // tasksEditable();
+
+      allow delete: if isOwner();
+      
+      match /tasks/{task} {
+      
+      		function canEditTask() {
+              return request.auth.token.email in get(/databases/$(database)/documents/lab5/$(list)).data.canEdit ||
+              		request.auth.token.email == get(/databases/$(database)/documents/lab5/$(list)).owner;
+          }
+          
+      		allow read: if true;
+          allow write: if canEditTask();
+          allow delete: if canEditTask();
+      }
+      
+    }
+  }
 }
-
-function isViewer() {
-    return request.auth.uid in resource.data.canView;
-}
-
-function isVerified() {
-    return request.auth.token.email_verified;
-}
-
-function isAllowedRead() {
-    return isViewer() && isVerified();
-}
-
-allow read: if isOwner() || isAllowedRead();
-
-function isAllowedCreate() {
-    return request.auth.uid == request.resource.data.owner;
-}
-
-allow create: if isAllowedCreate();
-
-function isEditor() {
-    return request.auth.uid in resource.data.canEdit;
-}
-
-function tasksUnchanged() {
-    return request.resource.data.tasks == resource.data.tasks;
-}
-
-function tasksEditable() {
-    return isEditor() || tasksUnchanged();
-}
-
-function ownerStillInViewers() {
-    return request.auth.uid in request.resource.data.canView;
-}
-
-function ownerEditsViewers() {
-    return isOwner() && ownerStillInViewers();
-}
-
-function removedSelfFromViewers() {
-    return resource.data.canView - request.resource.data.canView == request.auth.uid;
-}
-
-functions viewersUnchanged() {
-    return request.resource.data.canView == resource.data.canView;
-}
-
-function viewerEditsViewers() {
-    return isViewer() && removedSelfFromViewers() && isVerified();
-}
-
-function viewersEditable() {
-    return ownerEditsViewers() || viewerEditsViewers() || viewersUnchanged();
-}
-
-function ownerStillInEditors() {
-    return request.auth.uid in request.resource.data.canEdit;
-}
-
-function ownerEditsEditors() {
-    return isOwner() && ownerStillInEditors();
-}
-
-function editorsUnchanged() {
-    return request.resource.data.canEdit == resource.data.canEdit;
-}
-
-function editorsEditable() {
-    return editorsUnchanged() || ownerEditsEditors();
-}
-
-allow update: if editorsEditable() && viewersEditable() && tasksEditable();
-
-allow delete: if isOwner();

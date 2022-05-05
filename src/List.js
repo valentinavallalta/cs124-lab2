@@ -18,6 +18,7 @@ function List(props) {
                           key={p.id}
                           onDeleteItem={props.onDeleteItem}
                           onPriorityChange={props.onPriorityChange}
+                          canEdit={props.canEdit}
                     />
                 )}
 

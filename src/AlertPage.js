@@ -3,12 +3,15 @@ import './AlertPage.css'
 function AlertPage(props) {
 
     function onDelete() {
-        if (props.listID === null) {
+        if (!props.listID) {
+            console.log("if1")
             props.onDeleteCompleted();
             props.onToggleMenu();
-        } else if (props.email === null) {
+        } else if (!props.email) {
+            console.log("elif1")
             props.onDeleteCompleted(props.listID)
         } else {
+            console.log("else")
             props.onDeleteCompleted(props.email)
         }
         props.onShowAlert(false);

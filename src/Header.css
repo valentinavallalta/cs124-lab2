@@ -24,6 +24,18 @@ h1 {
     border: none;
 }
 
+#Header label {
+    grid-column: 3/ span 1;
+    font-size: 27pt;
+    width: 90%;
+    font-weight: bold;
+    height: auto;
+    color: #003800;
+    background-color: #d1f5d3;
+    /*font-family: "Century Gothic", sans-serif;*/
+    border: none;
+}
+
 .titleTextbox {
     text-overflow: ellipsis;
 }

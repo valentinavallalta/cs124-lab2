@@ -36,6 +36,8 @@ function UserLists(props) {
     }
 
     function deleteList(id) {
+        console.log(id)
+        console.log(props.collectionRef)
         deleteDoc(doc(props.collectionRef, id));
     }
 
