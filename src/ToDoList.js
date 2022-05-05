@@ -26,7 +26,6 @@ function ToDoList(props) {
 
     const q = query(props.collectionRef);
     const [toDoItems, loading, error] = useCollectionData(q)
-    console.log(toDoItems)
 
     function addItem(itemContent) {
         const uniqueId = generateUniqueID()

@@ -47,7 +47,16 @@ also remove them from having the document shared with them entirely. There is al
 viewer or editor. However, if a viewer has not verified their email they are not able to see the lists that have been shared 
 with them. The area for shared lists is still there, with a message that the viewer must verify their email to see them first. 
 We chose to keep the title of "Shared Lists" so users can learn about the functionality even if they don't have it at the moment. 
-When the user clicks on the verify email button, we also show a popup telling them so.
+When the user clicks on the verify email button, we also show a popup telling them so. When a user is a viewer on the list, 
+we decided it wasn't just enough for their edits to not propagate to the database. Instead, all clicking and typing on the list 
+objects is removed. Altogether, the rules for editing and viewing are as follows: if person A shares a list with person B, they 
+can add person B as and editor or a viewer. In either case, person B can remove themselves from being able to view the list / 
+remove their access to it. Person B can only edits tasks and the title of the list if they are granted edit powers. However, 
+person A has complete control over who can view the list, who can edit the list, and can also delete the list which removes it 
+for everyone who had access previously. Before accessing any lists, we decided that the user must sign in. Since new users 
+must sign up, we split the login page into sign in and sign up, with users also having the option to sign in via google. However, 
+this is not the only way to sign in because not everyone has equal access to a google account. As stated previously, if a 
+user does not verify their email, they cannot view lists that are shared with them.
 
 A link to a Google Drive with a video for how to use this website with keyboard only and 
 for how to use this website with VoiceOver only can be found here: https://drive.google.com/drive/u/1/folders/1NNGw-m71zcqOuTYeS6niFWOtRSDRXTG9
