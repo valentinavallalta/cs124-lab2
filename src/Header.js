@@ -22,12 +22,7 @@ function Header(props) {
                     type="text"
                     defaultValue={props.listTitle}/>
                 :
-                <label
-                aria-label={"List Title "+ props.listTitle + ", click to edit"}
-                id = "pencil"
-                className="titleTextbox"
-                type="text"
-                defaultValue={props.listTitle}>{props.listTitle}</label>
+                <label>{props.listTitle}</label>
             }
             {/*</h1>*/}
             <Menu

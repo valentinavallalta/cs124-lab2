@@ -121,7 +121,7 @@ function ToDoList(props) {
                             onClick={() => props.switchList("", "")}> ⇦ lists
                     </button>
                     <span>
-                    {props.email !== props.list.owner ? <p className="ownerEmail"> owner: {props.list.owner} <br></br> role:
+                    {props.email !== props.list.owner ? <p className="ownerEmail"> owner: {props.list.owner} <br/> role:
                         {props.list.canEdit.includes(props.email) ? " editor" : " viewer"} </p> : <p/>}
                     </span>
 

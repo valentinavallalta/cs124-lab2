@@ -22,13 +22,7 @@ function Item(props) {
                 placeholder="add an item here"
             />
             :
-            <label aria-label={(props.content ? props.content : "new item")}
-                   type="text"
-                   className="textBox"
-                   onClick={(e) => e.stopPropagation()}
-                   onChange={(e) => props.onContentChange(props.id, e.target.value)}
-                   defaultValue={props.content}
-                   placeholder="add an item here">{props.content}</label>
+            <label>{props.content}</label>
         }
         {/*</span>*/}
         <span className="itemSpan">
