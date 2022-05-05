@@ -1,11 +1,12 @@
 import './App.css';
-import ToDoList from "./ToDoList";
-import {useState} from 'react';
+import UserLists from "./UserLists";
 
-import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, doc, setDoc, deleteDoc} from "firebase/firestore";
-import {useCollectionData} from "react-firebase-hooks/firestore";
+import {getFirestore, collection} from "firebase/firestore";
+import SignInPage from "./SignInPage";
+import {useAuthState} from "react-firebase-hooks/auth";
+import {getAuth} from "firebase/auth";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyCwrC7AFEMEg9VAxhYk7n5EvwojCYsnpKQ",
@@ -19,84 +20,28 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
-const collectionName = "lists"
+const collectionName = "lab5"
+const auth = getAuth();
 
 function App() {
-
     const collectionRef = collection(db, collectionName)
-    const q = query(collectionRef);
-
-    const [listID, setListID] = useState("")
-    const [listTitle, setListTitle] = useState("")
-
-
-    const [lists, loading, error] = useCollectionData(q)
-
-    function addList(title) {
-        const uniqueId = generateUniqueID()
-        setDoc(doc(collectionRef, uniqueId), {
-            ID: uniqueId,
-            Title: title
-        })
-    }
-
-    function deleteList(id) {
-        deleteDoc(doc(collectionRef, id));
-    }
-
-    function switchList(id, title) {
-        setListID(id)
-        setListTitle(title)
-    }
-
-    function changeTitle(id, title) {
-        setDoc(doc(collectionRef, id), {
-            Title: title
-        }, {merge: true})
-        setListTitle(title)
-    }
+    const [user, loading, error] = useAuthState(auth);
 
     if (loading) {
         return (<h3 aria-label="loading lists"> loading lists ... </h3>)
     } else if (error) {
         return (<h3 aria-label="an error occurred"> an error occurred </h3>)
     } else {
-        if (listID === "") {
-            return (
-                <div>
-                        <h3 aria-label="Lists"> Lists </h3>
-                        <ul>
-                            {lists.length === 0 && <small>No Lists</small>}
-                            {lists.map(p =>
-                                <li className={"listItem"}>
-                                    <button aria-label={p.Title + " ,click to enter " + p.Title}
-                                        className="listButton" onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
-                                    <button aria-label={"delete " + p.Title}
-                                            className = "deleteListButton"
-                                            onClick={() => deleteList(p.ID)}> + </button>
-                                </li>
-                            )}
-                            <p onClick={() => addList("New List")}
-                                className="empty">
-                                <button aria-label="add a new list " className="addListButton">+</button>
-                            </p>
-                        </ul>
-                    </div>
-            )
+        if (user) {
+            return (<UserLists
+                user={user}
+                auth={auth}
+                collectionRef={collectionRef}/>)
         } else {
-
-            const listCollectionRef = collection(db, collectionName, listID, "tasks")
-
-            return (
-                <ToDoList
-                    switchList={switchList}
-                    collectionRef={listCollectionRef}
-                    listTitle={listTitle}
-                    listID={listID}
-                    onChangeTitle={changeTitle}
-                />
-            )
+            return <SignInPage
+            auth={auth}/>
         }
+
     }
 }
 

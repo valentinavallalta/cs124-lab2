@@ -47,7 +47,7 @@ function Menu(props) {
 
     return (
         <div className="menu">
-            <button aria-label={"list options"} className = {"dropDownMenuButton"}type="button" onClick={() => toggleMenuDisplay()}>···</button>
+            <button aria-label={"list options"} className = {"dropDownMenuButton"} type="button" onClick={() => toggleMenuDisplay()}>···</button>
             {menuDisplay && <div>
                 <div className={"menuBackdrop"}
                      onClick={() => toggleMenuDisplay()}/>
@@ -94,6 +94,7 @@ function Menu(props) {
                                    showAlert={showAlert}
                                    onShowAlert={setShowAlert}
                                    onToggleMenu={toggleMenuDisplay}
+                                   message={"Are you sure you want to delete completed items?"}
                         />}
                 </div>
             </div>

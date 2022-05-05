@@ -1,0 +1,80 @@
+.ListHeader {
+    display: grid;
+    grid-template-columns: 20% auto max-content 72pt 20%;
+    grid-template-rows: 15pt max-content min-content;
+
+}
+.Title{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    margin:0;
+}
+.currently{
+    font-size: 14pt;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: right;
+    vertical-align: baseline;
+}
+.SignOutButton {
+    cursor:pointer;
+    font-size: 14pt;
+    color: #003800;
+    background-color: #a1d2a1;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.VerifyEmailButton {
+    cursor:pointer;
+    font-size: 14pt;
+    color: #003800;
+    background-color: #a1d2a1;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+}
+
+.VerificationPopUpBG{
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 100%;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.VerificationPopUp{
+    align-content: space-around;
+    padding: 20pt;
+    background-color: white;
+    border-radius: 5pt;
+    border-color: black;
+    border-style: solid;
+    margin: 0 auto;
+    padding-left: 10pt;
+    padding-top: 10pt;
+    top: 50pt;
+    height: max-content;
+    width: 65%;
+    position: relative;
+    font-size: 18pt;
+    text-align: center;
+}
+
+.VerificationPopUpButton{
+    background-color: #a1d2a1;
+    font-size: 15pt;
+}
+

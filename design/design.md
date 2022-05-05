@@ -36,24 +36,64 @@ List" or any other title to fit their needs. When adding features for multiple l
 App and also from the Notes App. We decided to have a homepage with all the current lists written in a list. From this
 home page, a user can click on a list to enter it. Users can also delete lists with the "x" button, similar to before
 and they can add lists with a "+" button at the bottom. The design of this homepage has many similar aspects to a To Do List
-page to keep uniformity amongst pages in our app. 
-
-A link to a Google Drive with a video for how to use this website with keyboard only and 
+page to keep uniformity amongst pages in our app.
+A link to a Google Drive with a video for how to use this website with keyboard only and
 for how to use this website with VoiceOver only can be found here: https://drive.google.com/drive/u/1/folders/1NNGw-m71zcqOuTYeS6niFWOtRSDRXTG9
+
+The lists the user owns and the lists shared with them are separated; the owner and the user's role (either viewer or editor) 
+is displayed inside the list itself. Also displayed on the main page is the user's email, and a sign-out button. If the email 
+is not verified, the option to verify email is also presented in the upper right-hand corner. This way, all information about 
+the user and their login is presented in the same place, out of the way but still easily accessible. For sharing lists, the 
+lists that a user owns have a person button next to the delete button. This brings up a pop-up, letting the user know which 
+list they're working with, and everyone who has access to it. For each person the user can set them as viewer or editor, and 
+also remove them from having the document shared with them entirely. There is also the option to add a new user as either a 
+viewer or editor. However, if a viewer has not verified their email they are not able to see the lists that have been shared 
+with them. The area for shared lists is still there, with a message that the viewer must verify their email to see them first. 
+We chose to keep the title of "Shared Lists" so users can learn about the functionality even if they don't have it at the moment. 
+When the user clicks on the verify email button, we also show a popup telling them so. When a user is a viewer on the list, 
+we decided it wasn't just enough for their edits to not propagate to the database. Instead, all clicking and typing on the list 
+objects is removed. Altogether, the rules for editing and viewing are as follows: if person A shares a list with person B, they 
+can add person B as and editor or a viewer. In either case, person B can remove themselves from being able to view the list / 
+remove their access to it. Person B can only edits tasks and the title of the list if they are granted edit powers. However, 
+person A has complete control over who can view the list, who can edit the list, and can also delete the list which removes it 
+for everyone who had access previously. Before accessing any lists, we decided that the user must sign in. Since new users 
+must sign up, we split the login page into sign in and sign up, with users also having the option to sign in via google. However, 
+this is not the only way to sign in because not everyone has equal access to a google account. As stated previously, if a 
+user does not verify their email, they cannot view lists that are shared with them.
 
 #### Images:
 
+Here we can see the first login page.
+
+![](log_in_screen.png)
+
 Here we can see what our homepage looks like when there are no items.
 
-![](No_items_homepage.png)
+![](lists_display.png)
 
-Here is what it looks like when we add an item.
+Here is what it looks like when we add a list and when we have a shared list.
 
-![](One_item_homepage.png)
+![](list_display_with_lists.png)
 
-Here we can see what a list page looks like when there are no items.
+Here is the pop up when you delete your own list.
+
+![](delete_own_list.png)
+
+Here is the pop up when you delete a list shared with you
+
+![](delete_shared_list.png)
+
+Here is the share settings for your own lists to share them with others.
+
+![](share_list_settings.png)
+
+Here we can see what your own list page looks like when there are no items.
 
 ![empty_noItems.PNG](empty_noItems.PNG)
+
+Here is what a shared list looks like once you click into it.
+
+![](shared_list_inside.png)
 
 Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on
 the line looks like, what set priorities look like for items, and what an item that is currently being edited looks like
@@ -77,6 +117,8 @@ Here we can see the popup asking for confirmation before the user can delete all
 backdrop closes the popup.
 
 ![popup_delete.png](popup_delete.png)
+
+
 
 ## Alternate Designs:
 
@@ -112,6 +154,13 @@ different screen sizes in an effective way. Because of these reasons, we decided
 with the homepage design. We also considered different ways of displaying our lists in the homepage.
 We considered having no separation, separating them with boxes and separating them with lines. 
 We landed on separating them with lines to be consistent with our individual list design.
+With choosing how to display shared lists vs. the lists a person owns, our first idea was to have every list be shown in the 
+same area, with small bubbles or other icons showing whether or not the user is the owner, and who it is shared with. When 
+we started sketching this out, the page became cluttered very quickly, so we decided to separate the information. On the main 
+list page is whether a list is shared or not (this is designated by an entire section! This also works better for removing certain 
+functionality for shared lists). Within each individual list is the user's status and who owns that list. The owner can see 
+who has access to the list, and this happens in a popup from the main lists page. All of this works to keep the interface clean 
+and still make information accessible to the user.
 
 #### Images:
 
@@ -136,6 +185,9 @@ Here we see our tab design for our multiple lists implementation
 
 Here we see our differing ideas for seperating the list items in our main page
 ![diff_mainpage.jpeg](diff_mainpage.jpeg)
+
+Here are the different sharing options looks we considered.
+![](diff_sharing_option.jpeg)
 
 ## User Testing:
 
@@ -217,6 +269,9 @@ wrapped when it is larger than the line. These are features that we spent a whil
 the end we were not able to, and we had to decide to let it go and not have these features in our app. We also 
 still hope to add a wrapping feature to our items, which we have not yet been able to 
 implement.
+The strongest struggle, conceptually, has been understanding how rules work. Not only what role they serve, but also how to 
+actually implement them. However, working out the rules in class with a grutor and sitting down completely separate from the 
+code to plan out the rules was very helpful.
 
 ## Parts you're most proud of:
 
@@ -238,4 +293,8 @@ testing, like adding a pencil by the To Do List name to make the editable featur
 We are also really proud of how we were able to figure out firestorm to have a main 
 collection and a sub-collection and we are proud that for Lab 4, we were able to 
 break the tasks down into smaller pieces and make small progress without breaking 
-our entire code.
+our entire code. For lab5, getting functional rules was absolutely huge for us and we're very excited that we made them work,
+especially since we've been experiencing a time crunch and at times considered forgoing the rules entirely. As part of this, 
+we took the time to test all the rules we could think of, and have done our best to make the app safe and secure. We're also 
+proud of the app in its entirety, as this has been the culmination of a semester of work. We're excited to use our app! And 
+pass messages to each other via to do lists, and keep each other accountable.

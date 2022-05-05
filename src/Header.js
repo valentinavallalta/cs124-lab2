@@ -12,6 +12,7 @@ function Header(props) {
         <div id="Header">
             {/*<h1>*/}
                 <span className={"pencil"} onClick = {()=> focusPencil()}>{"✎ "}</span>
+            {props.canEdit?
                 <input
                     aria-label={"List Title "+ props.listTitle + ", click to edit"}
                     id = "pencil"
@@ -20,6 +21,9 @@ function Header(props) {
                     onChange={(e) => props.onChangeTitle(props.listID, e.target.value)}
                     type="text"
                     defaultValue={props.listTitle}/>
+                :
+                <label>{props.listTitle}</label>
+            }
             {/*</h1>*/}
             <Menu
                 toggleCompletedDisplay={props.toggleCompletedDisplay}
