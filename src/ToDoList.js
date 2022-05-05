@@ -118,19 +118,19 @@ function ToDoList(props) {
                     <button aria-label={"back to main page"} className={"backButton"}
                             onClick={() => props.switchList("", "")}> ⇦ lists
                     </button>
-                    {/*<span>*/}
-                    {/*{props.email !== props.list.owner ? <p className="ownerEmail"> owner: {props.list.owner} role:*/}
-                    {/*    {props.list.canEdit.includes(props.email) ? " editor" : " viewer"} </p> : <p/>}*/}
-                    {/*</span>*/}
+                    <span>
+                    {props.email !== props.list.owner ? <p className="ownerEmail"> owner: {props.list.owner} <br></br> role:
+                        {props.list.canEdit.includes(props.email) ? " editor" : " viewer"} </p> : <p/>}
+                    </span>
 
-                    <div className={"ownerAndRole"}>
-                        {props.email !== props.list.owner &&
-                            <p className="ownerEmail"> {"owner: " + props.list.owner} </p>}
-                        {props.email !== props.list.owner &&
-                        props.list.canEdit.includes(props.email) ? <p className="ownerEmail"> role: editor </p> :
-                            <p className="ownerEmail"> role: viewer </p>
-                        }
-                    </div>
+                    {/*<div className={"ownerAndRole"}>*/}
+                    {/*    {props.email !== props.list.owner &&*/}
+                    {/*        <p className="ownerEmail"> {"owner: " + props.list.owner} </p>}*/}
+                    {/*    {props.email !== props.list.owner &&*/}
+                    {/*        props.list.canEdit.includes(props.email) ? <p className="ownerEmail"> role: editor </p> :*/}
+                    {/*        <p className="ownerEmail"> role: viewer </p>*/}
+                    {/*    }*/}
+                    {/*</div>*/}
                 </div>
                 <Header
                     toggleCompletedDisplay={toggleCompletedDisplay}

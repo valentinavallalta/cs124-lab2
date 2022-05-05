@@ -1,14 +1,15 @@
 .ListHeader {
     display: grid;
-    grid-template-columns: 25% auto max-content 72pt 20%;
-    grid-template-rows: 15pt 40pt;
+    grid-template-columns: 20% auto max-content 72pt 20%;
+    grid-template-rows: 15pt max-content min-content;
 
 }
 .Title{
     grid-column-start: 1;
     grid-column-end: 1;
-    grid-row-start: 2;
-    grid-row-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    margin:0;
 }
 .currently{
     font-size: 14pt;
