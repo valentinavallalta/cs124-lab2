@@ -22,6 +22,7 @@
     padding-left: 10pt;
     padding-top: 10pt;
     top: 50pt;
+    height: auto;
     /*height: 100pt;*/
     /*width: 200pt;*/
     position: relative;
@@ -41,7 +42,8 @@
 }
 
 .highlight {
-    background-color: #5c8d5c !important;
+    background-color: #79a579 !important;
+
 }
 
 
@@ -49,11 +51,13 @@
     display: grid;
     grid-template-columns: auto max-content max-content 5pt min-content;
     grid-template-rows: max-content;
+    width:100% !important;
 }
 
 .email{
     grid-column-start: 1;
     grid-column-end: 1;
+    font-size: 14pt;
 
 
 }
@@ -85,8 +89,11 @@
 }
 
 .ShareWithNewPerson {
-    width: 80%;
+    width: 100%;
 }
 .doneButton {
     float: right;
 }
+/*.NewPersonSettings{*/
+/*    float:left;*/
+/*}*/

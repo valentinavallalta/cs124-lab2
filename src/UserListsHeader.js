@@ -16,13 +16,13 @@ function UserListsHeader(props) {
 
         <div className={"ListHeader"}>
             <h3 className= "Title" aria-label="Lists"> Lists </h3>
-            <p className={"currently"}>{props.email} &nbsp;</p>
+            <p className={"currently"}>{props.email}&nbsp;</p>
             <button className="SignOutButton" onClick={() => signOut(props.auth)}> sign out</button>
             {!props.emailVerified && <button className="VerifyEmailButton" type="button" onClick={verifyEmail}>verify email</button>}
             {emailVerifySent && <div className={"VerificationPopUpBG"}>
                 <p className = "VerificationPopUp"> email verification sent to {props.email}
                 <button className= "VerificationPopUpButton" onClick={() => setEmailVerifySent(false)}> OK </button></p></div>}
-        </div>);
+         </div>);
 }
 
 export default UserListsHeader;

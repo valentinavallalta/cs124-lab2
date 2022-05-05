@@ -35,28 +35,28 @@
     padding: 20pt;
     font-size: 14pt;
     color: #003800;
-    width: 50%;
+    /*width: 50%;*/
     text-align: center;
 }
 
 .alert-cancel {
-    margin: auto;
+    margin: 0;
     background-color: #a1d2a1;
 
     align-content: space-around;
     padding: 5pt;
     font-size: 14pt;
     color: #003800;
-    width: min-content;
+    width: max-content;
 }
 
 .alert-delete {
-    margin: auto;
+    margin: 0;
     background-color: #a1d2a1;
 
     align-content: space-around;
     padding: 5pt;
     font-size: 14pt;
     color: #003800;
-    width: min-content;
+    width: max-content;
 }

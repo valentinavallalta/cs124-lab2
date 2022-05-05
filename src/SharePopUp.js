@@ -50,8 +50,10 @@ function SharePopUp(props) {
                 <input className={"EmailInput"} type={"text"} id='email' value={addEmail}
                        onChange={e => setAddEmail(e.target.value)}
                        placeholder={"Add an email"}/>
+                    <div className={"NewPersonSettings"}>
                 <button onClick={() => addViewer(addEmail)}> add as viewer</button>
                 <button onClick={() => addEditor(addEmail)}> add as editor</button>
+                </div>
                 <button className={"doneButton"} onClick={() => props.toggleSharePopup(null)}> Done</button>
                 </div>
             </ul>
