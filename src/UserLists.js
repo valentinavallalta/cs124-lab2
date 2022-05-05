@@ -78,7 +78,7 @@ function UserLists(props) {
     const [listPopupID, setlistPopupID] = useState("");
 
     function deleteViewer(email) {
-        let list = lists.filter(p => p.ID === listPopupID)[0] || sharedLists.filter(p=>p.ID === listPopupID)[0];
+        let list = lists.filter(p => p.ID === listPopupID)[0] || sharedLists.filter(p => p.ID === listPopupID)[0];
         setDoc(doc(props.collectionRef, listPopupID), {
             canView: list.canView.filter(p => p !== email),
             canEdit: list.canEdit.filter(p => p !== email)
@@ -105,10 +105,12 @@ function UserLists(props) {
                                 <button aria-label={p.Title + " ,click to enter " + p.Title}
                                         className="listButton"
                                         onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
-                                <button aria-label={"share " + p.Title}
-                                        className={"shareListButton"}
-                                        onClick={() => toggleSharePopup(p.ID)}>👤
-                                </button>
+                                {props.user.emailVerified &&
+                                    <button aria-label={"share " + p.Title}
+                                            className={"shareListButton"}
+                                            onClick={() => toggleSharePopup(p.ID)}>👤
+                                    </button>
+                                }
                                 <button aria-label={"delete " + p.Title}
                                         className="deleteListButton"
                                         onClick={() => showShareList(p.ID)}> +
@@ -120,12 +122,13 @@ function UserLists(props) {
                             <button aria-label="add a new list " className="addListButton">+</button>
                         </p>
                         {displayShare &&
-                            <SharePopUp list={lists.filter(p => p.ID === listPopupID)[0]}
-                                        listId={listPopupID}
-                                        toggleSharePopup={toggleSharePopup}
-                                        userEmail={props.user.email}
-                                        collectionRef={props.collectionRef}
-                                        deleteViewer={deleteViewer}
+                            <SharePopUp
+                                list={lists.filter(p => p.ID === listPopupID)[0] || sharedLists.filter(p => p.ID === listPopupID)[0]}
+                                listId={listPopupID}
+                                toggleSharePopup={toggleSharePopup}
+                                userEmail={props.user.email}
+                                collectionRef={props.collectionRef}
+                                deleteViewer={deleteViewer}
                             />}
                         {showAlert &&
                             <AlertPage onDeleteCompleted={deleteList}
@@ -144,10 +147,6 @@ function UserLists(props) {
                                     <button aria-label={p.Title + " ,click to enter " + p.Title}
                                             className="listButton"
                                             onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
-                                    <button aria-label={"share " + p.Title}
-                                            className={"shareListButton"}
-                                            onClick={() => toggleSharePopup(p.ID)}>👤
-                                    </button>
                                     <button aria-label={"delete " + p.Title}
                                             className="deleteListButton"
                                             onClick={() => showShareListShared(p.ID)}> +
@@ -162,7 +161,7 @@ function UserLists(props) {
                                            listID={listPopupID}
                                            message={"Are you sure you want to delete this list from your view?"}
                                 />}
-                        </ul> : <p> verify your email to view lists shared with you </p>
+                        </ul> : <ul><small> verify your email to view lists shared with you </small></ul>
                     }
                 </div>
             )
