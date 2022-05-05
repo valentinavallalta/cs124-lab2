@@ -36,7 +36,10 @@ List" or any other title to fit their needs. When adding features for multiple l
 App and also from the Notes App. We decided to have a homepage with all the current lists written in a list. From this
 home page, a user can click on a list to enter it. Users can also delete lists with the "x" button, similar to before
 and they can add lists with a "+" button at the bottom. The design of this homepage has many similar aspects to a To Do List
-page to keep uniformity amongst pages in our app. 
+page to keep uniformity amongst pages in our app.
+A link to a Google Drive with a video for how to use this website with keyboard only and
+for how to use this website with VoiceOver only can be found here: https://drive.google.com/drive/u/1/folders/1NNGw-m71zcqOuTYeS6niFWOtRSDRXTG9
+
 The lists the user owns and the lists shared with them are separated; the owner and the user's role (either viewer or editor) 
 is displayed inside the list itself. Also displayed on the main page is the user's email, and a sign-out button. If the email 
 is not verified, the option to verify email is also presented in the upper right-hand corner. This way, all information about 
@@ -58,26 +61,39 @@ must sign up, we split the login page into sign in and sign up, with users also 
 this is not the only way to sign in because not everyone has equal access to a google account. As stated previously, if a 
 user does not verify their email, they cannot view lists that are shared with them.
 
-A link to a Google Drive with a video for how to use this website with keyboard only and 
-for how to use this website with VoiceOver only can be found here: https://drive.google.com/drive/u/1/folders/1NNGw-m71zcqOuTYeS6niFWOtRSDRXTG9
-
 #### Images:
 
 Here we can see the first login page.
 
+![](log_in_screen.png)
+
 Here we can see what our homepage looks like when there are no items.
 
-![](No_items_homepage.png) 
-[//]: # (REDO)
+![](lists_display.png)
 
-Here is what it looks like when we add an item.
+Here is what it looks like when we add a list and when we have a shared list.
 
-![](One_item_homepage.png)
-[//]: # (REDO)
+![](list_display_with_lists.png)
 
-Here we can see what a list page looks like when there are no items.
+Here is the pop up when you delete your own list.
+
+![](delete_own_list.png)
+
+Here is the pop up when you delete a list shared with you
+
+![](delete_shared_list.png)
+
+Here is the share settings for your own lists to share them with others.
+
+![](share_list_settings.png)
+
+Here we can see what your own list page looks like when there are no items.
 
 ![empty_noItems.PNG](empty_noItems.PNG)
+
+Here is what a shared list looks like once you click into it.
+
+![](shared_list_inside.png)
 
 Here we can see what a set item looks like, what a completed item looks like, what an item that is too long to fit on
 the line looks like, what set priorities look like for items, and what an item that is currently being edited looks like
@@ -101,7 +117,8 @@ Here we can see the popup asking for confirmation before the user can delete all
 backdrop closes the popup.
 
 ![popup_delete.png](popup_delete.png)
-[//]: # (REDO)
+
+
 
 ## Alternate Designs:
 
@@ -168,6 +185,9 @@ Here we see our tab design for our multiple lists implementation
 
 Here we see our differing ideas for seperating the list items in our main page
 ![diff_mainpage.jpeg](diff_mainpage.jpeg)
+
+Here are the different sharing options looks we considered.
+![](diff_sharing_option.jpeg)
 
 ## User Testing:
 
