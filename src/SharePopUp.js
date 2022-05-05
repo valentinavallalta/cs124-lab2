@@ -26,13 +26,6 @@ function SharePopUp(props) {
         }
     }
 
-    function deleteViewer(email) {
-        setDoc(doc(props.collectionRef, props.listId), {
-            canView: props.list.canView.filter(p => p !== email),
-            canEdit: props.list.canEdit.filter(p => p !== email)
-        }, {merge: true})
-    }
-
     function toggleToViewer(email) {
         setDoc(doc(props.collectionRef, props.listId), {
             canEdit: props.list.canEdit.filter(p => p !== email)
@@ -50,7 +43,7 @@ function SharePopUp(props) {
                                 className={props.list.canEdit.includes(p)? "noHighlight canViewButton" : "highlight canViewButton"}>can view</button>
                         <button onClick={() => addEditor(p)}
                                 className={props.list.canEdit.includes(p)? "highlight canEditButton" : "noHighlight canEditButton"}>can edit</button>
-                        <button className={"deleteViewer"} onClick={() => deleteViewer(p)}> X</button>
+                        <button className={"deleteViewer"} onClick={() => props.deleteViewer(p)}> X</button>
                     </li>
                 )}
                 <div className={"ShareWithNewPerson"}>

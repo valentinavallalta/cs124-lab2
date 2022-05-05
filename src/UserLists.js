@@ -11,9 +11,15 @@ import AlertPage from "./AlertPage";
 
 function UserLists(props) {
     const q = query(props.collectionRef,
+        where("owner", "==", props.user.email));
+
+    const q2 = query(props.collectionRef,
         where("canView", "array-contains", props.user.email));
 
     const [lists, loading, error] = useCollectionData(q)
+
+    const [sharedLists, sharedLoading, shareError] = useCollectionData(q2)
+    console.log(sharedLists)
 
     const [listID, setListID] = useState("")
     const [listTitle, setListTitle] = useState("")
@@ -71,6 +77,15 @@ function UserLists(props) {
 
     const [listPopupID, setlistPopupID] = useState("");
 
+    function deleteViewer(email) {
+        let list = lists.filter(p => p.ID === listPopupID)[0]
+        setDoc(doc(props.collectionRef, listPopupID), {
+            canView: list.canView.filter(p => p !== email),
+            canEdit: list.canEdit.filter(p => p !== email)
+        }, {merge: true})
+        console.log("removingViewer")
+    }
+
     if (loading) {
         return (<h3 aria-label="loading lists"> loading lists ... </h3>)
     } else if (error) {
@@ -110,6 +125,7 @@ function UserLists(props) {
                                         toggleSharePopup={toggleSharePopup}
                                         userEmail={props.user.email}
                                         collectionRef={props.collectionRef}
+                                        deleteViewer={deleteViewer}
                             />}
                         {showAlert &&
                             <AlertPage onDeleteCompleted={deleteList}
@@ -120,41 +136,44 @@ function UserLists(props) {
                             />}
                     </ul>
                     <h3> shared with me </h3>
-                    <ul>
-                        {lists.length === 0 && <small>No Lists</small>}
-                        {lists.filter(p => p.owner !== props.user.email).map(p =>
-                            <li className={"listItem"}>
-                                <button aria-label={p.Title + " ,click to enter " + p.Title}
-                                        className="listButton"
-                                        onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
-                                <button aria-label={"share " + p.Title}
-                                        className={"shareListButton"}
-                                        onClick={() => toggleSharePopup(p.ID)}>👤
-                                </button>
-                                {/*{p.displayShare &&*/}
-                                {/*    <SharePopUp list={p}*/}
-                                {/*                listId={p.ID}*/}
-                                {/*                title={p.Title}*/}
-                                {/*                toggleSharePopup={toggleSharePopup}*/}
-                                {/*                canView={p.canView}*/}
-                                {/*                canEdit={p.canEdit}*/}
-                                {/*                userEmail={props.user.email}*/}
-                                {/*                collectionRef={props.collectionRef}*/}
-                                {/*    />}*/}
-                                <button aria-label={"delete " + p.Title}
-                                        className="deleteListButton"
-                                        onClick={() => showShareListShared(p.ID)}> +
-                                </button>
-                            </li>
-                        )}
-                        {showAlertShared &&
-                            <AlertPage onDeleteCompleted={deleteList}
-                                       showAlert={showAlertShared}
-                                       onShowAlert={setShowAlertShared}
-                                       listID={listPopupID}
-                                       message={"Are you sure you want to delete this list from your view?"}
-                            />}
-                    </ul>
+                    {sharedLists ?
+                        <ul>
+                            {sharedLists.length === 0 && <small>No Lists Shared with you</small>}
+                            {sharedLists.filter(p => p.owner !== props.user.email).map(p =>
+                                <li className={"listItem"}>
+                                    <button aria-label={p.Title + " ,click to enter " + p.Title}
+                                            className="listButton"
+                                            onClick={() => switchList(p.ID, p.Title)}>{p.Title}</button>
+                                    <button aria-label={"share " + p.Title}
+                                            className={"shareListButton"}
+                                            onClick={() => toggleSharePopup(p.ID)}>👤
+                                    </button>
+                                    {/*{p.displayShare &&*/}
+                                    {/*    <SharePopUp list={p}*/}
+                                    {/*                listId={p.ID}*/}
+                                    {/*                title={p.Title}*/}
+                                    {/*                toggleSharePopup={toggleSharePopup}*/}
+                                    {/*                canView={p.canView}*/}
+                                    {/*                canEdit={p.canEdit}*/}
+                                    {/*                userEmail={props.user.email}*/}
+                                    {/*                collectionRef={props.collectionRef}*/}
+                                    {/*    />}*/}
+                                    <button aria-label={"delete " + p.Title}
+                                            className="deleteListButton"
+                                            onClick={() => showShareListShared(p.ID)}> +
+                                    </button>
+                                </li>
+                            )}
+                            {showAlertShared &&
+                                <AlertPage onDeleteCompleted={deleteViewer}
+                                           email={props.user.email}
+                                           showAlert={showAlertShared}
+                                           onShowAlert={setShowAlertShared}
+                                           listID={listPopupID}
+                                           message={"Are you sure you want to delete this list from your view?"}
+                                />}
+                        </ul> : <p> verify your email to view lists shared with you </p>
+                    }
                 </div>
             )
         } else {

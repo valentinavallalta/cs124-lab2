@@ -3,11 +3,13 @@ import './AlertPage.css'
 function AlertPage(props) {
 
     function onDelete() {
-        if (props.listID == null) {
+        if (props.listID === null) {
             props.onDeleteCompleted();
             props.onToggleMenu();
-        } else {
+        } else if (props.email === null) {
             props.onDeleteCompleted(props.listID)
+        } else {
+            props.onDeleteCompleted(props.email)
         }
         props.onShowAlert(false);
     }
