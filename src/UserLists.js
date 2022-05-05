@@ -18,7 +18,7 @@ function UserLists(props) {
 
     const [lists, loading, error] = useCollectionData(q)
 
-    const [sharedLists, sharedLoading, shareError] = useCollectionData(q2)
+    const [sharedLists] = useCollectionData(q2)
 
     const [listID, setListID] = useState("")
     const [listTitle, setListTitle] = useState("")
