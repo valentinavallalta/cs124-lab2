@@ -54,13 +54,17 @@ for how to use this website with VoiceOver only can be found here: https://drive
 
 #### Images:
 
+Here we can see the first login page.
+
 Here we can see what our homepage looks like when there are no items.
 
-![](No_items_homepage.png)
+![](No_items_homepage.png) 
+[//]: # (REDO)
 
 Here is what it looks like when we add an item.
 
 ![](One_item_homepage.png)
+[//]: # (REDO)
 
 Here we can see what a list page looks like when there are no items.
 
@@ -88,6 +92,7 @@ Here we can see the popup asking for confirmation before the user can delete all
 backdrop closes the popup.
 
 ![popup_delete.png](popup_delete.png)
+[//]: # (REDO)
 
 ## Alternate Designs:
 
@@ -249,6 +254,8 @@ testing, like adding a pencil by the To Do List name to make the editable featur
 We are also really proud of how we were able to figure out firestorm to have a main 
 collection and a sub-collection and we are proud that for Lab 4, we were able to 
 break the tasks down into smaller pieces and make small progress without breaking 
-our entire code.
-
-## TODO: filtering for what you can see happens based on rules! :)
+our entire code. For lab5, getting functional rules was absolutely huge for us and we're very excited that we made them work,
+especially since we've been experiencing a time crunch and at times considered forgoing the rules entirely. As part of this, 
+we took the time to test all the rules we could think of, and have done our best to make the app safe and secure. We're also 
+proud of the app in its entirety, as this has been the culmination of a semester of work. We're excited to use our app! And 
+pass messages to each other via to do lists, and keep each other accountable.
