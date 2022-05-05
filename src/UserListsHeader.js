@@ -20,7 +20,7 @@ function UserListsHeader(props) {
             <button className="SignOutButton" onClick={() => signOut(props.auth)}> sign out</button>
             {!props.emailVerified && <button className="VerifyEmailButton" type="button" onClick={verifyEmail}>verify email</button>}
             {emailVerifySent && <div className={"VerificationPopUpBG"}>
-                <p className = "VerificationPopUp"> email verification sent to {props.email}
+                <p className = "VerificationPopUp"> email verification sent to {props.email}<br/>
                 <button className= "VerificationPopUpButton" onClick={() => setEmailVerifySent(false)}> OK </button></p></div>}
          </div>);
 }

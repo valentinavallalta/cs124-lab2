@@ -37,6 +37,17 @@ App and also from the Notes App. We decided to have a homepage with all the curr
 home page, a user can click on a list to enter it. Users can also delete lists with the "x" button, similar to before
 and they can add lists with a "+" button at the bottom. The design of this homepage has many similar aspects to a To Do List
 page to keep uniformity amongst pages in our app. 
+The lists the user owns and the lists shared with them are separated; the owner and the user's role (either viewer or editor) 
+is displayed inside the list itself. Also displayed on the main page is the user's email, and a sign-out button. If the email 
+is not verified, the option to verify email is also presented in the upper right-hand corner. This way, all information about 
+the user and their login is presented in the same place, out of the way but still easily accessible. For sharing lists, the 
+lists that a user owns have a person button next to the delete button. This brings up a pop-up, letting the user know which 
+list they're working with, and everyone who has access to it. For each person the user can set them as viewer or editor, and 
+also remove them from having the document shared with them entirely. There is also the option to add a new user as either a 
+viewer or editor. However, if a viewer has not verified their email they are not able to see the lists that have been shared 
+with them. The area for shared lists is still there, with a message that the viewer must verify their email to see them first. 
+We chose to keep the title of "Shared Lists" so users can learn about the functionality even if they don't have it at the moment. 
+When the user clicks on the verify email button, we also show a popup telling them so.
 
 A link to a Google Drive with a video for how to use this website with keyboard only and 
 for how to use this website with VoiceOver only can be found here: https://drive.google.com/drive/u/1/folders/1NNGw-m71zcqOuTYeS6niFWOtRSDRXTG9

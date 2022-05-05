@@ -19,7 +19,6 @@ function UserLists(props) {
     const [lists, loading, error] = useCollectionData(q)
 
     const [sharedLists, sharedLoading, shareError] = useCollectionData(q2)
-    console.log(sharedLists)
 
     const [listID, setListID] = useState("")
     const [listTitle, setListTitle] = useState("")
@@ -36,8 +35,6 @@ function UserLists(props) {
     }
 
     function deleteList(id) {
-        console.log(id)
-        console.log(props.collectionRef)
         deleteDoc(doc(props.collectionRef, id));
     }
 
@@ -85,7 +82,6 @@ function UserLists(props) {
             canView: list.canView.filter(p => p !== email),
             canEdit: list.canEdit.filter(p => p !== email)
         }, {merge: true})
-        console.log("removingViewer")
     }
 
     if (loading) {
@@ -98,6 +94,7 @@ function UserLists(props) {
                 <div>
                 <span>
                     <UserListsHeader email={props.user.email} auth={props.auth}
+                                     user={props.user}
                                      emailVerified={props.user.emailVerified}/>
                 </span>
                     <ul>

@@ -66,9 +66,11 @@
     padding-left: 10pt;
     padding-top: 10pt;
     top: 50pt;
-    height: 100pt;
-    width: 200pt;
+    height: max-content;
+    width: 65%;
     position: relative;
+    font-size: 18pt;
+    text-align: center;
 }
 
 .VerificationPopUpButton{
