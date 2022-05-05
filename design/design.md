@@ -137,6 +137,13 @@ different screen sizes in an effective way. Because of these reasons, we decided
 with the homepage design. We also considered different ways of displaying our lists in the homepage.
 We considered having no separation, separating them with boxes and separating them with lines. 
 We landed on separating them with lines to be consistent with our individual list design.
+With choosing how to display shared lists vs. the lists a person owns, our first idea was to have every list be shown in the 
+same area, with small bubbles or other icons showing whether or not the user is the owner, and who it is shared with. When 
+we started sketching this out, the page became cluttered very quickly, so we decided to separate the information. On the main 
+list page is whether a list is shared or not (this is designated by an entire section! This also works better for removing certain 
+functionality for shared lists). Within each individual list is the user's status and who owns that list. The owner can see 
+who has access to the list, and this happens in a popup from the main lists page. All of this works to keep the interface clean 
+and still make information accessible to the user.
 
 #### Images:
 
@@ -242,6 +249,9 @@ wrapped when it is larger than the line. These are features that we spent a whil
 the end we were not able to, and we had to decide to let it go and not have these features in our app. We also 
 still hope to add a wrapping feature to our items, which we have not yet been able to 
 implement.
+The strongest struggle, conceptually, has been understanding how rules work. Not only what role they serve, but also how to 
+actually implement them. However, working out the rules in class with a grutor and sitting down completely separate from the 
+code to plan out the rules was very helpful.
 
 ## Parts you're most proud of:
 
